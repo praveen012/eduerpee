@@ -1,0 +1,1583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>EduErpee Technology – Smart ERP & Software Solutions</title>
+<meta name="description" content="EduErpee Technology Pvt. Ltd. – Custom ERP, school management, inventory, mobile apps & digital marketing. 100+ happy clients. Free demo today.">
+<meta name="robots" content="index,follow">
+<meta property="og:title" content="EduErpee Technology – Smart ERP & Software Solutions">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
+<style>
+/* ═══════════ DESIGN TOKENS ═══════════ */
+:root{
+  --ink: #06111F;
+  --ink2: #0D1E32;
+  --ink3: #162A44;
+  --blue: #1B5EFF;
+  --blue-h: #1450E0;
+  --blue-soft: #EBF1FF;
+  --indigo: #4338CA;
+  --violet: #7C3AED;
+  --gold: #E9A84A;
+  --mint: #10B981;
+  --rose: #F43F5E;
+  --sky: #38BDF8;
+  --text: #0D1E32;
+  --body: #3A5068;
+  --muted: #7A95B0;
+  --border: #DDE8F5;
+  --surface: #F3F7FF;
+  --white: #FFFFFF;
+  --r: 16px;
+  --r2: 22px;
+  --r3: 30px;
+  --sh-xs: 0 2px 12px rgba(6,17,31,.06);
+  --sh: 0 4px 24px rgba(6,17,31,.09);
+  --sh-md: 0 10px 40px rgba(6,17,31,.13);
+  --sh-lg: 0 24px 64px rgba(6,17,31,.18);
+  --grd: linear-gradient(135deg, #1B5EFF 0%, #7C3AED 100%);
+  --grd2: linear-gradient(135deg, #4338CA 0%, #1B5EFF 100%);
+}
+/* ═══ RESET ═══ */
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;font-size:16px;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+body{font-family:"Poppins",sans-serif;background:#fff;color:var(--text);overflow-x:hidden;line-height:1.65}
+a{text-decoration:none;color:inherit}
+::-webkit-scrollbar{width:4px}::-webkit-scrollbar-thumb{background:var(--blue);border-radius:4px}
+h1,h2,h3,h4,h5{font-family:"Poppins",sans-serif;line-height:1.15;letter-spacing:-.2px}
+
+/* ═══ LAYOUT ═══ */
+.W{max-width:1240px;margin:0 auto;padding:0 52px}
+.SEC{padding:100px 0}
+.SEC-alt{background:var(--surface)}
+.SEC-dark{background:var(--ink)}
+
+/* ═══ TOPBAR ═══ */
+.topbar{background:var(--ink);padding:8px 0;border-bottom:1px solid rgba(255,255,255,.04)}
+.tb-in{max-width:1240px;margin:0 auto;padding:0 52px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;font-size:.7rem}
+.tb-left{display:flex;gap:20px;align-items:center}
+.tb-it{display:flex;align-items:center;gap:5px;color:rgba(255,255,255,.48)}
+.tb-it a{color:rgba(255,255,255,.7);transition:color .18s}.tb-it a:hover{color:#fff}
+.tb-pill{background:rgba(27,94,255,.28);border:1px solid rgba(27,94,255,.4);color:#93C5FD;padding:3px 14px;border-radius:20px;font-size:.63rem;font-weight:700;letter-spacing:.7px}
+
+/* ═══ HEADER ═══ */
+.site-header{background:rgba(255,255,255,.96);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid rgba(221,232,245,.8);position:sticky;top:0;z-index:1000;box-shadow:0 1px 18px rgba(6,17,31,.07)}
+.hdr{max-width:1240px;margin:0 auto;padding:0 52px;height:80px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+/* Logo */
+.logo{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.logo-mark{width:62px;height:62px;border-radius:14px;background:none;display:flex;align-items:center;justify-content:center;flex-shrink:0;overflow:hidden;line-height:0;font-size:0}
+.logo-wordmark{display:flex;flex-direction:column;gap:2px;justify-content:center}
+.logo-name{font-family:"Poppins",sans-serif;font-weight:700;font-size:.88rem;color:var(--ink);line-height:1.1;margin:0}
+.logo-name span{color:#7C3AED}
+.logo-sub{font-size:.52rem;color:var(--muted);letter-spacing:1.4px;text-transform:uppercase;margin:0;line-height:1.2}
+/* Nav */
+.nav{display:flex;align-items:center;gap:1px;list-style:none}
+.nav a{padding:8px 13px;border-radius:9px;font-size:.82rem;font-weight:600;color:var(--body);white-space:nowrap;transition:all .18s;display:flex;align-items:center;gap:3px}
+.nav a:hover,.nav a.active{color:var(--blue);background:var(--blue-soft)}
+.has-dd{position:relative}
+.has-dd:hover .dd-menu{opacity:1;visibility:visible;pointer-events:all;transform:translateX(-50%) translateY(0)}
+.dd-menu{position:absolute;top:calc(100%+12px);left:50%;transform:translateX(-50%) translateY(-10px);background:#fff;border:1px solid var(--border);border-radius:var(--r2);box-shadow:var(--sh-lg);padding:16px;min-width:275px;opacity:0;visibility:hidden;pointer-events:none;transition:all .22s;z-index:500}
+.dd-it{display:flex;align-items:center;gap:11px;padding:9px 11px;border-radius:10px;font-size:.8rem;font-weight:500;color:var(--body);transition:all .18s;cursor:pointer}
+.dd-it:hover{background:var(--blue-soft);color:var(--blue)}
+.dd-ic{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0}
+/* CTA Button */
+.btn-cta{background:var(--grd);color:#fff;padding:10px 24px;border-radius:10px;font-family:"Poppins",sans-serif;font-weight:700;font-size:.83rem;border:none;cursor:pointer;box-shadow:0 4px 18px rgba(27,94,255,.38);transition:all .22s;white-space:nowrap}
+.btn-cta:hover{transform:translateY(-1px);box-shadow:0 9px 28px rgba(27,94,255,.48)}
+.ham{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:5px}
+.ham span{display:block;width:22px;height:2.5px;background:var(--ink);border-radius:2px;transition:all .28s}
+.ham.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.ham.open span:nth-child(2){opacity:0}
+.ham.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+
+/* ═══ MOBILE DRAWER ═══ */
+.m-ov{position:fixed;inset:0;background:rgba(0,0,0,.54);z-index:1998;display:none;backdrop-filter:blur(4px)}.m-ov.show{display:block}
+.m-dr{position:fixed;top:0;left:-300px;bottom:0;width:285px;background:#fff;z-index:1999;overflow-y:auto;transition:left .3s cubic-bezier(.4,0,.2,1);box-shadow:12px 0 50px rgba(0,0,0,.15)}
+.m-dr.open{left:0}
+.m-head{padding:16px 20px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+.m-close{width:32px;height:32px;border-radius:8px;border:1px solid var(--border);background:none;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--muted)}
+.m-links a{display:flex;align-items:center;gap:10px;padding:12px 20px;color:var(--body);font-weight:500;font-size:.87rem;border-left:3px solid transparent;transition:all .18s}
+.m-links a:hover{color:var(--blue);background:var(--blue-soft);border-left-color:var(--blue)}
+.m-sec{padding:9px 20px 3px;font-size:.62rem;font-weight:700;letter-spacing:2.2px;text-transform:uppercase;color:var(--muted)}
+.m-cta{padding:16px 20px}
+.m-cta a{display:block;background:var(--grd);color:#fff;text-align:center;padding:13px;border-radius:10px;font-family:"Poppins",sans-serif;font-weight:700;font-size:.86rem}
+
+/* ═══ HERO ═══ */
+#home{position:relative;overflow:hidden;background:var(--ink)}
+/* Animated gradient mesh */
+.h-mesh{position:absolute;inset:0;overflow:hidden}
+.h-blob{position:absolute;border-radius:50%;filter:blur(90px);animation:blobFloat 14s ease-in-out infinite alternate}
+.h-blob-1{width:700px;height:700px;background:rgba(27,94,255,.32);top:-20%;left:-15%;animation-delay:0s}
+.h-blob-2{width:600px;height:600px;background:rgba(124,58,237,.22);top:10%;right:-10%;animation-delay:-4s}
+.h-blob-3{width:500px;height:500px;background:rgba(56,189,248,.14);bottom:-20%;left:30%;animation-delay:-8s}
+@keyframes blobFloat{0%{transform:translate(0,0) scale(1)}100%{transform:translate(30px,20px) scale(1.08)}}
+/* Grid overlay */
+.h-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:52px 52px}
+/* Slider */
+.h-slider{width:100%;height:88vh;min-height:580px;max-height:840px;position:relative;overflow:hidden}
+.h-slides{display:flex;height:100%;transition:transform .9s cubic-bezier(.42,0,.18,1)}
+.h-slide{min-width:100%;height:100%;background-size:cover;background-position:center;flex-shrink:0;position:relative}
+.h-slide::after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,rgba(6,17,31,.94) 0%,rgba(6,17,31,.65) 48%,rgba(6,17,31,.2) 100%)}
+/* Hero content */
+.h-content{position:absolute;inset:0;z-index:6;display:flex;align-items:center}
+.h-content .W{width:100%}
+.h-eyebrow{display:inline-flex;align-items:center;gap:9px;background:rgba(27,94,255,.16);border:1px solid rgba(27,94,255,.36);border-radius:40px;padding:6px 18px 6px 8px;margin-bottom:26px}
+.h-pulse{width:8px;height:8px;border-radius:50%;background:#60A5FA;flex-shrink:0;animation:hPulse 2.4s ease-in-out infinite}
+@keyframes hPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(1.7)}}
+.h-eyebrow-t{font-size:.68rem;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:#93C5FD}
+.h-h1{font-family:"Poppins",sans-serif;font-size:clamp(2.1rem,4.7vw,4.1rem);font-weight:700;color:#fff;margin-bottom:22px;max-width:680px;line-height:1.12;letter-spacing:-.2px}
+.h-h1 .gr{background:linear-gradient(90deg,#60A5FA,#C4B5FD 60%,#7DD3FC);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.h-p{color:rgba(255,255,255,.6);font-size:.99rem;line-height:1.82;max-width:490px;margin-bottom:38px}
+.h-btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:58px}
+.btn-solid{display:inline-flex;align-items:center;gap:9px;background:var(--blue);color:#fff;padding:14px 30px;border-radius:11px;font-family:"Poppins",sans-serif;font-weight:700;font-size:.86rem;border:none;cursor:pointer;box-shadow:0 6px 24px rgba(27,94,255,.55);transition:all .24s}
+.btn-solid:hover{background:var(--blue-h);transform:translateY(-2px);box-shadow:0 14px 36px rgba(27,94,255,.58)}
+.btn-outline{display:inline-flex;align-items:center;gap:9px;background:rgba(255,255,255,.08);color:#fff;padding:13px 28px;border-radius:11px;font-family:"Poppins",sans-serif;font-weight:600;font-size:.86rem;border:1.5px solid rgba(255,255,255,.2);cursor:pointer;transition:all .24s;backdrop-filter:blur(6px)}
+.btn-outline:hover{background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.48)}
+.h-kpis{display:flex;gap:0;flex-wrap:wrap}
+.kpi{padding:0 36px 0 0;margin-right:36px;border-right:1px solid rgba(255,255,255,.1)}
+.kpi:last-child{border-right:none;margin-right:0;padding-right:0}
+.kpi-n{font-family:"Poppins",sans-serif;font-size:2.1rem;font-weight:800;color:#fff;line-height:1}
+.kpi-n sup{font-size:1.05rem;color:#60A5FA;vertical-align:super}
+.kpi-l{font-size:.68rem;color:rgba(255,255,255,.42);margin-top:6px;font-weight:600;letter-spacing:.6px;text-transform:uppercase}
+/* Slider nav */
+.h-prev,.h-next{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,.1);border:1.5px solid rgba(255,255,255,.22);color:#fff;font-size:1.35rem;cursor:pointer;z-index:8;backdrop-filter:blur(10px);transition:all .22s;display:flex;align-items:center;justify-content:center}
+.h-prev{left:24px}.h-next{right:24px}
+.h-prev:hover,.h-next:hover{background:rgba(255,255,255,.22);border-color:rgba(255,255,255,.55)}
+.h-dots{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);display:flex;gap:9px;z-index:8}
+.h-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.34);border:none;cursor:pointer;transition:all .28s}
+.h-dot.on{background:#fff;width:30px;border-radius:5px}
+
+/* ═══ LOGO MARQUEE ═══ */
+.logo-strip{background:#fff;border-bottom:1px solid var(--border)}
+.ls-label{text-align:center;padding:24px 0 16px;font-size:.67rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--muted)}
+.ls-wrap{overflow:hidden;position:relative;padding-bottom:26px}
+.ls-wrap::before,.ls-wrap::after{content:"";position:absolute;top:0;bottom:0;width:120px;z-index:3;pointer-events:none}
+.ls-wrap::before{left:0;background:linear-gradient(to right,#fff 40%,transparent)}
+.ls-wrap::after{right:0;background:linear-gradient(to left,#fff 40%,transparent)}
+.ls-track{display:flex;width:max-content;animation:lsRoll 22s linear infinite}
+.ls-track:hover{animation-play-state:paused}
+@keyframes lsRoll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.ls-item{display:flex;align-items:center;gap:13px;padding:0 40px;flex-shrink:0;border-right:1px solid var(--border);cursor:pointer;transition:background .2s}
+.ls-item:hover{background:var(--blue-soft)}
+.ls-emb{width:46px;height:46px;border-radius:12px;flex-shrink:0;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.ls-name{font-family:"Poppins",sans-serif;font-weight:700;font-size:.86rem;color:var(--text);line-height:1.2}
+.ls-type{font-size:.63rem;color:var(--muted);margin-top:2px}
+
+/* ═══ STATS BAR ═══ */
+.stats-bar{background:var(--grd);padding:0;overflow:hidden}
+.stats-inner{display:grid;grid-template-columns:repeat(4,1fr);max-width:1240px;margin:0 auto;padding:0 52px}
+.st-cell{padding:30px 20px;text-align:center;border-right:1px solid rgba(255,255,255,.14)}
+.st-cell:last-child{border-right:none}
+.st-n{font-family:"Poppins",sans-serif;font-size:2.4rem;font-weight:800;color:#fff;line-height:1}
+.st-n sup{font-size:1.1rem;color:rgba(255,255,255,.7)}
+.st-l{font-size:.68rem;color:rgba(255,255,255,.6);margin-top:5px;font-weight:600;letter-spacing:.6px;text-transform:uppercase}
+
+/* ═══ TICKER ═══ */
+.ticker{background:linear-gradient(90deg,var(--indigo),var(--blue));padding:11px 0;overflow:hidden}
+.tick-track{display:flex;width:max-content;animation:tickRoll 32s linear infinite}
+.tick-item{display:flex;align-items:center;gap:11px;padding:0 28px;white-space:nowrap;color:rgba(255,255,255,.82);font-size:.74rem;font-weight:600;letter-spacing:.3px}
+.tick-sep{width:4px;height:4px;border-radius:50%;background:rgba(255,255,255,.36);flex-shrink:0}
+@keyframes tickRoll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* ═══ SECTION HEADER ═══ */
+.SH{margin-bottom:60px}
+.SH.cx{text-align:center}
+.SH.cx .SH-body{margin:0 auto}
+.SH-tag{display:inline-flex;align-items:center;gap:7px;background:linear-gradient(135deg,rgba(27,94,255,.1),rgba(124,58,237,.1));border:1px solid rgba(27,94,255,.18);border-radius:40px;padding:5px 16px;font-size:.67rem;font-weight:700;letter-spacing:1.9px;text-transform:uppercase;color:var(--blue);margin-bottom:14px}
+.SH-tag-dot{width:6px;height:6px;border-radius:50%;background:var(--grd);display:inline-block}
+.SH-title{font-size:clamp(1.9rem,2.8vw,2.65rem);font-weight:700;color:var(--ink);margin-bottom:14px}
+.SH-title em{background:var(--grd);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-style:normal}
+.SH-body{color:var(--body);font-size:.95rem;line-height:1.8;max-width:560px}
+
+/* ═══ SOLUTIONS ═══ */
+.sol-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.sol-card{background:#fff;border:1.5px solid var(--border);border-radius:var(--r2);padding:34px;position:relative;overflow:hidden;transition:all .32s;cursor:pointer;box-shadow:var(--sh-xs)}
+.sol-card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--grd);transform:scaleX(0);transform-origin:left;transition:transform .36s}
+.sol-card::after{content:"";position:absolute;inset:0;background:linear-gradient(145deg,rgba(27,94,255,.025),rgba(124,58,237,.025));opacity:0;transition:opacity .32s}
+.sol-card:hover{border-color:rgba(27,94,255,.2);box-shadow:0 18px 52px rgba(27,94,255,.13);transform:translateY(-6px)}
+.sol-card:hover::before{transform:scaleX(1)}
+.sol-card:hover::after{opacity:1}
+.sol-ic{width:58px;height:58px;border-radius:15px;display:flex;align-items:center;justify-content:center;font-size:1.65rem;margin-bottom:20px;position:relative;z-index:2;transition:transform .3s}
+.sol-card:hover .sol-ic{transform:scale(1.12) rotate(-6deg)}
+.sol-ttl{font-family:"Poppins",sans-serif;font-weight:700;font-size:1.04rem;color:var(--ink);margin-bottom:10px;position:relative;z-index:2}
+.sol-desc{color:var(--body);font-size:.8rem;line-height:1.76;margin-bottom:17px;position:relative;z-index:2}
+.sol-pills{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:18px;position:relative;z-index:2}
+.sol-pill{background:var(--blue-soft);color:var(--blue);font-size:.63rem;font-weight:700;padding:3px 10px;border-radius:20px;border:1px solid rgba(27,94,255,.12)}
+.sol-arrow{color:var(--blue);font-size:.79rem;font-weight:700;display:inline-flex;align-items:center;gap:5px;transition:gap .18s;position:relative;z-index:2}
+.sol-card:hover .sol-arrow{gap:10px}
+
+/* ═══ PROCESS ═══ */
+.proc-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:0;position:relative}
+.proc-grid::before{content:"";position:absolute;top:44px;left:calc(10% + 12px);right:calc(10% + 12px);height:2px;background:linear-gradient(90deg,var(--blue),var(--violet));opacity:.18;pointer-events:none}
+.proc-step{display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 16px;position:relative;z-index:2}
+.proc-circle{width:88px;height:88px;border-radius:50%;background:var(--grd);display:flex;align-items:center;justify-content:center;font-family:"Poppins",sans-serif;font-size:1.6rem;font-weight:800;color:#fff;margin-bottom:22px;box-shadow:0 10px 32px rgba(27,94,255,.35);position:relative;flex-shrink:0}
+.proc-circle::after{content:"";position:absolute;inset:-5px;border-radius:50%;border:2px dashed rgba(27,94,255,.22)}
+.proc-title{font-family:"Poppins",sans-serif;font-weight:700;font-size:.9rem;color:var(--ink);margin-bottom:8px}
+.proc-desc{color:var(--body);font-size:.76rem;line-height:1.7}
+
+/* ═══ SERVICES ═══ */
+.svc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.svc-card{background:#fff;border:1.5px solid var(--border);border-radius:var(--r);padding:0;text-align:left;transition:all .26s;cursor:pointer;box-shadow:var(--sh-xs);overflow:hidden}
+.svc-card:hover{border-color:rgba(27,94,255,.28);box-shadow:0 12px 32px rgba(27,94,255,.12);transform:translateY(-4px)}
+.svc-ic{width:54px;height:54px;border-radius:14px;margin:0 auto 14px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;transition:transform .26s;flex-shrink:0}
+.svc-card:hover .svc-ic{transform:scale(1.12) rotate(-7deg)}
+.svc-name{font-family:"Poppins",sans-serif;font-weight:700;font-size:.86rem;color:var(--ink);margin-bottom:6px}
+.svc-desc{font-size:.74rem;color:var(--body);line-height:1.67}
+
+/* ═══ INDUSTRIES ═══ */
+.ind-cloud{display:flex;flex-wrap:wrap;gap:11px;justify-content:center}
+.ind-chip{display:flex;align-items:center;gap:8px;background:#fff;border:1.5px solid var(--border);border-radius:40px;padding:9px 20px;font-size:.8rem;font-weight:600;color:var(--text);cursor:pointer;transition:all .22s;box-shadow:var(--sh-xs)}
+.ind-chip:hover{border-color:var(--blue);background:var(--blue-soft);color:var(--blue);box-shadow:0 4px 18px rgba(27,94,255,.14);transform:translateY(-2px)}
+
+/* ═══ HAPPY CUSTOMERS ═══ */
+/* ─ Logo Bar ─ */
+.hc-logo-bar{background:#fff;border:1.5px solid var(--border);border-radius:var(--r2);overflow:hidden;margin-bottom:56px;box-shadow:var(--sh)}
+.hc-lb-wrap{overflow:hidden;position:relative;padding:6px 0}
+.hc-lb-wrap::before,.hc-lb-wrap::after{content:"";position:absolute;top:0;bottom:0;width:90px;z-index:3;pointer-events:none}
+.hc-lb-wrap::before{left:0;background:linear-gradient(to right,#fff,transparent)}
+.hc-lb-wrap::after{right:0;background:linear-gradient(to left,#fff,transparent)}
+.hc-ltrack{display:flex;width:max-content;animation:hcLogoRoll 20s linear infinite}
+.hc-ltrack:hover{animation-play-state:paused}
+@keyframes hcLogoRoll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.hc-litem{display:flex;align-items:center;gap:13px;padding:17px 38px;border-right:1px solid var(--border);flex-shrink:0;cursor:pointer;transition:background .2s}
+.hc-litem:hover{background:var(--blue-soft)}
+.hc-lemb{width:50px;height:50px;border-radius:13px;overflow:hidden;flex-shrink:0;display:flex;align-items:center;justify-content:center;box-shadow:var(--sh-xs)}
+.hc-lname{font-family:"Poppins",sans-serif;font-weight:700;font-size:.87rem;color:var(--ink);line-height:1.2}
+.hc-ltype{font-size:.63rem;color:var(--muted);margin-top:2px}
+/* ─ Testimonial Slider ─ */
+.tc-wrap{position:relative}
+.tc-slider{display:flex;gap:24px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;padding-bottom:4px}
+.tc-slider::-webkit-scrollbar{height:0}
+.tc-card{min-width:326px;flex:0 0 326px;background:#fff;border:1.5px solid var(--border);border-radius:var(--r2);padding:32px;scroll-snap-align:start;transition:all .32s;position:relative;overflow:hidden;box-shadow:var(--sh)}
+.tc-card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--grd);transform:scaleX(0);transform-origin:left;transition:transform .34s}
+.tc-card:hover{border-color:rgba(27,94,255,.18);box-shadow:var(--sh-lg);transform:translateY(-5px)}
+.tc-card:hover::before{transform:scaleX(1)}
+.tc-qmark{font-family:"Poppins",sans-serif;font-size:4rem;line-height:.8;color:var(--blue);opacity:.13;margin-bottom:8px;font-weight:900}
+.tc-head{display:flex;align-items:center;gap:14px;margin-bottom:16px}
+.tc-emb{width:54px;height:54px;border-radius:14px;overflow:hidden;flex-shrink:0;display:flex;align-items:center;justify-content:center;box-shadow:var(--sh)}
+.tc-client-name{font-family:"Poppins",sans-serif;font-weight:800;font-size:1rem;color:var(--ink);line-height:1.2}
+.tc-client-type{font-size:.7rem;color:var(--blue);font-weight:600;margin-top:3px}
+.tc-badge{position:absolute;top:22px;right:22px;display:flex;align-items:center;gap:5px;background:#F0FDF4;border:1px solid #BBF7D0;border-radius:20px;padding:3px 11px;font-size:.62rem;font-weight:700;color:#15803D}
+.tc-badge::before{content:"";display:block;width:5px;height:5px;border-radius:50%;background:#22C55E;animation:hPulse 2s infinite}
+.tc-stars{color:#F59E0B;font-size:.92rem;letter-spacing:2px;margin-bottom:14px}
+.tc-quote{color:var(--body);font-size:.81rem;line-height:1.82;margin-bottom:18px;border-left:3px solid var(--blue-soft);padding-left:14px;font-style:italic}
+.tc-hr{height:1px;background:var(--border);margin-bottom:14px}
+.tc-sol{font-size:.72rem;color:var(--muted)}
+.tc-sol b{color:var(--blue);font-weight:700}
+.tc-url{font-size:.73rem;color:var(--blue);font-weight:600;display:block;margin-top:7px;transition:opacity .2s}
+.tc-url:hover{opacity:.68}
+/* Controls */
+.tc-controls{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:32px}
+.tc-btn{width:44px;height:44px;border-radius:50%;border:1.5px solid var(--border);background:#fff;display:flex;align-items:center;justify-content:center;font-size:1.2rem;color:var(--body);cursor:pointer;transition:all .2s;box-shadow:var(--sh-xs)}
+.tc-btn:hover{border-color:var(--blue);color:var(--blue);box-shadow:0 5px 16px rgba(27,94,255,.16)}
+.tc-dots{display:flex;gap:7px;align-items:center}
+.tc-dot{width:8px;height:8px;border-radius:50%;background:var(--border);border:none;cursor:pointer;transition:all .26s}
+.tc-dot.on{background:var(--blue);width:24px;border-radius:5px}
+/* HC Stats */
+.hc-stats{display:grid;grid-template-columns:repeat(4,1fr);background:#fff;border:1.5px solid var(--border);border-radius:var(--r2);overflow:hidden;margin-top:56px;box-shadow:var(--sh)}
+.hcs{padding:28px 20px;text-align:center;border-right:1px solid var(--border);transition:background .22s}
+.hcs:last-child{border-right:none}
+.hcs:hover{background:var(--blue-soft)}
+.hcs-n{font-family:"Poppins",sans-serif;font-size:2.3rem;font-weight:800;color:var(--ink)}
+.hcs-n em{background:var(--grd);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-style:normal}
+.hcs-l{font-size:.68rem;color:var(--muted);font-weight:600;margin-top:5px;letter-spacing:.6px;text-transform:uppercase}
+
+/* ═══ WHY US ═══ */
+.why-layout{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+.why-items{display:flex;flex-direction:column;gap:0}
+.why-row{display:flex;gap:18px;align-items:flex-start;padding:24px 0;border-bottom:1px solid var(--border)}
+.why-row:last-child{border-bottom:none}
+.why-num{width:44px;height:44px;border-radius:12px;background:var(--grd);color:#fff;font-family:"Poppins",sans-serif;font-weight:800;font-size:.96rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 4px 16px rgba(27,94,255,.32);margin-top:2px}
+.why-ttl{font-family:"Poppins",sans-serif;font-weight:700;font-size:.95rem;color:var(--ink);margin-bottom:5px}
+.why-body{color:var(--body);font-size:.8rem;line-height:1.75}
+/* Panel */
+.why-panel{background:var(--ink);border-radius:26px;padding:46px;position:relative;overflow:hidden;box-shadow:var(--sh-lg)}
+.why-panel::before{content:"";position:absolute;top:-90px;right:-90px;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(27,94,255,.42),transparent 70%)}
+.why-panel::after{content:"";position:absolute;bottom:-70px;left:-70px;width:250px;height:250px;border-radius:50%;background:radial-gradient(circle,rgba(124,58,237,.28),transparent 70%)}
+.wp-h{font-family:"Poppins",sans-serif;font-size:1.58rem;font-weight:800;color:#fff;margin-bottom:10px;position:relative;z-index:2}
+.wp-p{color:rgba(255,255,255,.48);font-size:.83rem;line-height:1.76;margin-bottom:32px;position:relative;z-index:2}
+.wp-list{display:flex;flex-direction:column;gap:11px;position:relative;z-index:2}
+.wp-it{display:flex;align-items:center;gap:13px;padding:14px 18px;background:rgba(255,255,255,.07);border-radius:12px;border:1px solid rgba(255,255,255,.09);transition:background .22s}
+.wp-it:hover{background:rgba(255,255,255,.12)}
+.wp-ck{width:24px;height:24px;border-radius:7px;background:rgba(16,185,129,.2);border:1px solid rgba(16,185,129,.35);display:flex;align-items:center;justify-content:center;font-size:.8rem;flex-shrink:0;color:#34D399}
+.wp-tx{color:rgba(255,255,255,.78);font-size:.81rem;font-weight:500}
+
+/* ═══ TEAM ═══ */
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.tm-card{background:#fff;border:1.5px solid var(--border);border-radius:var(--r2);padding:38px 28px;text-align:center;position:relative;overflow:hidden;transition:all .32s;box-shadow:var(--sh-xs)}
+.tm-card::after{content:"";position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--grd);transform:scaleX(0);transform-origin:left;transition:transform .36s}
+.tm-card:hover{box-shadow:var(--sh-lg);transform:translateY(-6px);border-color:rgba(27,94,255,.16)}
+.tm-card:hover::after{transform:scaleX(1)}
+.tm-av{width:82px;height:82px;border-radius:50%;margin:0 auto 18px;display:flex;align-items:center;justify-content:center;font-family:"Poppins",sans-serif;font-size:1.6rem;font-weight:800;color:#fff;box-shadow:0 12px 30px rgba(0,0,0,.18)}
+.tm-name{font-family:"Poppins",sans-serif;font-weight:800;font-size:1.04rem;color:var(--ink);margin-bottom:4px}
+.tm-role{color:var(--blue);font-size:.72rem;font-weight:700;letter-spacing:.6px;text-transform:uppercase;margin-bottom:9px}
+.tm-badge{display:inline-block;background:var(--blue-soft);color:var(--blue);font-size:.67rem;font-weight:700;padding:3px 14px;border-radius:20px;margin-bottom:15px;border:1px solid rgba(27,94,255,.14)}
+.tm-bio{color:var(--body);font-size:.78rem;line-height:1.78}
+
+/* ═══ CONTACT ═══ */
+#contact{background:var(--ink);padding:100px 0}
+.ct-grid{display:grid;grid-template-columns:1fr 1.14fr;gap:76px;align-items:start}
+.ct-tag{display:inline-flex;align-items:center;gap:7px;background:rgba(27,94,255,.18);border:1px solid rgba(27,94,255,.34);border-radius:40px;padding:5px 16px;font-size:.66rem;font-weight:700;letter-spacing:1.9px;text-transform:uppercase;color:#93C5FD;margin-bottom:15px}
+.ct-h{font-family:"Poppins",sans-serif;font-size:clamp(1.75rem,2.6vw,2.55rem);font-weight:800;color:#fff;margin-bottom:14px;line-height:1.12;letter-spacing:-.3px}
+.ct-h em{background:linear-gradient(90deg,#60A5FA,#C4B5FD);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-style:normal}
+.ct-desc{color:rgba(255,255,255,.46);font-size:.92rem;line-height:1.8;margin-bottom:34px}
+.addr-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:24px;margin-top:18px;transition:background .22s}
+.addr-card:hover{background:rgba(255,255,255,.1)}
+.addr-tag{font-size:.62rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#60A5FA;margin-bottom:9px}
+.addr-name{font-family:"Poppins",sans-serif;font-weight:700;color:#fff;font-size:.94rem;margin-bottom:7px}
+.addr-txt{color:rgba(255,255,255,.46);font-size:.8rem;line-height:1.7;margin-bottom:12px}
+.addr-links{display:flex;flex-direction:column;gap:6px}
+.addr-link{display:flex;align-items:center;gap:7px;color:#60A5FA;font-weight:600;font-size:.83rem;transition:opacity .2s}
+.addr-link:hover{opacity:.72}
+/* Form Box */
+.cf-box{background:#fff;border-radius:24px;padding:44px;box-shadow:var(--sh-lg)}
+.cf-h{font-family:"Poppins",sans-serif;font-size:1.55rem;font-weight:800;color:var(--ink);margin-bottom:5px}
+.cf-sub{color:var(--body);font-size:.81rem;margin-bottom:28px}
+.cf-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.cf-g{margin-bottom:15px}
+.cf-g label{display:block;font-size:.67rem;font-weight:700;letter-spacing:.7px;text-transform:uppercase;color:var(--muted);margin-bottom:7px}
+.cf-g input,.cf-g select,.cf-g textarea{width:100%;background:var(--surface);border:1.5px solid var(--border);border-radius:11px;padding:12px 16px;font-family:"Poppins",sans-serif;font-size:.85rem;color:var(--ink);outline:none;transition:border-color .2s,box-shadow .2s;appearance:none}
+.cf-g input:focus,.cf-g select:focus,.cf-g textarea:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(27,94,255,.1);background:#fff}
+.cf-g textarea{height:100px;resize:vertical}
+.cf-submit{width:100%;background:var(--grd);color:#fff;border:none;padding:15px;border-radius:11px;font-family:"Poppins",sans-serif;font-weight:700;font-size:.88rem;cursor:pointer;transition:all .24s;box-shadow:0 4px 20px rgba(27,94,255,.34);margin-top:4px;letter-spacing:.2px}
+.cf-submit:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(27,94,255,.46)}
+
+/* ═══ FOOTER ═══ */
+footer{background:#020B17;padding:62px 0 26px;border-top:1px solid rgba(255,255,255,.04)}
+.ft-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1.1fr;gap:44px;margin-bottom:48px}
+.ft-brand{display:flex;align-items:center;gap:11px;margin-bottom:17px}
+.ft-ic{width:38px;height:38px;border-radius:11px;background:none;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.ft-desc{color:rgba(255,255,255,.36);font-size:.76rem;line-height:1.84;max-width:240px;margin-bottom:22px}
+.ft-social{display:flex;gap:8px}
+.ft-soc{width:35px;height:35px;border-radius:9px;border:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.4);font-size:.74rem;cursor:pointer;transition:all .2s;text-decoration:none}
+.ft-soc:hover{border-color:var(--sky);color:var(--sky);background:rgba(56,189,248,.08)}
+.ft-col-h{font-size:.63rem;font-weight:700;letter-spacing:2.4px;text-transform:uppercase;color:rgba(255,255,255,.34);margin-bottom:17px}
+.ft-links{list-style:none;display:flex;flex-direction:column;gap:10px}
+.ft-links a{color:rgba(255,255,255,.4);font-size:.77rem;transition:color .18s;display:flex;align-items:center;gap:6px}
+.ft-links a::before{content:"›";color:rgba(255,255,255,.16)}
+.ft-links a:hover{color:#fff}.ft-links a:hover::before{color:var(--sky)}
+.ft-bottom{border-top:1px solid rgba(255,255,255,.05);padding-top:22px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+.ft-copy{color:rgba(255,255,255,.26);font-size:.71rem}
+.ft-copy em{color:#60A5FA;font-style:normal}
+.ft-tags{display:flex;gap:8px}
+.ft-tag{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);border-radius:5px;padding:4px 12px;font-size:.63rem;color:rgba(255,255,255,.3)}
+
+/* ═══ WA FLOAT ═══ */
+.wa-float{position:fixed;bottom:28px;right:28px;z-index:999;width:55px;height:55px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 26px rgba(37,211,102,.48);animation:waFloat 3.2s ease-in-out infinite;text-decoration:none}
+@keyframes waFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+.wa-float:hover{animation:none;transform:scale(1.11)}
+
+/* ═══ TOAST ═══ */
+.toast{position:fixed;top:86px;right:22px;background:#fff;border:1.5px solid var(--blue);border-radius:13px;padding:14px 22px;z-index:3000;font-size:.84rem;font-weight:600;color:var(--ink);box-shadow:var(--sh-lg);transform:translateX(280%);transition:transform .42s cubic-bezier(.4,0,.2,1);display:flex;align-items:center;gap:10px;max-width:320px}
+.toast.show{transform:translateX(0)}
+
+/* ═══ REVEAL ANIMATION ═══ */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .68s cubic-bezier(.22,1,.36,1),transform .68s cubic-bezier(.22,1,.36,1)}
+.rv.in{opacity:1;transform:translateY(0)}
+.d1{transition-delay:.08s}.d2{transition-delay:.17s}.d3{transition-delay:.26s}
+.d4{transition-delay:.35s}.d5{transition-delay:.44s}.d6{transition-delay:.53s}
+
+/* ═══ RESPONSIVE ═══ */
+@media(max-width:1100px){
+  .W,.hdr,.tb-in,.stats-inner{padding-left:32px;padding-right:32px}
+  .ct-grid{padding-left:32px;padding-right:32px}
+  .h-content .W{padding-left:32px;padding-right:32px}
+  .sol-grid{grid-template-columns:1fr 1fr}
+  .svc-grid{grid-template-columns:1fr 1fr}
+  .why-layout{grid-template-columns:1fr;gap:40px}
+  .team-grid{grid-template-columns:1fr 1fr}
+  .ft-grid{grid-template-columns:1fr 1fr;gap:30px}
+  .proc-grid{grid-template-columns:1fr 1fr;gap:34px}
+  .proc-grid::before{display:none}
+  .ct-grid{grid-template-columns:1fr;gap:40px}
+  .stats-inner{grid-template-columns:1fr 1fr}
+}
+@media(max-width:768px){
+  /* TOPBAR - hide on mobile */
+  .topbar{display:none}
+  /* HEADER */
+  .hdr{padding:0 16px;height:62px}
+  .logo-sub{display:none}
+  .logo-name{font-size:.96rem}
+  .logo-mark{width:48px;height:48px;border-radius:12px}
+  .logo-mark svg{width:18px;height:18px}
+  .nav,.btn-cta{display:none}
+  .logo-sub{display:none}.ham{display:flex}
+  /* HERO */
+  .h-slider{height:100svh;min-height:520px;max-height:700px}
+  .h-content .W{padding:0 20px}
+  .h-eyebrow{margin-bottom:18px;padding:5px 13px 5px 7px}
+  .h-eyebrow-t{font-size:.63rem;letter-spacing:1.2px}
+  .h-h1{font-size:clamp(1.65rem,5.5vw,2.1rem);margin-bottom:16px;letter-spacing:-.2px}
+  .h-p{font-size:.88rem;margin-bottom:26px;max-width:100%}
+  .h-btns{flex-direction:column;align-items:flex-start;gap:10px;margin-bottom:36px}
+  .btn-solid,.btn-outline{width:100%;justify-content:center;padding:13px 20px;font-size:.84rem}
+  .h-kpis{gap:0;flex-wrap:wrap}
+  .kpi{padding:0 18px 0 0;margin-right:18px;border-right:1px solid rgba(255,255,255,.1)}
+  .kpi-n{font-size:1.4rem}
+  .kpi-l{font-size:.6rem}
+  .h-prev,.h-next{display:none}
+  .h-dots{bottom:16px}
+  /* LAYOUT */
+  .W{padding:0 20px}
+  .SEC{padding:60px 0}
+  /* LOGO STRIP */
+  .ls-label{font-size:.6rem;padding:16px 0 12px}
+  /* STATS BAR */
+  .stats-inner{grid-template-columns:1fr 1fr;padding:0 20px}
+  .st-n{font-size:1.8rem}
+  .st-cell{padding:20px 12px;border-bottom:1px solid rgba(255,255,255,.14)}
+  .st-cell:nth-child(2){border-right:none}
+  .st-cell:nth-child(3){border-bottom:none}
+  /* SOLUTIONS */
+  .sol-grid{grid-template-columns:1fr}
+  /* PROCESS */
+  .proc-grid{grid-template-columns:1fr;gap:28px}
+  .proc-grid::before{display:none}
+  .proc-circle{width:70px;height:70px;font-size:1.3rem;margin-bottom:14px}
+  .proc-circle::after{display:none}
+  /* SERVICES */
+  .svc-grid{grid-template-columns:1fr 1fr;gap:12px}
+  .svc-ic{width:44px;height:44px;border-radius:12px;font-size:1.25rem}
+  /* INDUSTRIES */
+  .ind-chip{font-size:.74rem;padding:7px 14px}
+  /* HAPPY CUSTOMERS */
+  .hc-logo-bar{margin-bottom:36px}
+  .hc-litem{padding:14px 28px}
+  .hc-lemb{width:42px;height:42px}
+  .hc-lname{font-size:.8rem}
+  .hc-ltype{font-size:.6rem}
+  .tc-card{min-width:calc(100vw - 72px);flex-basis:calc(100vw - 72px)}
+  .tc-controls{margin-top:22px}
+  .hc-stats{grid-template-columns:1fr 1fr}
+  .hcs{padding:20px 12px;border-bottom:1px solid var(--border)}
+  .hcs:nth-child(2){border-right:none}
+  .hcs:nth-child(3){border-bottom:none}
+  .hcs-n{font-size:1.8rem}
+  /* WHY */
+  .why-layout{grid-template-columns:1fr;gap:32px}
+  .why-panel{padding:30px 24px}
+  /* TEAM */
+  .team-grid{grid-template-columns:1fr}
+  /* CONTACT */
+  .ct-grid{gap:32px}
+  .cf-box{padding:28px 20px}
+  .cf-row{grid-template-columns:1fr}
+  /* FOOTER */
+  .ft-grid{grid-template-columns:1fr 1fr;gap:24px}
+  .ft-bottom{flex-direction:column;text-align:center;gap:12px}
+  .ft-desc{max-width:100%}
+}
+@media(max-width:400px){
+  .hdr{padding:0 14px;height:58px}
+  .logo-name{font-size:.88rem}
+  .h-h1{font-size:1.55rem}
+  .svc-grid{grid-template-columns:1fr}
+  .ft-grid{grid-template-columns:1fr}
+  .hc-stats{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- WA FLOAT -->
+<a href="tel:+919650143654" class="wa-float" aria-label="Call Us">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+</a>
+
+<!-- TOAST -->
+<div class="toast" id="toast"><span>✅</span><span id="tmsg"></span></div>
+
+<!-- MOBILE DRAWER -->
+<div class="m-ov" id="mOv" onclick="closeMob()"></div>
+<div class="m-dr" id="mDr">
+  <div class="m-head">
+    <div class="logo">
+      <div class="logo-mark" style="width:36px;height:36px;border-radius:10px"><svg width="36" height="36" viewBox="0 0 56 56" fill="none" style="display:block">
+          <defs>
+            <linearGradient id="orm1" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#1B5EFF"/>
+              <stop offset="100%" stop-color="#7C3AED"/>
+            </linearGradient>
+          </defs>
+          <circle cx="28" cy="28" r="26" fill="none" stroke="#E0E7FF" stroke-width="2"/>
+          <circle cx="28" cy="2"  r="5" fill="#7C3AED"/>
+          <circle cx="54" cy="28" r="3.5" fill="#4F46E5" opacity="0.45"/>
+          <circle cx="28" cy="28" r="20" fill="url(#orm1)"/>
+          <rect x="17" y="16" width="4.5" height="24" rx="2.2" fill="white"/>
+          <rect x="17" y="16" width="16" height="4.5" rx="2.2" fill="white"/>
+          <rect x="17" y="26" width="12" height="4"   rx="2"   fill="rgba(255,255,255,0.65)"/>
+          <rect x="17" y="35.5" width="16" height="4.5" rx="2.2" fill="white"/>
+        </svg></div>
+      <div class="logo-wordmark"><div class="logo-name">Edu<span>Erpee</span></div><div class="logo-sub">Technology Pvt. Ltd.</div></div>
+    </div>
+    <button class="m-close" onclick="closeMob()">✕</button>
+  </div>
+  <div class="m-links">
+    <div class="m-sec">Main</div>
+    <a href="#home" onclick="closeMob()">🏠 Home</a>
+    <div class="m-sec">Solutions</div>
+    <a href="#solutions" onclick="closeMob()">🏫 School Management ERP</a>
+    <a href="#solutions" onclick="closeMob()">📦 Inventory Management</a>
+    <a href="#solutions" onclick="closeMob()">📚 Library Management</a>
+    <a href="#solutions" onclick="closeMob()">🚌 Transportation Management</a>
+    <a href="#solutions" onclick="closeMob()">🏥 Doctor Clinic Software</a>
+    <a href="#solutions" onclick="closeMob()">☁️ Custom &amp; Cloud ERP</a>
+    <div class="m-sec">Company</div>
+    <a href="#services" onclick="closeMob()">⚙️ Our Services</a>
+    <a href="#customers" onclick="closeMob()">⭐ Happy Customers</a>
+    <a href="#why" onclick="closeMob()">💡 Why EduErpee</a>
+    <a href="#team" onclick="closeMob()">👥 Our Team</a>
+    <a href="#contact" onclick="closeMob()">📞 Contact Us</a>
+  </div>
+  <div class="m-cta"><a href="#contact" onclick="closeMob()">🚀 Get Free Demo Today</a></div>
+</div>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="tb-in">
+    <div class="tb-left">
+      <div class="tb-it">📍 <span>Lower Ground Floor, Near Shiva Smart City-2, Talabpur Dadri, Gr. Noida, UP – 203207</span></div>
+      <div class="tb-it">📞 <a href="tel:+919650143654">+91 96501 43654</a></div>
+      <div class="tb-it">✉️ <a href="mailto:support@eduerpee.com">support@eduerpee.com</a></div>
+    </div>
+    <div class="tb-pill">Pvt. Ltd. Registered · India</div>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header class="site-header" id="siteHdr">
+  <div class="hdr">
+    <a href="#home" class="logo">
+      <div class="logo-mark">
+<svg width="62" height="62" viewBox="0 0 56 56" fill="none" style="display:block">
+          <defs>
+            <linearGradient id="or1" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#1B5EFF"/>
+              <stop offset="100%" stop-color="#7C3AED"/>
+            </linearGradient>
+          </defs>
+          <!-- Outer orbit ring -->
+          <circle cx="28" cy="28" r="26" fill="none" stroke="#E0E7FF" stroke-width="2"/>
+          <!-- Orbit dot top -->
+          <circle cx="28" cy="2"  r="5" fill="#7C3AED"/>
+          <!-- Orbit dot right (faded) -->
+          <circle cx="54" cy="28" r="3.5" fill="#4F46E5" opacity="0.45"/>
+          <!-- Main filled circle -->
+          <circle cx="28" cy="28" r="20" fill="url(#or1)"/>
+          <!-- E letterform (white) -->
+          <rect x="17" y="16" width="4.5" height="24" rx="2.2" fill="white"/>
+          <rect x="17" y="16" width="16" height="4.5" rx="2.2" fill="white"/>
+          <rect x="17" y="26" width="12" height="4"   rx="2"   fill="rgba(255,255,255,0.65)"/>
+          <rect x="17" y="35.5" width="16" height="4.5" rx="2.2" fill="white"/>
+        </svg>
+      </div>
+      <div class="logo-wordmark">
+        <div class="logo-name">Edu<span>Erpee</span></div>
+        <div class="logo-sub">Technology Pvt. Ltd.</div>
+        <div style="font-size:.54rem;color:#7C3AED;font-weight:600;letter-spacing:.6px;margin-top:1px">Simplify. Automate. Grow.</div>
+      </div>
+    </a>
+
+    <ul class="nav" id="mainNav">
+      <li><a href="#home" id="nav-h" class="active">Home</a></li>
+      <li class="has-dd">
+        <a href="#solutions">Solutions ▾</a>
+        <div class="dd-menu">
+          <div class="dd-it" onclick="gotoSec('solutions')"><div class="dd-ic" style="background:rgba(27,94,255,.1)">🏫</div>School Management System</div>
+          <div class="dd-it" onclick="gotoSec('solutions')"><div class="dd-ic" style="background:rgba(16,185,129,.1)">📦</div>Inventory Management</div>
+          <div class="dd-it" onclick="gotoSec('solutions')"><div class="dd-ic" style="background:rgba(124,58,237,.1)">📚</div>Library Management</div>
+          <div class="dd-it" onclick="gotoSec('solutions')"><div class="dd-ic" style="background:rgba(245,158,11,.1)">🚌</div>Transportation Management</div>
+          <div class="dd-it" onclick="gotoSec('solutions')"><div class="dd-ic" style="background:rgba(239,68,68,.1)">🏥</div>Doctor Clinic Software</div>
+          <div class="dd-it" onclick="gotoSec('solutions')"><div class="dd-ic" style="background:rgba(14,165,233,.1)">☁️</div>Custom &amp; Cloud ERP</div>
+        </div>
+      </li>
+      <li><a href="#services" id="nav-s">Services</a></li>
+      <li><a href="#customers" id="nav-c">Clients</a></li>
+      <li><a href="#why" id="nav-w">Why Us</a></li>
+      <li><a href="#contact" id="nav-k">Contact</a></li>
+    </ul>
+
+    <div style="display:flex;align-items:center;gap:10px">
+      <button class="btn-cta" onclick="gotoSec('contact')">Get Free Demo →</button>
+      <button class="ham" id="hamBtn" onclick="openMob()"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- ═══════════ HERO ═══════════ -->
+<section id="home">
+  <div class="h-slider">
+    <div class="h-mesh">
+      <div class="h-blob h-blob-1"></div>
+      <div class="h-blob h-blob-2"></div>
+      <div class="h-blob h-blob-3"></div>
+    </div>
+    <div class="h-grid"></div>
+    <div class="h-slides" id="heroSlides">
+      <!-- Video 1: AI / Digital Network Technology -->
+      <div class="h-slide-video">
+        <video id="vid1"
+               src="https://videos.pexels.com/video-files/3129957/3129957-hd_1920_1080_25fps.mp4"
+               autoplay muted loop playsinline preload="auto"></video>
+      </div>
+      <!-- Video 2: Software / Coding Development -->
+      <div class="h-slide-video">
+        <video id="vid2"
+               src="https://videos.pexels.com/video-files/2278095/2278095-hd_1920_1080_25fps.mp4"
+               muted loop playsinline preload="auto"></video>
+      </div>
+    </div>
+
+    <div class="h-content">
+      <div class="W">
+        <div class="h-eyebrow">
+          <span class="h-pulse"></span>
+          <span class="h-eyebrow-t">Trusted by 100+ Businesses Across USA, EU &amp; India</span>
+        </div>
+        <div style="display:inline-flex;align-items:center;gap:12px;margin-bottom:18px;flex-wrap:wrap">
+          <span style="font-size:.78rem;font-weight:700;color:#60A5FA;letter-spacing:2px;text-transform:uppercase">Simplify</span>
+          <span style="width:4px;height:4px;border-radius:50%;background:rgba(255,255,255,.3);display:inline-block"></span>
+          <span style="font-size:.78rem;font-weight:700;color:#7C3AED;letter-spacing:2px;text-transform:uppercase">Automate</span>
+          <span style="width:4px;height:4px;border-radius:50%;background:rgba(255,255,255,.3);display:inline-block"></span>
+          <span style="font-size:.78rem;font-weight:700;color:#A78BFA;letter-spacing:2px;text-transform:uppercase">Grow</span>
+        </div>
+        <h1 class="h-h1">Your Business Deserves<br><span class="gr">Software That Actually Works</span></h1>
+        <p class="h-p">Stop losing time and money to manual processes. EduErpee builds affordable ERP systems, apps, and digital tools — built specifically for USA, EU and India businesses, built to grow with you.</p>
+        <div class="h-btns">
+          <button class="btn-solid" onclick="gotoSec('contact')">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            Get Free Demo Today
+          </button>
+          <button class="btn-outline" onclick="gotoSec('solutions')">Explore Solutions</button>
+        </div>
+        <div class="h-kpis">
+          <div class="kpi"><div class="kpi-n">100<sup>+</sup></div><div class="kpi-l">Happy Clients</div></div>
+          <div class="kpi"><div class="kpi-n">10<sup>+</sup></div><div class="kpi-l">Years Building</div></div>
+          <div class="kpi"><div class="kpi-n">6<sup>+</sup></div><div class="kpi-l">Ready Products</div></div>
+          <div class="kpi"><div class="kpi-n">24<sup>/7</sup></div><div class="kpi-l">Support</div></div>
+        </div>
+      </div>
+    </div>
+
+    <button class="h-prev" onclick="heroGo(heroI-1)">&#8249;</button>
+    <button class="h-next" onclick="heroGo(heroI+1)">&#8250;</button>
+    <div class="h-dots" id="heroDots">
+      <button class="h-dot on" onclick="heroGo(0)"></button>
+      <button class="h-dot" onclick="heroGo(1)"></button>
+    </div>
+  </div>
+</section>
+
+<!-- LOGO STRIP -->
+<div class="logo-strip">
+  <div class="ls-label">Trusted by businesses across Uttar Pradesh &amp; India</div>
+  <div class="ls-wrap">
+    <div class="ls-track" id="lsTrack">
+      <!-- SET 1 -->
+      <div class="ls-item"><div class="ls-emb"><svg viewBox="0 0 46 46"><rect width="46" height="46" rx="12" fill="#FFF5F0"/><text x="23" y="31" text-anchor="middle" font-family="Arial Black" font-weight="900" font-size="21" fill="#EA580C">S</text></svg></div><div><div class="ls-name">Silos</div><div class="ls-type">E-Commerce Platform</div></div></div>
+      <div class="ls-item"><div class="ls-emb"><svg viewBox="0 0 46 46"><rect width="46" height="46" rx="12" fill="#171512"/><rect x="3" y="3" width="40" height="40" rx="9" fill="none" stroke="#B78B47" stroke-width="2"/><text x="15" y="31" font-family="Arial Black" font-weight="900" font-size="14" fill="#F6F1E8">B</text><text x="27" y="31" font-family="Arial Black" font-weight="900" font-size="14" fill="#B78B47">T</text></svg></div><div><div class="ls-name">BuildTone</div><div class="ls-type">Real Estate</div></div></div>
+      <div class="ls-item"><div class="ls-emb"><svg viewBox="0 0 46 46"><rect width="46" height="46" rx="12" fill="#F0FDF4"/><circle cx="23" cy="23" r="15" fill="none" stroke="#16A34A" stroke-width="2"/><text x="23" y="28" text-anchor="middle" font-family="Arial Black" font-weight="900" font-size="11" fill="#16A34A">LH</text></svg></div><div><div class="ls-name">Limitless Hunch</div><div class="ls-type">Wholesale</div></div></div>
+      <div class="ls-item"><div class="ls-emb"><svg viewBox="0 0 46 46"><rect width="46" height="46" rx="12" fill="#0A0A0A"/><polygon points="23,8 37,17 37,37 23,41 9,37 9,17" fill="none" stroke="#F59E0B" stroke-width="2"/><text x="23" y="28" text-anchor="middle" font-family="Arial Black" font-weight="900" font-size="10" fill="#F59E0B">LI</text></svg></div><div><div class="ls-name">Limitless Interior</div><div class="ls-type">Interior Design</div></div></div>
+      <div class="ls-item"><div class="ls-emb"><svg viewBox="0 0 46 46"><rect width="46" height="46" rx="12" fill="#EFF6FF"/><circle cx="23" cy="23" r="17" fill="#1565C0"/><circle cx="23" cy="23" r="13" fill="#90CAF9"/><circle cx="23" cy="23" r="9" fill="#fff"/><text x="23" y="27" text-anchor="middle" font-family="Arial Black" font-weight="900" font-size="7" fill="#6D1A1A">VSD</text></svg></div><div><div class="ls-name">VSD College</div><div class="ls-type">Education ERP</div></div></div>
+      <div class="ls-item"><div class="ls-emb"><svg viewBox="0 0 46 46"><rect width="46" height="46" rx="12" fill="#FFF7ED"/><polygon points="23,7 27,17 38,17 29,24 32,34 23,28 14,34 17,24 8,17 19,17" fill="#F59E0B"/></svg></div><div><div class="ls-name">Future Group</div><div class="ls-type">Coaching ERP</div></div></div>
+      <!-- SET 2 -->
+      <div class="ls-item"><div class="ls-emb"><svg viewBox="0 0 46 46"><rect width="46" height="46" rx="12" fill="#FFF5F0"/><text x="23" y="31" text-anchor="middle" font-family="Arial Black" font-weight="900" font-size="21" fill="#EA580C">S</text></svg></div><div><div class="ls-name">Silos</div><div class="ls-type">E-Commerce Platform</div></div></div>
+      <div class="ls-item"><div class="ls-emb"><svg viewBox="0 0 46 46"><rect width="46" height="46" rx="12" fill="#171512"/><rect x="3" y="3" width="40" height="40" rx="9" fill="none" stroke="#B78B47" stroke-width="2"/><text x="15" y="31" font-family="Arial Black" font-weight="900" font-size="14" fill="#F6F1E8">B</text><text x="27" y="31" font-family="Arial Black" font-weight="900" font-size="14" fill="#B78B47">T</text></svg></div><div><div class="ls-name">BuildTone</div><div class="ls-type">Real Estate</div></div></div>
+      <div class="ls-item"><div class="ls-emb"><svg viewBox="0 0 46 46"><rect width="46" height="46" rx="12" fill="#F0FDF4"/><circle cx="23" cy="23" r="15" fill="none" stroke="#16A34A" stroke-width="2"/><text x="23" y="28" text-anchor="middle" font-family="Arial Black" font-weight="900" font-size="11" fill="#16A34A">LH</text></svg></div><div><div class="ls-name">Limitless Hunch</div><div class="ls-type">Wholesale</div></div></div>
+      <div class="ls-item"><div class="ls-emb"><svg viewBox="0 0 46 46"><rect width="46" height="46" rx="12" fill="#0A0A0A"/><polygon points="23,8 37,17 37,37 23,41 9,37 9,17" fill="none" stroke="#F59E0B" stroke-width="2"/><text x="23" y="28" text-anchor="middle" font-family="Arial Black" font-weight="900" font-size="10" fill="#F59E0B">LI</text></svg></div><div><div class="ls-name">Limitless Interior</div><div class="ls-type">Interior Design</div></div></div>
+      <div class="ls-item"><div class="ls-emb"><svg viewBox="0 0 46 46"><rect width="46" height="46" rx="12" fill="#EFF6FF"/><circle cx="23" cy="23" r="17" fill="#1565C0"/><circle cx="23" cy="23" r="13" fill="#90CAF9"/><circle cx="23" cy="23" r="9" fill="#fff"/><text x="23" y="27" text-anchor="middle" font-family="Arial Black" font-weight="900" font-size="7" fill="#6D1A1A">VSD</text></svg></div><div><div class="ls-name">VSD College</div><div class="ls-type">Education ERP</div></div></div>
+      <div class="ls-item"><div class="ls-emb"><svg viewBox="0 0 46 46"><rect width="46" height="46" rx="12" fill="#FFF7ED"/><polygon points="23,7 27,17 38,17 29,24 32,34 23,28 14,34 17,24 8,17 19,17" fill="#F59E0B"/></svg></div><div><div class="ls-name">Future Group</div><div class="ls-type">Coaching ERP</div></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="st-cell"><div class="st-n">100<sup>+</sup></div><div class="st-l">Businesses Served</div></div>
+    <div class="st-cell"><div class="st-n">10<sup>+</sup></div><div class="st-l">Years of Excellence</div></div>
+    <div class="st-cell"><div class="st-n">5<sup>★</sup></div><div class="st-l">Average Client Rating</div></div>
+    <div class="st-cell"><div class="st-n">24<sup>/7</sup></div><div class="st-l">Support Available</div></div>
+  </div>
+</div>
+
+<!-- TICKER -->
+<div class="ticker"><div class="tick-track">
+  <div class="tick-item"><span class="tick-sep"></span>School Management ERP</div><div class="tick-item"><span class="tick-sep"></span>Inventory Control</div><div class="tick-item"><span class="tick-sep"></span>Library Management</div><div class="tick-item"><span class="tick-sep"></span>Doctor Clinic Software</div><div class="tick-item"><span class="tick-sep"></span>Mobile App Development</div><div class="tick-item"><span class="tick-sep"></span>Website Design</div><div class="tick-item"><span class="tick-sep"></span>Digital Marketing</div><div class="tick-item"><span class="tick-sep"></span>Cloud ERP</div><div class="tick-item"><span class="tick-sep"></span>Transportation Mgmt</div><div class="tick-item"><span class="tick-sep"></span>AI Solutions</div>
+  <div class="tick-item"><span class="tick-sep"></span>School Management ERP</div><div class="tick-item"><span class="tick-sep"></span>Inventory Control</div><div class="tick-item"><span class="tick-sep"></span>Library Management</div><div class="tick-item"><span class="tick-sep"></span>Doctor Clinic Software</div><div class="tick-item"><span class="tick-sep"></span>Mobile App Development</div><div class="tick-item"><span class="tick-sep"></span>Website Design</div><div class="tick-item"><span class="tick-sep"></span>Digital Marketing</div><div class="tick-item"><span class="tick-sep"></span>Cloud ERP</div><div class="tick-item"><span class="tick-sep"></span>Transportation Mgmt</div><div class="tick-item"><span class="tick-sep"></span>AI Solutions</div>
+</div></div>
+
+<!-- ═══════════ SOLUTIONS ═══════════ -->
+<section id="solutions" class="SEC">
+  <div class="W">
+    <div class="SH cx rv">
+      <div class="SH-tag"><span class="SH-tag-dot"></span>Ready-to-Deploy Products</div>
+      <h2 class="SH-title">Software That Solves <em>Your Specific Problem</em></h2>
+      <p class="SH-body">Stop paying for features you don't need. Every product is built for real Indian businesses and can be fully customised to match exactly how you operate.</p>
+    </div>
+    <div class="sol-grid">
+      <div class="sol-card rv d1" style="padding:0;overflow:hidden;border-color:rgba(27,94,255,.18)">
+
+        <!-- IMAGE COLLAGE TOP -->
+        <div style="display:grid;grid-template-columns:1fr 1fr;grid-template-rows:120px 80px;gap:3px;width:100%;overflow:hidden;border-radius:calc(var(--r2) - 1px) calc(var(--r2) - 1px) 0 0">
+          <!-- Main large image (spans 2 rows) -->
+          <div style="grid-row:1/3;background:url('https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=600&q=80&auto=format&fit=crop') center/cover;position:relative">
+            <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(27,94,255,.25),rgba(6,17,31,.1))"></div>
+          </div>
+          <!-- Top right: students studying -->
+          <div style="background:url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=400&q=80&auto=format&fit=crop') center/cover;position:relative">
+            <div style="position:absolute;inset:0;background:rgba(27,94,255,.15)"></div>
+          </div>
+          <!-- Bottom right: teacher & students -->
+          <div style="background:url('https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=400&q=80&auto=format&fit=crop') center/cover;position:relative">
+            <div style="position:absolute;inset:0;background:rgba(79,70,229,.2)"></div>
+            <!-- Badge overlay -->
+            <div style="position:absolute;bottom:8px;right:8px;background:rgba(27,94,255,.85);backdrop-filter:blur(4px);border-radius:10px;padding:3px 9px;font-size:.6rem;font-weight:700;color:#fff;letter-spacing:.4px">School ERP</div>
+          </div>
+        </div>
+
+        <!-- CONTENT BELOW IMAGES -->
+        <div style="padding:22px 24px 24px">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
+            <div class="sol-ic" style="background:rgba(27,94,255,.1);width:42px;height:42px;border-radius:11px;font-size:1.3rem;margin-bottom:0">🏫</div>
+            <div class="sol-ttl" style="margin-bottom:0">School Management System</div>
+          </div>
+          <p class="sol-desc">Run your entire school from one dashboard — admissions to results, fees to parent communication, payroll to library. Android app companion included.</p>
+          <div class="sol-pills" style="margin-bottom:16px">
+            <span class="sol-pill">Admissions</span>
+            <span class="sol-pill">Attendance</span>
+            <span class="sol-pill">Fee Mgmt</span>
+            <span class="sol-pill">Exams</span>
+            <span class="sol-pill">Parent Portal</span>
+          </div>
+          <a href="#contact" class="sol-arrow">Book Free Demo <span>→</span></a>
+        </div>
+
+      </div>
+      <div class="sol-card rv d2" style="padding:0;overflow:hidden">
+        <div style="display:grid;grid-template-columns:1fr 1fr;grid-template-rows:120px 80px;gap:3px;width:100%;overflow:hidden;border-radius:calc(var(--r2) - 1px) calc(var(--r2) - 1px) 0 0">
+          <div style="grid-row:1/3;background:url('https://images.unsplash.com/photo-1553413077-190dd305871c?w=600&q=80&auto=format&fit=crop') center/cover;position:relative">
+            <div style="position:absolute;inset:0;background:rgba(16,185,129,.18)"></div>
+          </div>
+          <div style="background:url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=400&q=80&auto=format&fit=crop') center/cover;position:relative">
+            <div style="position:absolute;inset:0;background:rgba(6,17,31,.12)"></div>
+          </div>
+          <div style="background:url('https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=400&q=80&auto=format&fit=crop') center/cover;position:relative">
+            <div style="position:absolute;inset:0;background:rgba(16,185,129,.22)"></div>
+            <div style="position:absolute;bottom:8px;right:8px;background:rgba(16,185,129,.88);backdrop-filter:blur(4px);border-radius:10px;padding:3px 9px;font-size:.6rem;font-weight:700;color:#fff;letter-spacing:.4px">Inventory ERP</div>
+          </div>
+        </div>
+        <div style="padding:22px 24px 24px">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
+            <div class="sol-ic" style="background:rgba(16,185,129,.1);width:42px;height:42px;border-radius:11px;font-size:1.3rem;margin-bottom:0">📦</div>
+            <div class="sol-ttl" style="margin-bottom:0">Inventory Management</div>
+          </div>
+          <p class="sol-desc">Real-time stock tracking, automated purchase orders, low-stock alerts, vendor management, and business reports — all running automatically.</p>
+          <div class="sol-pills" style="margin-bottom:16px"><span class="sol-pill">Stock Tracking</span><span class="sol-pill">PO Management</span><span class="sol-pill">Vendors</span><span class="sol-pill">Reports</span></div>
+          <a href="#contact" class="sol-arrow">Book Free Demo <span>→</span></a>
+        </div>
+      </div>
+      <div class="sol-card rv d3" style="padding:0;overflow:hidden">
+        <div style="display:grid;grid-template-columns:1fr 1fr;grid-template-rows:120px 80px;gap:3px;width:100%;overflow:hidden;border-radius:calc(var(--r2) - 1px) calc(var(--r2) - 1px) 0 0">
+          <div style="grid-row:1/3;background:url('https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=600&q=80&auto=format&fit=crop') center/cover;position:relative">
+            <div style="position:absolute;inset:0;background:rgba(124,58,237,.15)"></div>
+          </div>
+          <div style="background:url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=400&q=80&auto=format&fit=crop') center/cover;position:relative">
+            <div style="position:absolute;inset:0;background:rgba(6,17,31,.1)"></div>
+          </div>
+          <div style="background:url('https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=400&q=80&auto=format&fit=crop') center/cover;position:relative">
+            <div style="position:absolute;inset:0;background:rgba(124,58,237,.22)"></div>
+            <div style="position:absolute;bottom:8px;right:8px;background:rgba(124,58,237,.88);backdrop-filter:blur(4px);border-radius:10px;padding:3px 9px;font-size:.6rem;font-weight:700;color:#fff;letter-spacing:.4px">Library ERP</div>
+          </div>
+        </div>
+        <div style="padding:22px 24px 24px">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
+            <div class="sol-ic" style="background:rgba(124,58,237,.1);width:42px;height:42px;border-radius:11px;font-size:1.3rem;margin-bottom:0">📚</div>
+            <div class="sol-ttl" style="margin-bottom:0">Library Management</div>
+          </div>
+          <p class="sol-desc">Digitise your library in days. Barcode scanning, catalogue management, issue/return tracking, member management, and automated fine collection.</p>
+          <div class="sol-pills" style="margin-bottom:16px"><span class="sol-pill">Catalogue</span><span class="sol-pill">Barcode</span><span class="sol-pill">Issue/Return</span><span class="sol-pill">Fines</span></div>
+          <a href="#contact" class="sol-arrow">Book Free Demo <span>→</span></a>
+        </div>
+      </div>
+      <div class="sol-card rv d4" style="padding:0;overflow:hidden">
+        <div style="display:grid;grid-template-columns:1fr 1fr;grid-template-rows:120px 80px;gap:3px;width:100%;overflow:hidden;border-radius:calc(var(--r2) - 1px) calc(var(--r2) - 1px) 0 0">
+          <div style="grid-row:1/3;background:url('https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=600&q=80&auto=format&fit=crop') center/cover;position:relative">
+            <div style="position:absolute;inset:0;background:rgba(245,158,11,.18)"></div>
+          </div>
+          <div style="background:url('https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=400&q=80&auto=format&fit=crop') center/cover;position:relative">
+            <div style="position:absolute;inset:0;background:rgba(6,17,31,.1)"></div>
+          </div>
+          <div style="background:url('https://images.unsplash.com/photo-1557223562-6c77ef16210f?w=400&q=80&auto=format&fit=crop') center/cover;position:relative">
+            <div style="position:absolute;inset:0;background:rgba(245,158,11,.22)"></div>
+            <div style="position:absolute;bottom:8px;right:8px;background:rgba(180,115,0,.9);backdrop-filter:blur(4px);border-radius:10px;padding:3px 9px;font-size:.6rem;font-weight:700;color:#fff;letter-spacing:.4px">Transport ERP</div>
+          </div>
+        </div>
+        <div style="padding:22px 24px 24px">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
+            <div class="sol-ic" style="background:rgba(245,158,11,.1);width:42px;height:42px;border-radius:11px;font-size:1.3rem;margin-bottom:0">🚌</div>
+            <div class="sol-ttl" style="margin-bottom:0">Transportation Management</div>
+          </div>
+          <p class="sol-desc">GPS live tracking, optimised route planning, driver management, fee collection, and automated parent SMS notifications — one integrated system.</p>
+          <div class="sol-pills" style="margin-bottom:16px"><span class="sol-pill">GPS Tracking</span><span class="sol-pill">Route Planning</span><span class="sol-pill">Driver Mgmt</span><span class="sol-pill">Notifications</span></div>
+          <a href="#contact" class="sol-arrow">Book Free Demo <span>→</span></a>
+        </div>
+      </div>
+      <div class="sol-card rv d5" style="padding:0;overflow:hidden">
+        <div style="display:grid;grid-template-columns:1fr 1fr;grid-template-rows:120px 80px;gap:3px;width:100%;overflow:hidden;border-radius:calc(var(--r2) - 1px) calc(var(--r2) - 1px) 0 0">
+          <div style="grid-row:1/3;background:url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&q=80&auto=format&fit=crop') center/cover;position:relative">
+            <div style="position:absolute;inset:0;background:rgba(239,68,68,.15)"></div>
+          </div>
+          <div style="background:url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=400&q=80&auto=format&fit=crop') center/cover;position:relative">
+            <div style="position:absolute;inset:0;background:rgba(6,17,31,.1)"></div>
+          </div>
+          <div style="background:url('https://images.unsplash.com/photo-1551601651-2a8555f1a136?w=400&q=80&auto=format&fit=crop') center/cover;position:relative">
+            <div style="position:absolute;inset:0;background:rgba(239,68,68,.2)"></div>
+            <div style="position:absolute;bottom:8px;right:8px;background:rgba(185,28,28,.88);backdrop-filter:blur(4px);border-radius:10px;padding:3px 9px;font-size:.6rem;font-weight:700;color:#fff;letter-spacing:.4px">Clinic ERP</div>
+          </div>
+        </div>
+        <div style="padding:22px 24px 24px">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
+            <div class="sol-ic" style="background:rgba(239,68,68,.1);width:42px;height:42px;border-radius:11px;font-size:1.3rem;margin-bottom:0">🏥</div>
+            <div class="sol-ttl" style="margin-bottom:0">Doctor Clinic Software</div>
+          </div>
+          <p class="sol-desc">Complete OPD management — patient records, appointments, EMR, prescriptions, billing, and medicine inventory, all in one dedicated software.</p>
+          <div class="sol-pills" style="margin-bottom:16px"><span class="sol-pill">Patient Records</span><span class="sol-pill">EMR</span><span class="sol-pill">Appointments</span><span class="sol-pill">Billing</span></div>
+          <a href="#contact" class="sol-arrow">Book Free Demo <span>→</span></a>
+        </div>
+      </div>
+      <div class="sol-card rv d6" style="padding:0;overflow:hidden;border-style:dashed;border-color:rgba(79,52,237,.28)">
+        <div style="display:grid;grid-template-columns:1fr 1fr;grid-template-rows:120px 80px;gap:3px;width:100%;overflow:hidden;border-radius:calc(var(--r2) - 1px) calc(var(--r2) - 1px) 0 0">
+          <div style="grid-row:1/3;background:url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&q=80&auto=format&fit=crop') center/cover;position:relative">
+            <div style="position:absolute;inset:0;background:rgba(79,52,237,.22)"></div>
+          </div>
+          <div style="background:url('https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&q=80&auto=format&fit=crop') center/cover;position:relative">
+            <div style="position:absolute;inset:0;background:rgba(6,17,31,.12)"></div>
+          </div>
+          <div style="background:url('https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&q=80&auto=format&fit=crop') center/cover;position:relative">
+            <div style="position:absolute;inset:0;background:rgba(79,52,237,.25)"></div>
+            <div style="position:absolute;bottom:8px;right:8px;background:rgba(67,38,180,.9);backdrop-filter:blur(4px);border-radius:10px;padding:3px 9px;font-size:.6rem;font-weight:700;color:#fff;letter-spacing:.4px">Cloud ERP</div>
+          </div>
+        </div>
+        <div style="padding:22px 24px 24px;background:linear-gradient(145deg,#EBF1FF,#F0EBFF)">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
+            <div class="sol-ic" style="background:rgba(79,52,237,.12);width:42px;height:42px;border-radius:11px;font-size:1.3rem;margin-bottom:0">☁️</div>
+            <div class="sol-ttl" style="margin-bottom:0">Custom &amp; Cloud ERP</div>
+          </div>
+          <p class="sol-desc">Have a unique workflow that standard software can't handle? We build it from scratch — web, mobile, cloud-deployed, and 100% tailored to your business.</p>
+          <div class="sol-pills" style="margin-bottom:16px"><span class="sol-pill">Custom Build</span><span class="sol-pill">SaaS</span><span class="sol-pill">Web &amp; Mobile</span><span class="sol-pill">Cloud Deploy</span></div>
+          <a href="#contact" class="sol-arrow">Discuss Project <span>→</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ PROCESS ═══════════ -->
+<section class="SEC SEC-alt">
+  <div class="W">
+    <div class="SH cx rv">
+      <div class="SH-tag"><span class="SH-tag-dot"></span>Simple Process</div>
+      <h2 class="SH-title">From First Call to <em>Go-Live in 5 Steps</em></h2>
+      <p class="SH-body">We manage everything from start to finish — you just run your business. Here's exactly what happens when you partner with us.</p>
+    </div>
+    <div class="proc-grid rv">
+      <div class="proc-step"><div class="proc-circle">1</div><div class="proc-title">Free Site Visit</div><p class="proc-desc">We come to you, understand your exact requirements, and assess your needs — completely free, no commitment.</p></div>
+      <div class="proc-step"><div class="proc-circle">2</div><div class="proc-title">Design &amp; Quote</div><p class="proc-desc">A custom proposal with a fully transparent quote. No hidden charges, no surprises — ever.</p></div>
+      <div class="proc-step"><div class="proc-circle">3</div><div class="proc-title">You Choose</div><p class="proc-desc">Pick your features, configurations, and integrations. We build it exactly the way you want it.</p></div>
+      <div class="proc-step"><div class="proc-circle">4</div><div class="proc-title">We Build &amp; Deploy</div><p class="proc-desc">Our expert team builds and deploys your system with precision — minimal disruption to your operations.</p></div>
+      <div class="proc-step"><div class="proc-circle">5</div><div class="proc-title">Train &amp; Support</div><p class="proc-desc">Full staff training, a complete walkthrough, and dedicated 24/7 support long after go-live.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ SERVICES ═══════════ -->
+<section id="services" class="SEC">
+  <div class="W">
+    <div class="SH cx rv">
+      <div class="SH-tag"><span class="SH-tag-dot"></span>End-to-End IT Services</div>
+      <h2 class="SH-title">Every Digital Service <em>Under One Roof</em></h2>
+      <p class="SH-body">From a simple website to a full enterprise ERP — we handle every aspect of your digital presence, operations, and growth.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="svc-card rv d1" style="padding:0;overflow:hidden;text-align:left">
+        <div style="display:grid;grid-template-columns:1fr 1fr;grid-template-rows:90px 60px;gap:2px;width:100%;overflow:hidden;border-radius:calc(var(--r) - 1px) calc(var(--r) - 1px) 0 0">
+          <div style="grid-row:1/3;background:url('https://images.unsplash.com/photo-1547658719-da2b51169166?w=600&q=80&auto=format&fit=crop') center/cover;position:relative">
+            <div style="position:absolute;inset:0;background:rgba(27,94,255,.18)"></div>
+          </div>
+          <div style="background:url('https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=400&q=80&auto=format&fit=crop') center/cover;position:relative">
+            <div style="position:absolute;inset:0;background:rgba(6,17,31,.12)"></div>
+          </div>
+          <div style="background:url('https://images.unsplash.com/photo-1559028012-481c04fa702d?w=400&q=80&auto=format&fit=crop') center/cover;position:relative">
+            <div style="position:absolute;inset:0;background:rgba(27,94,255,.22)"></div>
+            <div style="position:absolute;bottom:6px;right:6px;background:rgba(27,94,255,.9);border-radius:8px;padding:2px 8px;font-size:.58rem;font-weight:700;color:#fff;letter-spacing:.3px">Web Dev</div>
+          </div>
+        </div>
+        <div style="padding:16px 16px 18px">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+            <div class="svc-ic" style="background:rgba(27,94,255,.1);width:36px;height:36px;border-radius:10px;font-size:1.1rem;margin:0;flex-shrink:0">🌐</div>
+            <div class="svc-name" style="text-align:left;margin:0">Website Design &amp; Dev</div>
+          </div>
+          <div class="svc-desc" style="text-align:left">Responsive, fast websites that look premium and turn visitors into customers.</div>
+        </div>
+      </div>
+      <div class="svc-card rv d2" style="padding:0;overflow:hidden;text-align:left">
+        <div style="display:grid;grid-template-columns:1fr 1fr;grid-template-rows:90px 60px;gap:2px;width:100%;overflow:hidden;border-radius:calc(var(--r) - 1px) calc(var(--r) - 1px) 0 0">
+          <div style="grid-row:1/3;background:url('https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&q=80&auto=format&fit=crop') center/cover;position:relative">
+            <div style="position:absolute;inset:0;background:rgba(16,185,129,.18)"></div>
+          </div>
+          <div style="background:url('https://images.unsplash.com/photo-1526498460520-4c246339dccb?w=400&q=80&auto=format&fit=crop') center/cover;position:relative">
+            <div style="position:absolute;inset:0;background:rgba(6,17,31,.12)"></div>
+          </div>
+          <div style="background:url('https://images.unsplash.com/photo-1617040619263-41c5a9ca7521?w=400&q=80&auto=format&fit=crop') center/cover;position:relative">
+            <div style="position:absolute;inset:0;background:rgba(16,185,129,.22)"></div>
+            <div style="position:absolute;bottom:6px;right:6px;background:rgba(4,120,87,.9);border-radius:8px;padding:2px 8px;font-size:.58rem;font-weight:700;color:#fff;letter-spacing:.3px">Mobile Apps</div>
+          </div>
+        </div>
+        <div style="padding:16px 16px 18px">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+            <div class="svc-ic" style="background:rgba(16,185,129,.1);width:36px;height:36px;border-radius:10px;font-size:1.1rem;margin:0;flex-shrink:0">📱</div>
+            <div class="svc-name" style="text-align:left;margin:0">Mobile App Development</div>
+          </div>
+          <div class="svc-desc" style="text-align:left">Android &amp; iOS apps — native and cross-platform — integrated with your backend.</div>
+        </div>
+      </div>
+      <div class="svc-card rv d3" style="padding:0;overflow:hidden;text-align:left">
+        <div style="display:grid;grid-template-columns:1fr 1fr;grid-template-rows:90px 60px;gap:2px;width:100%;overflow:hidden;border-radius:calc(var(--r) - 1px) calc(var(--r) - 1px) 0 0">
+          <div style="grid-row:1/3;background:url('https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&q=80&auto=format&fit=crop') center/cover;position:relative">
+            <div style="position:absolute;inset:0;background:rgba(124,58,237,.18)"></div>
+          </div>
+          <div style="background:url('https://images.unsplash.com/photo-1545235617-9465d2a55698?w=400&q=80&auto=format&fit=crop') center/cover;position:relative">
+            <div style="position:absolute;inset:0;background:rgba(6,17,31,.12)"></div>
+          </div>
+          <div style="background:url('https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=400&q=80&auto=format&fit=crop') center/cover;position:relative">
+            <div style="position:absolute;inset:0;background:rgba(124,58,237,.22)"></div>
+            <div style="position:absolute;bottom:6px;right:6px;background:rgba(109,40,217,.9);border-radius:8px;padding:2px 8px;font-size:.58rem;font-weight:700;color:#fff;letter-spacing:.3px">UI/UX</div>
+          </div>
+        </div>
+        <div style="padding:16px 16px 18px">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+            <div class="svc-ic" style="background:rgba(124,58,237,.1);width:36px;height:36px;border-radius:10px;font-size:1.1rem;margin:0;flex-shrink:0">🎨</div>
+            <div class="svc-name" style="text-align:left;margin:0">UI/UX Design</div>
+          </div>
+          <div class="svc-desc" style="text-align:left">Clean, intuitive interfaces that users enjoy and that drive measurable results.</div>
+        </div>
+      </div>
+      <div class="svc-card rv d4" style="padding:0;overflow:hidden;text-align:left">
+        <div style="display:grid;grid-template-columns:1fr 1fr;grid-template-rows:90px 60px;gap:2px;width:100%;overflow:hidden;border-radius:calc(var(--r) - 1px) calc(var(--r) - 1px) 0 0">
+          <div style="grid-row:1/3;background:url('https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=600&q=80&auto=format&fit=crop') center/cover;position:relative">
+            <div style="position:absolute;inset:0;background:rgba(14,165,233,.18)"></div>
+          </div>
+          <div style="background:url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&q=80&auto=format&fit=crop') center/cover;position:relative">
+            <div style="position:absolute;inset:0;background:rgba(6,17,31,.12)"></div>
+          </div>
+          <div style="background:url('https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=400&q=80&auto=format&fit=crop') center/cover;position:relative">
+            <div style="position:absolute;inset:0;background:rgba(14,165,233,.22)"></div>
+            <div style="position:absolute;bottom:6px;right:6px;background:rgba(2,132,199,.9);border-radius:8px;padding:2px 8px;font-size:.58rem;font-weight:700;color:#fff;letter-spacing:.3px">Cloud</div>
+          </div>
+        </div>
+        <div style="padding:16px 16px 18px">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+            <div class="svc-ic" style="background:rgba(14,165,233,.1);width:36px;height:36px;border-radius:10px;font-size:1.1rem;margin:0;flex-shrink:0">☁️</div>
+            <div class="svc-name" style="text-align:left;margin:0">Cloud &amp; DevOps</div>
+          </div>
+          <div class="svc-desc" style="text-align:left">Reliable cloud hosting, CI/CD pipelines, and 99.9% uptime for your systems.</div>
+        </div>
+      </div>
+      <div class="svc-card rv d1" style="padding:0;overflow:hidden;text-align:left">
+        <div style="display:grid;grid-template-columns:1fr 1fr;grid-template-rows:90px 60px;gap:2px;width:100%;overflow:hidden;border-radius:calc(var(--r) - 1px) calc(var(--r) - 1px) 0 0">
+          <div style="grid-row:1/3;background:url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80&auto=format&fit=crop') center/cover;position:relative">
+            <div style="position:absolute;inset:0;background:rgba(245,158,11,.18)"></div>
+          </div>
+          <div style="background:url('https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=400&q=80&auto=format&fit=crop') center/cover;position:relative">
+            <div style="position:absolute;inset:0;background:rgba(6,17,31,.12)"></div>
+          </div>
+          <div style="background:url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&q=80&auto=format&fit=crop') center/cover;position:relative">
+            <div style="position:absolute;inset:0;background:rgba(245,158,11,.22)"></div>
+            <div style="position:absolute;bottom:6px;right:6px;background:rgba(180,115,0,.9);border-radius:8px;padding:2px 8px;font-size:.58rem;font-weight:700;color:#fff;letter-spacing:.3px">Marketing</div>
+          </div>
+        </div>
+        <div style="padding:16px 16px 18px">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+            <div class="svc-ic" style="background:rgba(245,158,11,.1);width:36px;height:36px;border-radius:10px;font-size:1.1rem;margin:0;flex-shrink:0">📈</div>
+            <div class="svc-name" style="text-align:left;margin:0">Digital Marketing &amp; SEO</div>
+          </div>
+          <div class="svc-desc" style="text-align:left">Get found online — results-driven SEO, social media, and PPC campaigns.</div>
+        </div>
+      </div>
+      <div class="svc-card rv d2" style="padding:0;overflow:hidden;text-align:left">
+        <div style="display:grid;grid-template-columns:1fr 1fr;grid-template-rows:90px 60px;gap:2px;width:100%;overflow:hidden;border-radius:calc(var(--r) - 1px) calc(var(--r) - 1px) 0 0">
+          <div style="grid-row:1/3;background:url('https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=600&q=80&auto=format&fit=crop') center/cover;position:relative">
+            <div style="position:absolute;inset:0;background:rgba(79,52,237,.18)"></div>
+          </div>
+          <div style="background:url('https://images.unsplash.com/photo-1676278584776-c1a1c5ea0b73?w=400&q=80&auto=format&fit=crop') center/cover;position:relative">
+            <div style="position:absolute;inset:0;background:rgba(6,17,31,.12)"></div>
+          </div>
+          <div style="background:url('https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=400&q=80&auto=format&fit=crop') center/cover;position:relative">
+            <div style="position:absolute;inset:0;background:rgba(79,52,237,.22)"></div>
+            <div style="position:absolute;bottom:6px;right:6px;background:rgba(67,38,180,.9);border-radius:8px;padding:2px 8px;font-size:.58rem;font-weight:700;color:#fff;letter-spacing:.3px">AI Solutions</div>
+          </div>
+        </div>
+        <div style="padding:16px 16px 18px">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+            <div class="svc-ic" style="background:rgba(79,52,237,.1);width:36px;height:36px;border-radius:10px;font-size:1.1rem;margin:0;flex-shrink:0">🤖</div>
+            <div class="svc-name" style="text-align:left;margin:0">AI &amp; Chatbot Dev</div>
+          </div>
+          <div class="svc-desc" style="text-align:left">Automate customer support and repetitive operations with intelligent AI tools.</div>
+        </div>
+      </div>
+      <div class="svc-card rv d3" style="padding:0;overflow:hidden;text-align:left">
+        <div style="display:grid;grid-template-columns:1fr 1fr;grid-template-rows:90px 60px;gap:2px;width:100%;overflow:hidden;border-radius:calc(var(--r) - 1px) calc(var(--r) - 1px) 0 0">
+          <div style="grid-row:1/3;background:url('https://images.unsplash.com/photo-1634942537034-2531766767d1?w=600&q=80&auto=format&fit=crop') center/cover;position:relative">
+            <div style="position:absolute;inset:0;background:rgba(239,68,68,.18)"></div>
+          </div>
+          <div style="background:url('https://images.unsplash.com/photo-1609921212029-bb5a28e60960?w=400&q=80&auto=format&fit=crop') center/cover;position:relative">
+            <div style="position:absolute;inset:0;background:rgba(6,17,31,.12)"></div>
+          </div>
+          <div style="background:url('https://images.unsplash.com/photo-1626785774573-4b799315345d?w=400&q=80&auto=format&fit=crop') center/cover;position:relative">
+            <div style="position:absolute;inset:0;background:rgba(239,68,68,.22)"></div>
+            <div style="position:absolute;bottom:6px;right:6px;background:rgba(185,28,28,.9);border-radius:8px;padding:2px 8px;font-size:.58rem;font-weight:700;color:#fff;letter-spacing:.3px">Branding</div>
+          </div>
+        </div>
+        <div style="padding:16px 16px 18px">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+            <div class="svc-ic" style="background:rgba(239,68,68,.1);width:36px;height:36px;border-radius:10px;font-size:1.1rem;margin:0;flex-shrink:0">🏷️</div>
+            <div class="svc-name" style="text-align:left;margin:0">Logo &amp; Brand Identity</div>
+          </div>
+          <div class="svc-desc" style="text-align:left">Professional branding — logos, colours, and guidelines that make you unforgettable.</div>
+        </div>
+      </div>
+      <div class="svc-card rv d4" style="padding:0;overflow:hidden;text-align:left">
+        <div style="display:grid;grid-template-columns:1fr 1fr;grid-template-rows:90px 60px;gap:2px;width:100%;overflow:hidden;border-radius:calc(var(--r) - 1px) calc(var(--r) - 1px) 0 0">
+          <div style="grid-row:1/3;background:url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&q=80&auto=format&fit=crop') center/cover;position:relative">
+            <div style="position:absolute;inset:0;background:rgba(16,185,129,.18)"></div>
+          </div>
+          <div style="background:url('https://images.unsplash.com/photo-1531482615713-2afd69097998?w=400&q=80&auto=format&fit=crop') center/cover;position:relative">
+            <div style="position:absolute;inset:0;background:rgba(6,17,31,.12)"></div>
+          </div>
+          <div style="background:url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=400&q=80&auto=format&fit=crop') center/cover;position:relative">
+            <div style="position:absolute;inset:0;background:rgba(16,185,129,.22)"></div>
+            <div style="position:absolute;bottom:6px;right:6px;background:rgba(4,120,87,.9);border-radius:8px;padding:2px 8px;font-size:.58rem;font-weight:700;color:#fff;letter-spacing:.3px">24/7 Support</div>
+          </div>
+        </div>
+        <div style="padding:16px 16px 18px">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+            <div class="svc-ic" style="background:rgba(16,185,129,.1);width:36px;height:36px;border-radius:10px;font-size:1.1rem;margin:0;flex-shrink:0">🔧</div>
+            <div class="svc-name" style="text-align:left;margin:0">Maintenance &amp; Support</div>
+          </div>
+          <div class="svc-desc" style="text-align:left">Ongoing updates, bug fixes, and 24/7 technical assistance — always there for you.</div>
+        </div>
+      </div>
+    </div><!-- ═══════════ INDUSTRIES ═══════════ -->
+<section id="industries" class="SEC SEC-alt">
+  <div class="W">
+    <div class="SH cx rv">
+      <div class="SH-tag"><span class="SH-tag-dot"></span>Industries We Serve</div>
+      <h2 class="SH-title">We've Solved Problems In <em>Your Industry</em></h2>
+    </div>
+    <div class="ind-cloud rv">
+      <div class="ind-chip">🏥 Healthcare &amp; Clinics</div>
+      <div class="ind-chip">🎓 Education &amp; Colleges</div>
+      <div class="ind-chip">🛍️ Retail &amp; E-Commerce</div>
+      <div class="ind-chip">🏭 Manufacturing</div>
+      <div class="ind-chip">💳 Banking &amp; FinTech</div>
+      <div class="ind-chip">🏗️ Real Estate</div>
+      <div class="ind-chip">🚚 Transport &amp; Logistics</div>
+      <div class="ind-chip">🍔 Food &amp; Restaurants</div>
+      <div class="ind-chip">🏨 Hotels &amp; Hospitality</div>
+      <div class="ind-chip">⚖️ Legal &amp; Compliance</div>
+      <div class="ind-chip">🌿 Agriculture &amp; AgriTech</div>
+      <div class="ind-chip">🏛️ Government &amp; NGO</div>
+      <div class="ind-chip">🤖 AI &amp; Data Analytics</div>
+      <div class="ind-chip">📦 Supply Chain</div>
+      <div class="ind-chip">🏆 Sports &amp; Events</div>
+      <div class="ind-chip">💰 Insurance &amp; Lending</div>
+      <div class="ind-chip">🎮 Gaming &amp; Media</div>
+      <div class="ind-chip">📡 Telecom &amp; IoT</div>
+      <div class="ind-chip">☁️ Custom SaaS Platforms</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ HAPPY CUSTOMERS ═══════════ -->
+<section id="customers" class="SEC">
+  <div class="W">
+    <div class="SH cx rv">
+      <div class="SH-tag"><span class="SH-tag-dot"></span>Happy Customers</div>
+      <h2 class="SH-title">Real Businesses, <em>Real Results</em></h2>
+      <p class="SH-body">Don't take our word for it. See what our clients have to say after working with EduErpee Technology.</p>
+    </div>
+
+    <!-- AUTO-SCROLL LOGO BAR -->
+    <div class="hc-logo-bar rv">
+      <div class="hc-lb-wrap">
+        <div class="hc-ltrack" id="hcLtrack">
+          <!-- SET 1 -->
+          <div class="hc-litem"><div class="hc-lemb"><svg viewBox="0 0 52 52"><rect width="52" height="52" rx="14" fill="#FFF5F0"/><text x="26" y="35" text-anchor="middle" font-family="Arial Black" font-weight="900" font-size="24" fill="#EA580C">S</text></svg></div><div><div class="hc-lname">Silos</div><div class="hc-ltype">E-Commerce · silos.in</div></div></div>
+          <div class="hc-litem"><div class="hc-lemb"><svg viewBox="0 0 52 52"><rect width="52" height="52" rx="14" fill="#171512"/><rect x="4" y="4" width="44" height="44" rx="11" fill="none" stroke="#B78B47" stroke-width="2.2"/><text x="18" y="34" font-family="Arial Black" font-weight="900" font-size="15" fill="#F6F1E8">B</text><text x="30" y="34" font-family="Arial Black" font-weight="900" font-size="15" fill="#B78B47">T</text></svg></div><div><div class="hc-lname">BuildTone</div><div class="hc-ltype">Real Estate · buildtone.in</div></div></div>
+          <div class="hc-litem"><div class="hc-lemb"><svg viewBox="0 0 52 52"><rect width="52" height="52" rx="14" fill="#F0FDF4"/><circle cx="26" cy="26" r="18" fill="none" stroke="#16A34A" stroke-width="2.2"/><text x="26" y="31" text-anchor="middle" font-family="Arial Black" font-weight="900" font-size="13" fill="#16A34A">LH</text></svg></div><div><div class="hc-lname">Limitless Hunch</div><div class="hc-ltype">Wholesale · limitlesshunch.co.in</div></div></div>
+          <div class="hc-litem"><div class="hc-lemb"><svg viewBox="0 0 52 52"><rect width="52" height="52" rx="14" fill="#0A0A0A"/><polygon points="26,10 40,19 40,40 26,44 12,40 12,19" fill="none" stroke="#F59E0B" stroke-width="2.2"/><text x="26" y="32" text-anchor="middle" font-family="Arial Black" font-weight="900" font-size="11" fill="#F59E0B">LI</text></svg></div><div><div class="hc-lname">Limitless Interior</div><div class="hc-ltype">Interior Design</div></div></div>
+          <div class="hc-litem"><div class="hc-lemb"><svg viewBox="0 0 52 52"><rect width="52" height="52" rx="14" fill="#EFF6FF"/><circle cx="26" cy="26" r="20" fill="#1565C0"/><circle cx="26" cy="26" r="15" fill="#90CAF9"/><circle cx="26" cy="26" r="10" fill="#fff"/><text x="26" y="30" text-anchor="middle" font-family="Arial Black" font-weight="900" font-size="7.5" fill="#6D1A1A">VSD</text></svg></div><div><div class="hc-lname">VSD College</div><div class="hc-ltype">Education ERP</div></div></div>
+          <div class="hc-litem"><div class="hc-lemb"><svg viewBox="0 0 52 52"><rect width="52" height="52" rx="14" fill="#FFF7ED"/><polygon points="26,8 30,20 43,20 33,28 36,40 26,32 16,40 19,28 9,20 22,20" fill="#F59E0B"/></svg></div><div><div class="hc-lname">Future Group</div><div class="hc-ltype">Coaching ERP</div></div></div>
+          <!-- SET 2 -->
+          <div class="hc-litem"><div class="hc-lemb"><svg viewBox="0 0 52 52"><rect width="52" height="52" rx="14" fill="#FFF5F0"/><text x="26" y="35" text-anchor="middle" font-family="Arial Black" font-weight="900" font-size="24" fill="#EA580C">S</text></svg></div><div><div class="hc-lname">Silos</div><div class="hc-ltype">E-Commerce · silos.in</div></div></div>
+          <div class="hc-litem"><div class="hc-lemb"><svg viewBox="0 0 52 52"><rect width="52" height="52" rx="14" fill="#171512"/><rect x="4" y="4" width="44" height="44" rx="11" fill="none" stroke="#B78B47" stroke-width="2.2"/><text x="18" y="34" font-family="Arial Black" font-weight="900" font-size="15" fill="#F6F1E8">B</text><text x="30" y="34" font-family="Arial Black" font-weight="900" font-size="15" fill="#B78B47">T</text></svg></div><div><div class="hc-lname">BuildTone</div><div class="hc-ltype">Real Estate · buildtone.in</div></div></div>
+          <div class="hc-litem"><div class="hc-lemb"><svg viewBox="0 0 52 52"><rect width="52" height="52" rx="14" fill="#F0FDF4"/><circle cx="26" cy="26" r="18" fill="none" stroke="#16A34A" stroke-width="2.2"/><text x="26" y="31" text-anchor="middle" font-family="Arial Black" font-weight="900" font-size="13" fill="#16A34A">LH</text></svg></div><div><div class="hc-lname">Limitless Hunch</div><div class="hc-ltype">Wholesale · limitlesshunch.co.in</div></div></div>
+          <div class="hc-litem"><div class="hc-lemb"><svg viewBox="0 0 52 52"><rect width="52" height="52" rx="14" fill="#0A0A0A"/><polygon points="26,10 40,19 40,40 26,44 12,40 12,19" fill="none" stroke="#F59E0B" stroke-width="2.2"/><text x="26" y="32" text-anchor="middle" font-family="Arial Black" font-weight="900" font-size="11" fill="#F59E0B">LI</text></svg></div><div><div class="hc-lname">Limitless Interior</div><div class="hc-ltype">Interior Design</div></div></div>
+          <div class="hc-litem"><div class="hc-lemb"><svg viewBox="0 0 52 52"><rect width="52" height="52" rx="14" fill="#EFF6FF"/><circle cx="26" cy="26" r="20" fill="#1565C0"/><circle cx="26" cy="26" r="15" fill="#90CAF9"/><circle cx="26" cy="26" r="10" fill="#fff"/><text x="26" y="30" text-anchor="middle" font-family="Arial Black" font-weight="900" font-size="7.5" fill="#6D1A1A">VSD</text></svg></div><div><div class="hc-lname">VSD College</div><div class="hc-ltype">Education ERP</div></div></div>
+          <div class="hc-litem"><div class="hc-lemb"><svg viewBox="0 0 52 52"><rect width="52" height="52" rx="14" fill="#FFF7ED"/><polygon points="26,8 30,20 43,20 33,28 36,40 26,32 16,40 19,28 9,20 22,20" fill="#F59E0B"/></svg></div><div><div class="hc-lname">Future Group</div><div class="hc-ltype">Coaching ERP</div></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TESTIMONIAL SLIDER -->
+    <div class="tc-wrap rv">
+      <div class="tc-slider" id="tcSlider">
+
+        <div class="tc-card">
+          <div class="tc-badge">Active Client</div>
+          <div class="tc-qmark">"</div>
+          <div class="tc-head">
+            <div class="tc-emb"><svg viewBox="0 0 52 52"><rect width="52" height="52" rx="14" fill="#FFF5F0"/><text x="26" y="35" text-anchor="middle" font-family="Arial Black" font-weight="900" font-size="24" fill="#EA580C">S</text></svg></div>
+            <div><div class="tc-client-name">Silos</div><div class="tc-client-type">E-Commerce Platform</div></div>
+          </div>
+          <div class="tc-stars">★★★★★</div>
+          <p class="tc-quote">EduErpee built us a complete e-commerce platform. The team was fast, professional, and always available. Our online sales have grown 3× since launch.</p>
+          <div class="tc-hr"></div>
+          <div class="tc-sol">Solution: <b>Custom E-Commerce Platform</b></div>
+          <a href="https://silos.in" target="_blank" rel="noopener" class="tc-url">Visit silos.in ↗</a>
+        </div>
+
+        <div class="tc-card">
+          <div class="tc-badge">Active Client</div>
+          <div class="tc-qmark">"</div>
+          <div class="tc-head">
+            <div class="tc-emb"><svg viewBox="0 0 52 52"><rect width="52" height="52" rx="14" fill="#171512"/><rect x="4" y="4" width="44" height="44" rx="11" fill="none" stroke="#B78B47" stroke-width="2.2"/><text x="18" y="34" font-family="Arial Black" font-weight="900" font-size="15" fill="#F6F1E8">B</text><text x="30" y="34" font-family="Arial Black" font-weight="900" font-size="15" fill="#B78B47">T</text></svg></div>
+            <div><div class="tc-client-name">BuildTone</div><div class="tc-client-type">Real Estate &amp; Construction</div></div>
+          </div>
+          <div class="tc-stars">★★★★★</div>
+          <p class="tc-quote">Our property portal looks premium and actually generates real leads now. EduErpee understood exactly what a construction business needs online. Highly recommend.</p>
+          <div class="tc-hr"></div>
+          <div class="tc-sol">Solution: <b>Website &amp; Property Portal</b></div>
+          <a href="https://www.buildtone.in" target="_blank" rel="noopener" class="tc-url">Visit buildtone.in ↗</a>
+        </div>
+
+        <div class="tc-card">
+          <div class="tc-badge">Active Client</div>
+          <div class="tc-qmark">"</div>
+          <div class="tc-head">
+            <div class="tc-emb"><svg viewBox="0 0 52 52"><rect width="52" height="52" rx="14" fill="#F0FDF4"/><circle cx="26" cy="26" r="18" fill="none" stroke="#16A34A" stroke-width="2.2"/><text x="26" y="31" text-anchor="middle" font-family="Arial Black" font-weight="900" font-size="13" fill="#16A34A">LH</text></svg></div>
+            <div><div class="tc-client-name">Limitless Hunch</div><div class="tc-client-type">Crockery &amp; Gift Wholesale</div></div>
+          </div>
+          <div class="tc-stars">★★★★★</div>
+          <p class="tc-quote">The B2B wholesale portal has made ordering seamless for our retailers. Order volume increased and our team saves hours every week. Very professional, great support team.</p>
+          <div class="tc-hr"></div>
+          <div class="tc-sol">Solution: <b>B2B Wholesale Portal</b></div>
+          <a href="https://www.limitlesshunch.co.in" target="_blank" rel="noopener" class="tc-url">Visit limitlesshunch.co.in ↗</a>
+        </div>
+
+        <div class="tc-card">
+          <div class="tc-badge">Active Client</div>
+          <div class="tc-qmark">"</div>
+          <div class="tc-head">
+            <div class="tc-emb"><svg viewBox="0 0 52 52"><rect width="52" height="52" rx="14" fill="#0A0A0A"/><polygon points="26,10 40,19 40,40 26,44 12,40 12,19" fill="none" stroke="#F59E0B" stroke-width="2.2"/><text x="26" y="32" text-anchor="middle" font-family="Arial Black" font-weight="900" font-size="11" fill="#F59E0B">LI</text></svg></div>
+            <div><div class="tc-client-name">Limitless Interior</div><div class="tc-client-type">Home Interior Design</div></div>
+          </div>
+          <div class="tc-stars">★★★★★</div>
+          <p class="tc-quote">Our interior showcase website is exactly what we envisioned. We receive regular client enquiries every week through it now. EduErpee delivered beyond expectations.</p>
+          <div class="tc-hr"></div>
+          <div class="tc-sol">Solution: <b>Interior Showcase Website</b></div>
+          <a href="https://limitless-interior.vercel.app/" target="_blank" rel="noopener" class="tc-url">Visit website ↗</a>
+        </div>
+
+        <div class="tc-card">
+          <div class="tc-badge">Active Client</div>
+          <div class="tc-qmark">"</div>
+          <div class="tc-head">
+            <div class="tc-emb"><svg viewBox="0 0 52 52"><rect width="52" height="52" rx="14" fill="#EFF6FF"/><circle cx="26" cy="26" r="20" fill="#1565C0"/><circle cx="26" cy="26" r="15" fill="#90CAF9"/><circle cx="26" cy="26" r="10" fill="#fff"/><text x="26" y="30" text-anchor="middle" font-family="Arial Black" font-weight="900" font-size="7.5" fill="#6D1A1A">VSD</text></svg></div>
+            <div><div class="tc-client-name">VSD College</div><div class="tc-client-type">Higher Education</div></div>
+          </div>
+          <div class="tc-stars">★★★★★</div>
+          <p class="tc-quote">Managing 1000+ students manually was a nightmare. EduErpee's college ERP — admissions, fees, library, transport — all in one. Staff productivity improved tremendously.</p>
+          <div class="tc-hr"></div>
+          <div class="tc-sol">Solution: <b>Complete College ERP</b></div>
+        </div>
+
+        <div class="tc-card">
+          <div class="tc-badge">Active Client</div>
+          <div class="tc-qmark">"</div>
+          <div class="tc-head">
+            <div class="tc-emb"><svg viewBox="0 0 52 52"><rect width="52" height="52" rx="14" fill="#FFF7ED"/><polygon points="26,8 30,20 43,20 33,28 36,40 26,32 16,40 19,28 9,20 22,20" fill="#F59E0B"/></svg></div>
+            <div><div class="tc-client-name">Future Group</div><div class="tc-client-type">Competitive Coaching</div></div>
+          </div>
+          <div class="tc-stars">★★★★★</div>
+          <p class="tc-quote">EduErpee's coaching ERP handles our entire student lifecycle — enrolment to performance tracking — all automated now. Outstanding software and even better after-sales support.</p>
+          <div class="tc-hr"></div>
+          <div class="tc-sol">Solution: <b>Complete Coaching ERP</b></div>
+        </div>
+
+      </div>
+
+      <div class="tc-controls">
+        <button class="tc-btn" onclick="tcMove(-1)">&#8249;</button>
+        <div class="tc-dots" id="tcDots">
+          <button class="tc-dot on" onclick="tcGo(0)"></button>
+          <button class="tc-dot" onclick="tcGo(1)"></button>
+          <button class="tc-dot" onclick="tcGo(2)"></button>
+          <button class="tc-dot" onclick="tcGo(3)"></button>
+          <button class="tc-dot" onclick="tcGo(4)"></button>
+          <button class="tc-dot" onclick="tcGo(5)"></button>
+        </div>
+        <button class="tc-btn" onclick="tcMove(1)">&#8250;</button>
+      </div>
+    </div>
+
+    <div class="hc-stats rv">
+      <div class="hcs"><div class="hcs-n">100<em>+</em></div><div class="hcs-l">Clients Served</div></div>
+      <div class="hcs"><div class="hcs-n">5<em>★</em></div><div class="hcs-l">Average Rating</div></div>
+      <div class="hcs"><div class="hcs-n">24<em>h</em></div><div class="hcs-l">Support Response</div></div>
+      <div class="hcs"><div class="hcs-n">10<em>+</em></div><div class="hcs-l">Years Experience</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ WHY US ═══════════ -->
+<section id="why" class="SEC SEC-alt">
+  <div class="W">
+    <div class="why-layout">
+      <div>
+        <div class="SH-tag rv" style="margin-bottom:15px"><span class="SH-tag-dot"></span>Why 100+ Businesses Choose Us</div>
+        <h2 class="SH-title rv">We Work Like <em>Your Partner,<br>Not Just a Vendor</em></h2>
+        <p style="color:var(--body);font-size:.94rem;line-height:1.8;margin-bottom:36px" class="rv">We're local to UP — we speak your language, understand your market, and our team can visit your site in person whenever you need us.</p>
+        <div class="why-items">
+          <div class="why-row rv d1"><div class="why-num">01</div><div><div class="why-ttl">Affordable Without Cutting Corners</div><div class="why-body">Enterprise-grade software at prices that make sense for Indian SMEs, schools, and hospitals. No bloatware, only what you need.</div></div></div>
+          <div class="why-row rv d2"><div class="why-num">02</div><div><div class="why-ttl">Built for India, GST-Compliant</div><div class="why-body">Hindi &amp; English interface, GST billing, UPI payment support, and all local compliance built-in from day one.</div></div></div>
+          <div class="why-row rv d3"><div class="why-num">03</div><div><div class="why-ttl">Fast Setup — Live in Days, Not Months</div><div class="why-body">Most clients go live within days. We handle setup, data migration, training, and onboarding — you just show up.</div></div></div>
+          <div class="why-row rv d4"><div class="why-num">04</div><div><div class="why-ttl">Local Offices — Real In-Person Support</div><div class="why-body">Branches in Azamgarh, Greater Noida &amp; Mau. When you need us on-site, we come to you — not just a helpline.</div></div></div>
+        </div>
+      </div>
+      <div class="why-panel rv">
+        <div class="wp-h">Everything Included. No Surprises.</div>
+        <p class="wp-p">Over 80% of our clients stay with us for 2+ years — not because they're locked in, but because we keep delivering value long after the project is completed.</p>
+        <div class="wp-list">
+          <div class="wp-it"><div class="wp-ck">✓</div><div class="wp-tx">Free site visit &amp; consultation before you pay a rupee</div></div>
+          <div class="wp-it"><div class="wp-ck">✓</div><div class="wp-tx">Android companion app included with every ERP product</div></div>
+          <div class="wp-it"><div class="wp-ck">✓</div><div class="wp-tx">Cloud &amp; on-premise deployment — you choose what's best</div></div>
+          <div class="wp-it"><div class="wp-ck">✓</div><div class="wp-tx">100% customisable to your exact workflows &amp; processes</div></div>
+          <div class="wp-it"><div class="wp-ck">✓</div><div class="wp-tx">Transparent pricing — no hidden charges, ever</div></div>
+          <div class="wp-it"><div class="wp-ck">✓</div><div class="wp-tx">Full staff training &amp; dedicated ongoing support</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ TEAM ═══════════ -->
+<section id="team" class="SEC">
+  <div class="W">
+    <div class="SH cx rv">
+      <div class="SH-tag"><span class="SH-tag-dot"></span>Our Leadership</div>
+      <h2 class="SH-title">The People Behind <em>Your Success</em></h2>
+    </div>
+    <div class="team-grid">
+      <div class="tm-card rv d1">
+        <div class="tm-av" style="background:linear-gradient(135deg,#EC4899,#BE185D)">PK</div>
+        <div class="tm-name">Priya Kumari</div>
+        <div class="tm-role">Director – Human Resources</div>
+        <div class="tm-badge">5+ Years Experience</div>
+        <p class="tm-bio">Leads HR planning, talent acquisition, team building, and marketing strategy. Her resource management expertise drives EduErpee's operational excellence and growth.</p>
+      </div>
+      <div class="tm-card rv d2">
+        <div class="tm-av" style="background:linear-gradient(135deg,#1B5EFF,#1E3A8A)">SJ</div>
+        <div class="tm-name">Sushil Jaiswal</div>
+        <div class="tm-role">Director – Chief Marketing Officer</div>
+        <div class="tm-badge">Business Development</div>
+        <p class="tm-bio">Heads marketing, client relations, and business development. Responsible for brand positioning and expanding EduErpee's market presence across India.</p>
+      </div>
+      <div class="tm-card rv d3">
+        <div class="tm-av" style="background:linear-gradient(135deg,#059669,#065F46)">RS</div>
+        <div class="tm-name">Rakesh Singh</div>
+        <div class="tm-role">Project Coordinator – Technical Lead</div>
+        <div class="tm-badge">Software Delivery</div>
+        <p class="tm-bio">Oversees all projects from planning to delivery. Ensures on-time, high-quality deployments through effective project management and technical leadership.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ CONTACT ═══════════ -->
+<section id="contact">
+  <div class="W">
+    <div class="ct-grid">
+      <div>
+        <div class="ct-tag">
+          <span style="width:6px;height:6px;border-radius:50%;background:#60A5FA;display:inline-block;flex-shrink:0"></span>
+          Get In Touch
+        </div>
+        <h2 class="ct-h">Let's Build Something<br><em>Amazing Together</em></h2>
+        <p class="ct-desc">Book a free demo, discuss your requirements, or visit our office. We respond within 24 hours — guaranteed.</p>
+
+        <div class="addr-card">
+          <div class="addr-tag">📍 Registered Office</div>
+          <div class="addr-name">EduErpee Technology Private Limited</div>
+          <div class="addr-txt">519/216A, KATRA, Mubarak Pur,<br>Azamgarh – Sadar, Uttar Pradesh, India – 276404</div>
+          <div class="addr-links">
+            <a href="tel:+919650143654" class="addr-link">📞 +91 96501 43654</a>
+            <a href="mailto:support@eduerpee.com" class="addr-link">✉️ support@eduerpee.com</a>
+          </div>
+        </div>
+
+        <div class="addr-card" style="margin-top:16px">
+          <div class="addr-tag">🏢 Branch – Greater Noida</div>
+          <div class="addr-name">EduErpee Technology Private Limited</div>
+          <div class="addr-txt">Lower Ground Floor, Near Shiva Smart City-2,<br>Talabpur Dadri, Gr. Noida, Uttar Pradesh – 203207</div>
+          <div class="addr-links">
+            <a href="tel:+919650143654" class="addr-link">📞 +91 96501 43654</a>
+            <a href="mailto:support@eduerpee.com" class="addr-link">✉️ support@eduerpee.com</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="cf-box rv">
+        <div class="cf-h">Request a Free Demo</div>
+        <div class="cf-sub">Tell us your requirements and we'll respond within 24 hours.</div>
+        <div class="cf-row">
+          <div class="cf-g"><label>Full Name</label><input type="text" id="cfn" placeholder="Your full name"></div>
+          <div class="cf-g"><label>Phone Number</label><input type="tel" id="cfp" placeholder="+91 96501 43654"></div>
+        </div>
+        <div class="cf-g"><label>Email Address</label><input type="email" id="cfe" placeholder="your@email.com"></div>
+        <div class="cf-g">
+          <label>Product / Service Needed</label>
+          <select id="cfs">
+            <option value="">Select a product or service…</option>
+            <optgroup label="Products"><option>School Management System</option><option>Inventory Management</option><option>Library Management System</option><option>Transportation Management</option><option>Doctor Clinic Software</option><option>Custom Software Development</option><option>Cloud-Based Solution</option></optgroup>
+            <optgroup label="Services"><option>Website Design &amp; Development</option><option>Mobile App Development</option><option>Digital Marketing &amp; SEO</option><option>UI/UX Design</option><option>AI &amp; Chatbot Development</option><option>ERP Consulting</option></optgroup>
+          </select>
+        </div>
+        <div class="cf-g"><label>Organisation Name</label><input type="text" id="cfo" placeholder="School / Hospital / Company name"></div>
+        <div class="cf-g"><label>Your Message</label><textarea id="cfm" placeholder="Describe your requirements…"></textarea></div>
+        <button class="cf-submit" onclick="handleSubmit()">Send My Request →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer>
+  <div class="W">
+    <div class="ft-grid">
+      <div>
+        <div class="ft-brand">
+          <div class="ft-ic"><svg width="38" height="38" viewBox="0 0 56 56" fill="none" style="display:block">
+          <defs>
+            <linearGradient id="orf1" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#1B5EFF"/>
+              <stop offset="100%" stop-color="#7C3AED"/>
+            </linearGradient>
+          </defs>
+          <circle cx="28" cy="28" r="26" fill="none" stroke="#E0E7FF" stroke-width="2"/>
+          <circle cx="28" cy="2"  r="5" fill="#7C3AED"/>
+          <circle cx="54" cy="28" r="3.5" fill="#4F46E5" opacity="0.45"/>
+          <circle cx="28" cy="28" r="20" fill="url(#orf1)"/>
+          <rect x="17" y="16" width="4.5" height="24" rx="2.2" fill="white"/>
+          <rect x="17" y="16" width="16" height="4.5" rx="2.2" fill="white"/>
+          <rect x="17" y="26" width="12" height="4"   rx="2"   fill="rgba(255,255,255,0.65)"/>
+          <rect x="17" y="35.5" width="16" height="4.5" rx="2.2" fill="white"/>
+        </svg></div>
+          <div class="logo-wordmark"><div class="logo-name" style="color:#fff">Edu<span>Erpee</span></div><div class="logo-sub">Technology Pvt. Ltd.</div></div>
+        </div>
+        <p class="ft-desc">Delivering smart, scalable, and affordable software solutions across Uttar Pradesh and India — built for Indian businesses.</p>
+        <p style="font-size:.72rem;font-weight:700;color:#A78BFA;letter-spacing:1.5px;margin-bottom:16px">Simplify. Automate. Grow.</p>
+        <div class="ft-social"><a href="#" class="ft-soc">fb</a><a href="#" class="ft-soc">in</a><a href="#" class="ft-soc">tw</a><a href="https://wa.me/919650143654" class="ft-soc">wa</a></div>
+      </div>
+      <div>
+        <div class="ft-col-h">Solutions</div>
+        <ul class="ft-links"><li><a href="#solutions">School Management</a></li><li><a href="#solutions">Inventory Management</a></li><li><a href="#solutions">Library Management</a></li><li><a href="#solutions">Transportation Mgmt</a></li><li><a href="#solutions">Doctor Clinic Software</a></li><li><a href="#solutions">Custom &amp; Cloud ERP</a></li></ul>
+      </div>
+      <div>
+        <div class="ft-col-h">Services</div>
+        <ul class="ft-links"><li><a href="#services">Website Development</a></li><li><a href="#services">Mobile App Dev</a></li><li><a href="#services">UI/UX Design</a></li><li><a href="#services">Digital Marketing</a></li><li><a href="#services">AI &amp; Chatbot Dev</a></li><li><a href="#services">Cloud &amp; DevOps</a></li></ul>
+      </div>
+      <div>
+        <div class="ft-col-h">Company</div>
+        <ul class="ft-links"><li><a href="#home">Home</a></li><li><a href="#why">Why EduErpee</a></li><li><a href="#customers">Happy Clients</a></li><li><a href="#team">Our Team</a></li><li><a href="#contact">Contact Us</a></li></ul>
+      </div>
+      <div>
+        <div class="ft-col-h">Contact</div>
+        <ul class="ft-links">
+          <li><a href="tel:+919650143654">📞 +91 96501 43654</a></li>
+          <li><a href="mailto:support@eduerpee.com">✉️ support@eduerpee.com</a></li>
+          <li><a href="#contact">📍 KATRA, Mubarak Pur, Azamgarh</a></li>
+          <li><a href="#contact">UP – 276404</a></li>
+          <li><a href="#contact">🏢 Near Shiva Smart City-2, Gr. Noida</a></li>
+          <li><a href="#contact">UP – 203207</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ft-bottom">
+      <div class="ft-copy">© 2025 <em>EduErpee Technology Private Limited</em>. All rights reserved. Azamgarh &amp; Greater Noida, Uttar Pradesh, India.</div>
+      <div class="ft-tags"><div class="ft-tag">Pvt. Ltd.</div><div class="ft-tag">Azamgarh, UP</div><div class="ft-tag">IT Company</div></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ─── HERO SLIDER (Videos Only) ─── */
+let heroI = 0;
+const HERO_TOTAL = 2;
+const VIDS = ['vid1', 'vid2'];
+
+function heroGo(n) {
+  heroI = ((n % HERO_TOTAL) + HERO_TOTAL) % HERO_TOTAL;
+  document.getElementById('heroSlides').style.transform = `translateX(-${heroI * 100}%)`;
+  document.querySelectorAll('.h-dot').forEach((d, i) => d.classList.toggle('on', i === heroI));
+  VIDS.forEach((id, i) => {
+    const v = document.getElementById(id);
+    if (!v) return;
+    if (i === heroI) { v.currentTime = 0; v.play().catch(() => {}); }
+    else { v.pause(); }
+  });
+}
+
+// Switch to next video when current one ends
+function bindVideoEnd() {
+  VIDS.forEach((id, i) => {
+    const v = document.getElementById(id);
+    if (!v) return;
+    v.addEventListener('ended', () => heroGo(i + 1));
+  });
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+  VIDS.forEach(id => { const v = document.getElementById(id); if (v) v.load(); });
+  bindVideoEnd();
+  // Start first video
+  const v1 = document.getElementById('vid1');
+  if (v1) v1.play().catch(() => {});
+});
+
+/* ─── TESTIMONIAL SLIDER ─── */
+let tcI = 0;
+const TCW = 350;
+function tcGo(n) {
+  const sl = document.getElementById('tcSlider');
+  const tot = sl.querySelectorAll('.tc-card').length;
+  tcI = ((n%tot)+tot)%tot;
+  sl.scrollTo({left: tcI*TCW, behavior:'smooth'});
+  document.querySelectorAll('.tc-dot').forEach((d,i) => d.classList.toggle('on', i===tcI));
+}
+function tcMove(d) { tcGo(tcI+d); }
+setInterval(() => {
+  const tot = document.getElementById('tcSlider').querySelectorAll('.tc-card').length;
+  tcGo((tcI+1)%tot);
+}, 5000);
+document.getElementById('tcSlider').addEventListener('scroll', function(){
+  const n = Math.round(this.scrollLeft/TCW);
+  if(n!==tcI){ tcI=n; document.querySelectorAll('.tc-dot').forEach((d,i)=>d.classList.toggle('on',i===tcI)); }
+},{passive:true});
+
+/* ─── NAV ACTIVE ─── */
+const SECS = ['home','solutions','services','industries','customers','why','team','contact'];
+const NMAP = {home:'h',solutions:'s',services:'s',industries:'s',customers:'c',why:'w',team:'k',contact:'k'};
+window.addEventListener('scroll',()=>{
+  let cur='home';
+  SECS.forEach(id=>{const el=document.getElementById(id);if(el&&window.scrollY>=el.offsetTop-120)cur=id;});
+  document.querySelectorAll('#mainNav a').forEach(a=>a.classList.remove('active'));
+  const el=document.getElementById('nav-'+cur[0]);if(el)el.classList.add('active');
+},{passive:true});
+function gotoSec(id){const el=document.getElementById(id);if(el)el.scrollIntoView({behavior:'smooth'});}
+
+/* ─── MOBILE ─── */
+function openMob(){document.getElementById('mDr').classList.add('open');document.getElementById('mOv').classList.add('show');document.getElementById('hamBtn').classList.add('open');document.body.style.overflow='hidden';}
+function closeMob(){document.getElementById('mDr').classList.remove('open');document.getElementById('mOv').classList.remove('show');document.getElementById('hamBtn').classList.remove('open');document.body.style.overflow='';}
+
+/* ─── TOAST ─── */
+function showToast(msg){const t=document.getElementById('toast');document.getElementById('tmsg').textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),4500);}
+
+/* ─── FORM ─── */
+function handleSubmit(){
+  var n=document.getElementById('cfn').value.trim();
+  var p=document.getElementById('cfp').value.trim();
+  var e=document.getElementById('cfe').value.trim();
+  var s=document.getElementById('cfs').value;
+  var o=document.getElementById('cfo').value.trim();
+  var m=document.getElementById('cfm').value.trim();
+
+  // Clear previous errors
+  document.querySelectorAll('.cf-err').forEach(function(el){el.remove();});
+  document.querySelectorAll('.cf-input-err').forEach(function(el){el.classList.remove('cf-input-err');});
+
+  // Validate required fields
+  var hasErr=false;
+  if(!n){markErr('cfn','Please enter your full name.');hasErr=true;}
+  if(!p){markErr('cfp','Please enter your phone number.');hasErr=true;}
+  if(hasErr)return;
+
+  // Build mailto link — works universally on all devices & browsers
+  var to='support@eduerpee.com';
+  var subject=encodeURIComponent('New Demo Request - EduErpee Website');
+  var body=encodeURIComponent(
+    'Hello EduErpee Team,\n\n'+
+    'I would like to request a free demo.\n\n'+
+    '--- My Details ---\n'+
+    'Name            : '+n+'\n'+
+    'Phone           : '+p+'\n'+
+    'Email           : '+(e||'N/A')+'\n'+
+    'Organisation    : '+(o||'N/A')+'\n'+
+    'Product/Service : '+(s||'N/A')+'\n\n'+
+    'Message:\n'+(m||'No additional message.')+'\n\n'+
+    'Thank you.\n\n'+
+    '--- Sent via EduErpee Website ---'
+  );
+
+  // Open mailto (universal — works on mobile & desktop)
+  window.location.href='mailto:'+to+'?subject='+subject+'&body='+body;
+
+  // Show success on button
+  var btn=document.querySelector('.cf-submit');
+  btn.textContent='Request Sent! We will contact you within 24 hrs.';
+  btn.style.background='#059669';
+  btn.disabled=true;
+  setTimeout(function(){
+    btn.textContent='Send My Request →';
+    btn.style.background='';
+    btn.disabled=false;
+  },6000);
+
+  // Clear form
+  ['cfn','cfp','cfe','cfs','cfo','cfm'].forEach(function(id){
+    var el=document.getElementById(id);
+    if(el)el.value='';
+  });
+}
+
+function markErr(id,msg){
+  var el=document.getElementById(id);
+  if(!el)return;
+  el.classList.add('cf-input-err');
+  var span=document.createElement('span');
+  span.className='cf-err';
+  span.textContent=msg;
+  el.parentNode.appendChild(span);
+}
+
+/* ─── SCROLL REVEAL ─── */
+const ro=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in');});},{threshold:0.07});
+document.querySelectorAll('.rv').forEach(el=>ro.observe(el));
+
+/* ─── CLEAR FIELD ERRORS ON INPUT ─── */
+['cfn','cfp','cfe','cfs','cfo','cfm'].forEach(id => {
+  const el = document.getElementById(id);
+  if(!el) return;
+  el.addEventListener('input', () => {
+    el.classList.remove('cf-input-err');
+    const err = el.parentNode.querySelector('.cf-err');
+    if(err) err.remove();
+  });
+});
+</script>
+</body>
+</html>
