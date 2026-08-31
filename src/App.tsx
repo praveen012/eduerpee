@@ -3,6 +3,8 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import RootLayout from "@/components/layout/RootLayout";
 import { RootRedirect } from "@/i18n/RootRedirect";
+import { RouteProgressBar } from "@/components/common/RouteProgressBar";
+import { NavigationProgressProvider } from "@/hooks/useNavigationProgress";
 
 const HomePage = lazy(() => import("@/pages/HomePage"));
 const AboutPage = lazy(() => import("@/pages/AboutPage"));
@@ -25,43 +27,51 @@ const DisclaimerPage = lazy(() => import("@/pages/legal/DisclaimerPage"));
 const RefundPolicyPage = lazy(() => import("@/pages/legal/RefundPolicyPage"));
 
 function PageFallback() {
-  return <div className="min-h-[50vh]" aria-hidden="true" />;
+  // Only ever shown for the true first-load Suspense case (before
+  // anything has committed) — subsequent SPA navigations are covered by
+  // the click-tracked <RouteProgressBar/> instead (see
+  // useNavigationProgress.tsx for why Suspense's own fallback isn't
+  // reliable for that case).
+  return <div className="min-h-[60vh]" aria-hidden="true" />;
 }
 
 export default function App() {
   return (
     <HelmetProvider>
       <BrowserRouter>
-        <Suspense fallback={<PageFallback />}>
-          <Routes>
-            <Route path="/" element={<RootRedirect />} />
-            <Route path="/:lang" element={<RootLayout />}>
-              <Route index element={<HomePage />} />
-              <Route path="about" element={<AboutPage />} />
-              <Route path="team" element={<TeamPage />} />
-              <Route path="solutions" element={<SolutionsPage />} />
-              <Route path="solutions/:slug" element={<SolutionDetailPage />} />
-              <Route path="services" element={<ServicesPage />} />
-              <Route path="services/:slug" element={<ServiceDetailPage />} />
-              <Route path="industries" element={<IndustriesPage />} />
-              <Route path="technologies" element={<TechnologiesPage />} />
-              <Route path="case-studies" element={<CaseStudiesPage />} />
-              <Route path="clients" element={<CaseStudiesPage />} />
-              <Route path="products" element={<SolutionsPage />} />
-              <Route path="blog" element={<BlogPage />} />
-              <Route path="careers" element={<CareersPage />} />
-              <Route path="contact" element={<ContactPage />} />
-              <Route path="privacy-policy" element={<PrivacyPolicyPage />} />
-              <Route path="terms-and-conditions" element={<TermsPage />} />
-              <Route path="cookie-policy" element={<CookiePolicyPage />} />
-              <Route path="disclaimer" element={<DisclaimerPage />} />
-              <Route path="refund-policy" element={<RefundPolicyPage />} />
-              <Route path="404" element={<NotFoundPage />} />
-              <Route path="*" element={<NotFoundPage />} />
-            </Route>
-            <Route path="*" element={<Navigate to="/en/404" replace />} />
-          </Routes>
-        </Suspense>
+        <NavigationProgressProvider>
+          <RouteProgressBar />
+          <Suspense fallback={<PageFallback />}>
+            <Routes>
+              <Route path="/" element={<RootRedirect />} />
+              <Route path="/:lang" element={<RootLayout />}>
+                <Route index element={<HomePage />} />
+                <Route path="about" element={<AboutPage />} />
+                <Route path="team" element={<TeamPage />} />
+                <Route path="solutions" element={<SolutionsPage />} />
+                <Route path="solutions/:slug" element={<SolutionDetailPage />} />
+                <Route path="services" element={<ServicesPage />} />
+                <Route path="services/:slug" element={<ServiceDetailPage />} />
+                <Route path="industries" element={<IndustriesPage />} />
+                <Route path="technologies" element={<TechnologiesPage />} />
+                <Route path="case-studies" element={<CaseStudiesPage />} />
+                <Route path="clients" element={<CaseStudiesPage />} />
+                <Route path="products" element={<SolutionsPage />} />
+                <Route path="blog" element={<BlogPage />} />
+                <Route path="careers" element={<CareersPage />} />
+                <Route path="contact" element={<ContactPage />} />
+                <Route path="privacy-policy" element={<PrivacyPolicyPage />} />
+                <Route path="terms-and-conditions" element={<TermsPage />} />
+                <Route path="cookie-policy" element={<CookiePolicyPage />} />
+                <Route path="disclaimer" element={<DisclaimerPage />} />
+                <Route path="refund-policy" element={<RefundPolicyPage />} />
+                <Route path="404" element={<NotFoundPage />} />
+                <Route path="*" element={<NotFoundPage />} />
+              </Route>
+              <Route path="*" element={<Navigate to="/en/404" replace />} />
+            </Routes>
+          </Suspense>
+        </NavigationProgressProvider>
       </BrowserRouter>
     </HelmetProvider>
   );

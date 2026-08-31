@@ -385,6 +385,56 @@ Chatbot Development" name; see `ContactForm.tsx`.)
 
 
 
+## Navigation feedback (scroll reset, loading bar) + site-wide mobile overflow bug
+
+Three issues reported together: no visible feedback while a page was
+loading (easy to think a click didn't register), scroll position not
+resetting between pages (landing mid-page on the new page reads as "did
+this even navigate?"), and general mobile responsiveness complaints.
+
+**Scroll reset — straightforward, verified with a real interaction
+test**: `ScrollToTop.tsx`, mounted in `RootLayout`, calls
+`window.scrollTo(0,0)` on every `pathname` change. Proved it with
+Playwright rather than assuming: scrolled 4000px down the homepage,
+clicked a footer link, and confirmed `scrollY` dropped to `0`
+**immediately** (150ms after the click, before the new page even
+finished loading) and stayed there on the new URL.
+
+**Loading progress bar — first attempt was wrong, caught by testing,
+not shipped broken.** The obvious approach — show a bar as the
+`<Suspense>` fallback for lazy-loaded route chunks — doesn't work with
+React Router: it wraps navigation state updates in `startTransition`
+internally, which makes React deliberately keep the *previous* page's
+committed content on screen and skip rendering the fallback while the
+next chunk loads. Confirmed this empirically (not from documentation) by
+intercepting a route's JS chunk with an artificial 1.8s delay and
+polling the DOM every 150ms — the fallback never appeared once across
+the entire delay window. Rebuilt with a different mechanism instead:
+`useNavigationProgress.tsx` listens for clicks on internal links at the
+document level (capture phase) and shows a bar immediately — a real
+synchronous state update, not deferred — clearing it only once
+`useLocation()` confirms the new route actually committed. Re-tested the
+same way: the bar now appears at 0ms (same event as the click) and
+disappears exactly when the page finishes loading, both confirmed via
+DOM polling, not assumed from re-reading the code.
+
+**Mobile overflow — a real, site-wide bug, not vague "responsiveness."**
+Checked every page's `document.documentElement.scrollWidth` vs.
+`clientWidth` at 375px width rather than guessing which page was
+affected: **all 12 pages checked had identical horizontal overflow**
+(394px content in a 375px viewport), meaning the bug was in a shared
+component, not page-specific content. Traced to one exact element via a
+DOM query for anything whose bounding rect extended past the viewport
+edge: the footer's `support@eduerpee.com` mailto link. Flex items don't
+shrink below their content's natural width by default (`min-width: auto`),
+and an email address has no natural line-break points, so the link
+refused to wrap and forced the whole page wider. Fixed with `min-w-0
+break-all` on the email link (and `min-w-0 break-words` on the phone/
+address for the same class of risk). Re-ran the exact same overflow
+check across all 12 pages after the fix — all clean
+(`scrollWidth === clientWidth`) — plus checked the mobile hamburger
+menu specifically, since that's a separate DOM subtree.
+
 ## Header logo size + mega menu clipping fix
 
 A screenshot showed two real problems: the header logo (icon + wordmark +

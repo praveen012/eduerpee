@@ -4,6 +4,7 @@ import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/common/WhatsAppButton";
 import { BackToTop } from "@/components/common/BackToTop";
 import { CookieBanner } from "@/components/common/CookieBanner";
+import { ScrollToTop } from "@/components/common/ScrollToTop";
 import { I18nProvider } from "@/i18n/I18nProvider";
 import { LanguageSuggestionBanner } from "@/i18n/LanguageSuggestionBanner";
 import { RouteTracker } from "@/utils/RouteTracker";
@@ -12,6 +13,7 @@ export default function RootLayout() {
   return (
     <I18nProvider>
       <div className="flex min-h-screen flex-col bg-mist-50 dark:bg-navy-950">
+        <ScrollToTop />
         <RouteTracker />
         <a
           href="#main-content"

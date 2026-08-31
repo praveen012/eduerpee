@@ -95,15 +95,19 @@ export function Footer() {
             <ul className="mt-4 space-y-3 text-[13.5px] text-mist-200/70">
               <li className="flex items-start gap-2">
                 <Phone className="h-4 w-4 mt-0.5 shrink-0 text-brand-orange" />
-                <a href={`tel:${contactInfo.phone.replace(/\s/g, "")}`}>{contactInfo.phone}</a>
+                <a href={`tel:${contactInfo.phone.replace(/\s/g, "")}`} className="min-w-0 break-words">
+                  {contactInfo.phone}
+                </a>
               </li>
               <li className="flex items-start gap-2">
                 <Mail className="h-4 w-4 mt-0.5 shrink-0 text-brand-orange" />
-                <a href={`mailto:${contactInfo.email}`}>{contactInfo.email}</a>
+                <a href={`mailto:${contactInfo.email}`} className="min-w-0 break-all">
+                  {contactInfo.email}
+                </a>
               </li>
               <li className="flex items-start gap-2">
                 <MapPin className="h-4 w-4 mt-0.5 shrink-0 text-brand-orange" />
-                <span>Azamgarh &amp; Greater Noida, Uttar Pradesh, India</span>
+                <span className="min-w-0 break-words">Azamgarh &amp; Greater Noida, Uttar Pradesh, India</span>
               </li>
             </ul>
           </div>
