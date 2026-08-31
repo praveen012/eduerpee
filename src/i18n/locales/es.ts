@@ -1,0 +1,108 @@
+import type { Dictionary } from "./en";
+
+const es: Dictionary = {
+  nav: {
+    solutions: "Soluciones",
+    services: "Servicios",
+    industries: "Industrias",
+    technologies: "Tecnologías",
+    company: "Empresa",
+    contact: "Contacto",
+    getConsultation: "Consulta gratuita",
+    bookDemo: "Reservar demo",
+  },
+  hero: {
+    eyebrow: "IA · Microsoft Azure · ERP a medida · Software",
+    headlinePart1: "Construye más inteligente.",
+    headlinePart2: "Automatiza más rápido.",
+    headlinePart3: "Crece sin límites.",
+    subhead:
+      "EduErpee Technology ayuda a las empresas a convertir ideas en soluciones digitales seguras, escalables e inteligentes — desde software a medida y plataformas ERP hasta IA, nube y automatización.",
+    ctaPrimary: "Inicia tu proyecto",
+    ctaSecondary: "Explorar soluciones",
+  },
+  trust: { heading: "Con la confianza de empresas de múltiples sectores" },
+  clientShowcase: {
+    eyebrow: "Nuestros clientes",
+    heading: "Negocios para los que hemos construido mejor tecnología",
+    description: "Clientes reales, colaboraciones reales — desde plataformas de comercio electrónico hasta instituciones educativas.",
+  },
+  about: {
+    eyebrow: "Sobre EduErpee",
+    heading: "Tecnología que resuelve problemas reales de negocio",
+    description:
+      "EduErpee Technology Private Limited es un proveedor integral de soluciones de TI especializado en desarrollo de IA, soluciones en la nube de Microsoft Azure, sistemas ERP a medida y aumento de personal de TI — un socio de confianza para más de 100 organizaciones en educación, salud, retail y sectores empresariales.",
+  },
+  solutions: {
+    eyebrow: "Productos listos para implementar",
+    heading: "Soluciones tecnológicas construidas para tu negocio",
+    description: "Deja de pagar por funciones que no encajan. Cada producto está construido para operaciones reales de negocio y puede personalizarse por completo según cómo trabaja tu equipo.",
+    exploreCta: "Explorar solución",
+  },
+  services: { eyebrow: "Servicios de TI de extremo a extremo", heading: "Todos los servicios digitales en un solo lugar" },
+  industries: { eyebrow: "Industrias a las que servimos", heading: "Hemos resuelto problemas en tu industria" },
+  technologies: {
+    eyebrow: "Ecosistema tecnológico",
+    heading: "Tecnología probada por la industria, elegida por su durabilidad",
+    description: "Herramientas elegidas por rendimiento, seguridad y mantenibilidad a largo plazo — no por lo que esté de moda este trimestre.",
+  },
+  why: {
+    eyebrow: "Por qué elegir EduErpee",
+    heading: "Tu socio tecnológico, no solo un proveedor",
+    description: "Local en Uttar Pradesh, EduErpee habla el idioma del cliente, entiende el mercado y puede visitarte en persona cuando lo necesites.",
+  },
+  process: { eyebrow: "Proceso simple", heading: "De la primera llamada a producción en cinco pasos" },
+  testimonials: { eyebrow: "Clientes satisfechos", heading: "Negocios reales, resultados reales", viewAll: "Ver todos los casos de éxito" },
+  team: { eyebrow: "Nuestro liderazgo", heading: "Las personas detrás de tu éxito" },
+  caseStudies: { eyebrow: "Casos de éxito", heading: "Negocios reales, resultados reales" },
+  globalPresence: {
+    eyebrow: "Entrega global",
+    heading: "Tecnología sin fronteras",
+    description: "Entregamos soluciones tecnológicas para negocios a través de fronteras, industrias y zonas horarias — con oficinas registradas y sucursales en Uttar Pradesh, India.",
+  },
+  footerCta: {
+    heading: "¿Listo para transformar tu negocio?",
+    description: "Construyamos tecnología segura, escalable e inteligente que impulse tu negocio hacia adelante.",
+    primary: "Inicia tu proyecto",
+    secondary: "Habla con un experto",
+  },
+  ecosystem: { exploreService: "Explorar servicio →" },
+  legal: {
+    privacy: "Política de privacidad",
+    terms: "Términos y condiciones",
+    cookie: "Política de cookies",
+    disclaimer: "Aviso legal",
+    refund: "Política de reembolsos",
+  },
+  contact: {
+    eyebrow: "Contáctanos",
+    heading: "Construyamos algo increíble juntos",
+    sub: "Reserva una demo gratuita, comenta tus necesidades o visita una oficina. Respondemos en 24 horas.",
+    formHeading: "Solicita una consulta gratuita",
+    name: "Nombre completo",
+    company: "Nombre de la empresa",
+    email: "Correo electrónico",
+    phone: "Número de teléfono",
+    country: "País",
+    serviceRequired: "Servicio requerido",
+    budget: "Rango de presupuesto",
+    message: "Tu mensaje",
+    submit: "Enviar solicitud",
+    submitting: "Enviando…",
+    success: "Gracias — hemos recibido tu solicitud. Te contactaremos en 24 horas.",
+  },
+  footer: {
+    tagline: "Simplifica. Automatiza. Crece.",
+    solutions: "Soluciones",
+    services: "Servicios",
+    company: "Empresa",
+    contact: "Contacto",
+    legal: "Legal",
+    rights: "Todos los derechos reservados.",
+    newsletter: "Suscríbete para novedades de producto y tecnología.",
+    subscribe: "Suscribirse",
+  },
+  notFound: { heading: "Parece que esta página tomó otro camino.", cta: "Volver al inicio" },
+};
+
+export default es;

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="75 92 310 100" width="930" height="300">
+  <circle cx="116" cy="136" r="35" fill="none" stroke="#1565C0" stroke-width="1.5"/>
+  <circle cx="116" cy="101" r="6" fill="#E8640A"/>
+  <circle cx="151" cy="136" r="4" fill="#90CAF9"/>
+  <circle cx="116" cy="136" r="26" fill="#E8640A"/>
+  <rect x="108" y="124" width="4.5" height="23" rx="2" fill="white"/>
+  <rect x="108" y="124" width="15" height="4.5" rx="2" fill="white"/>
+  <rect x="108" y="132.5" width="11" height="3.5" rx="1.5" fill="rgba(255,255,255,0.65)"/>
+  <rect x="108" y="142.5" width="15" height="4.5" rx="2" fill="white"/>
+  <text x="165" y="125" font-family="system-ui,sans-serif" font-size="22" font-weight="500" fill="#0D2A4A">Edu<tspan fill="#E8640A">Erpee</tspan></text>
+  <text x="165" y="143" font-family="system-ui,sans-serif" font-size="10" font-weight="600" fill="#5B8EC9" letter-spacing="1">Simplify · Automate · Grow</text>
+</svg>
