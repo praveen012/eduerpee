@@ -43,7 +43,7 @@ export function Header() {
           : "bg-transparent border-b border-transparent"
       }`}
     >
-      <Container className="flex min-h-[76px] items-center justify-between py-3">
+      <Container className="flex min-h-[56px] items-center justify-between py-0.5">
         <Link to={withLang("/")} className="flex items-center shrink-0">
           <img src="/logo-light.svg" alt="EduErpee Technology" className="h-14 w-auto" />
         </Link>
