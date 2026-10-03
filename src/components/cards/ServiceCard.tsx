@@ -7,10 +7,11 @@ const categoryColor: Record<Service["category"], string> = {
   development: "text-domain-enterprise bg-domain-enterprise/10",
   ai: "text-domain-ai bg-domain-ai/10",
   cloud: "text-domain-cloud bg-domain-cloud/10",
-  design: "text-brand-orange bg-brand-orange/10",
-  marketing: "text-brand-orange bg-brand-orange/10",
+  design: "text-domain-design bg-domain-design/10",
+  marketing: "text-domain-marketing bg-domain-marketing/10",
   security: "text-domain-security bg-domain-security/10",
   outsourcing: "text-pink-500 bg-pink-500/10",
+  consulting: "text-domain-enterprise bg-domain-enterprise/10",
 };
 
 export function ServiceCard({ service }: { service: Service }) {

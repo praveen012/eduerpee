@@ -12,6 +12,19 @@ export default function AboutPage() {
         title="About Us"
         description="EduErpee Technology Private Limited — a decade-old IT partner delivering ERP, software, cloud and AI solutions for 100+ businesses across USA, EU and India."
         path="/about"
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "AboutPage",
+          name: "About EduErpee Technology",
+          url: "https://www.eduerpee.com/en/about",
+          mainEntity: {
+            "@type": "Organization",
+            name: "EduErpee Technology Private Limited",
+            url: "https://www.eduerpee.com",
+            description:
+              "A trusted IT partner delivering innovative software solutions for over a decade — ERP, software, cloud and AI for businesses across USA, EU and India.",
+          },
+        }}
       />
       <PageHero
         eyebrow="About EduErpee"

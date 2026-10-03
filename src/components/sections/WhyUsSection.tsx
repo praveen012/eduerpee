@@ -1,10 +1,11 @@
 import { Container } from "@/components/common/Container";
 import { SectionHeader } from "@/components/common/SectionHeader";
-import { whyChooseUs } from "@/data/content";
+import { useLocalizedContent } from "@/data/useLocalizedContent";
 import { useI18n } from "@/i18n/I18nProvider";
 
 export function WhyUsSection() {
   const { t } = useI18n();
+  const { whyChooseUs } = useLocalizedContent();
   return (
     <section id="why" className="py-20 sm:py-28">
       <Container>

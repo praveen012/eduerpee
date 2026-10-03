@@ -5,11 +5,11 @@ import { Container } from "@/components/common/Container";
 import { CTAButton } from "@/components/common/CTAButton";
 import { FooterCTA } from "@/components/sections/FooterCTA";
 import type { BlogBlock } from "@/data/blogPosts";
-import { getBlogPostBySlug } from "@/data/blogPosts";
+import { useLocalizedBlogPost } from "@/data/useLocalizedBlogPost";
 import { useI18n } from "@/i18n/I18nProvider";
 
-function formatDate(iso: string) {
-  return new Date(iso).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
+function formatDate(iso: string, lang: string) {
+  return new Date(iso).toLocaleDateString(lang, { year: "numeric", month: "long", day: "numeric" });
 }
 
 function BlockRenderer({ block, lang }: { block: BlogBlock; lang: string }) {
@@ -69,7 +69,7 @@ function BlockRenderer({ block, lang }: { block: BlogBlock; lang: string }) {
 export default function BlogPostPage() {
   const { slug } = useParams();
   const { lang } = useI18n();
-  const post = getBlogPostBySlug(slug ?? "");
+  const post = useLocalizedBlogPost(slug);
 
   if (!post) return <Navigate to={`/${lang}/404`} replace />;
 
@@ -97,7 +97,7 @@ export default function BlogPostPage() {
             <div className="flex items-center gap-2 text-[12.5px] text-ink-500 dark:text-mist-200/55">
               <span>{post.author}</span>
               <span>·</span>
-              <span>{formatDate(post.date)}</span>
+              <span>{formatDate(post.date, lang)}</span>
               <span>·</span>
               <span>{post.readTime}</span>
             </div>

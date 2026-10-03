@@ -2,11 +2,12 @@ import { Container } from "@/components/common/Container";
 import { SectionHeader } from "@/components/common/SectionHeader";
 import { AINetworkField } from "@/components/common/AINetworkField";
 import { Icon } from "@/utils/icon";
-import { industries } from "@/data/content";
+import { useLocalizedContent } from "@/data/useLocalizedContent";
 import { useI18n } from "@/i18n/I18nProvider";
 
 export function IndustriesSection() {
   const { t } = useI18n();
+  const { industries } = useLocalizedContent();
   return (
     <section id="industries" className="relative overflow-hidden py-20 sm:py-28 bg-mist-100/60 dark:bg-navy-900/30">
       <AINetworkField className="opacity-[0.18] dark:opacity-60" />

@@ -9,9 +9,9 @@ interface AIRobotProps {
   hoveredColor?: string | null;
 }
 
-const ORANGE = "#F97316";
-const CYAN = "#22D3EE";
-const PURPLE = "#8B5CF6";
+const TEAL = "#0E7C86";
+const TEAL_LIGHT = "#3FB6C2";
+const SKY = "#38BDF8";
 
 /**
  * A procedural, abstract AI robot — no external GLTF asset required.
@@ -64,7 +64,7 @@ export function AIRobot({ mouse, quality, hoveredColor = null }: AIRobotProps) {
     []
   );
 
-  const coreColor = useMemo(() => new THREE.Color(ORANGE), []);
+  const coreColor = useMemo(() => new THREE.Color(TEAL), []);
   const hoverColorObj = useMemo(() => (hoveredColor ? new THREE.Color(hoveredColor) : null), [hoveredColor]);
 
   useFrame((state) => {
@@ -128,11 +128,11 @@ export function AIRobot({ mouse, quality, hoveredColor = null }: AIRobotProps) {
         {/* Eyes */}
         <mesh ref={leftEye} position={[-0.15, -0.02, 0.4]}>
           <sphereGeometry args={[0.045, 16, 16]} />
-          <meshStandardMaterial color={CYAN} emissive={CYAN} emissiveIntensity={1.4} toneMapped={false} />
+          <meshStandardMaterial color={TEAL_LIGHT} emissive={TEAL_LIGHT} emissiveIntensity={1.4} toneMapped={false} />
         </mesh>
         <mesh ref={rightEye} position={[0.15, -0.02, 0.4]}>
           <sphereGeometry args={[0.045, 16, 16]} />
-          <meshStandardMaterial color={CYAN} emissive={CYAN} emissiveIntensity={1.4} toneMapped={false} />
+          <meshStandardMaterial color={TEAL_LIGHT} emissive={TEAL_LIGHT} emissiveIntensity={1.4} toneMapped={false} />
         </mesh>
       </group>
 
@@ -155,19 +155,19 @@ export function AIRobot({ mouse, quality, hoveredColor = null }: AIRobotProps) {
       <mesh ref={core} position={[0, 1.05, 0.47]}>
         <sphereGeometry args={[0.16, segments, segments]} />
         <meshStandardMaterial
-          color={ORANGE}
-          emissive={ORANGE}
+          color={TEAL}
+          emissive={TEAL}
           emissiveIntensity={1.8}
           toneMapped={false}
         />
       </mesh>
       <mesh ref={ring1} position={[0, 1.05, 0.47]}>
         <torusGeometry args={[0.26, 0.008, 8, segments]} />
-        <meshStandardMaterial color={ORANGE} emissive={ORANGE} emissiveIntensity={1} toneMapped={false} />
+        <meshStandardMaterial color={TEAL} emissive={TEAL} emissiveIntensity={1} toneMapped={false} />
       </mesh>
       <mesh ref={ring2} position={[0, 1.05, 0.47]} rotation={[Math.PI / 2.4, 0, 0]}>
         <torusGeometry args={[0.32, 0.006, 8, segments]} />
-        <meshStandardMaterial color={PURPLE} emissive={PURPLE} emissiveIntensity={0.9} toneMapped={false} />
+        <meshStandardMaterial color={SKY} emissive={SKY} emissiveIntensity={0.9} toneMapped={false} />
       </mesh>
 
       {/* Shoulders + arms (simple elegant capsules, not overly mechanical) */}

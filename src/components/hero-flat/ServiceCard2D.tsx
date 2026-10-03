@@ -36,18 +36,15 @@ export function ServiceCard2D({
     >
       <Link
         to={`/${lang}${node.href}`}
-        className="group flex items-start gap-2.5 rounded-lg border bg-navy-950/95 p-2.5 backdrop-blur-md transition-all duration-200 hover:-translate-y-0.5 sm:gap-3 sm:p-3.5"
+        className="group flex items-start gap-2.5 rounded-md border border-white/10 bg-navy-950/95 p-2.5 backdrop-blur-md transition-all duration-200 hover:-translate-y-0.5 sm:gap-3 sm:p-3.5"
         onClick={() => trackEvent("hero_service_click", { service: node.id })}
-        style={{
-          borderColor: `${node.color}40`,
-          boxShadow: `0 0 0 rgba(0,0,0,0)`,
-        }}
+        style={{ boxShadow: "0 0 0 rgba(0,0,0,0)" }}
         onMouseEnter={(e) => {
-          e.currentTarget.style.borderColor = node.color;
-          e.currentTarget.style.boxShadow = `0 0 24px ${node.color}33`;
+          e.currentTarget.style.borderColor = `${node.color}80`;
+          e.currentTarget.style.boxShadow = `0 0 20px ${node.color}22`;
         }}
         onMouseLeave={(e) => {
-          e.currentTarget.style.borderColor = `${node.color}40`;
+          e.currentTarget.style.borderColor = "";
           e.currentTarget.style.boxShadow = "0 0 0 rgba(0,0,0,0)";
         }}
       >

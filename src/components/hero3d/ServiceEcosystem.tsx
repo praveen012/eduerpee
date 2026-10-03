@@ -106,8 +106,8 @@ function EcosystemNodeItem({
             className="block select-none rounded-lg border backdrop-blur-md transition-all duration-200"
             style={{
               borderColor: isHovered ? node.color : `${node.color}55`,
-              background: isHovered ? "rgba(11,18,32,0.85)" : "rgba(11,18,32,0.55)",
-              boxShadow: isHovered ? `0 0 28px ${node.color}55` : `0 0 16px ${node.color}18`,
+              background: isHovered ? "rgba(255,255,255,0.95)" : "rgba(255,255,255,0.75)",
+              boxShadow: isHovered ? `0 8px 28px ${node.color}33` : `0 4px 14px ${node.color}18`,
               padding: isHovered ? "10px 14px" : "8px 12px",
               width: isHovered ? "196px" : "auto",
             }}
@@ -122,7 +122,7 @@ function EcosystemNodeItem({
             </div>
             {isHovered && (
               <>
-                <p className="mt-2 whitespace-normal text-[10.5px] leading-snug text-mist-200/85">
+                <p className="mt-2 whitespace-normal text-[10.5px] leading-snug" style={{ color: "var(--color-slate)" }}>
                   {node.description}
                 </p>
                 <span

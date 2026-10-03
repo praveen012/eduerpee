@@ -28,7 +28,7 @@ export interface Service {
   icon: string;
   title: string;
   description: string;
-  category: "development" | "ai" | "cloud" | "design" | "marketing" | "security" | "outsourcing";
+  category: "development" | "ai" | "cloud" | "design" | "marketing" | "security" | "outsourcing" | "consulting";
   href: string;
 }
 
@@ -60,6 +60,9 @@ export interface TeamMember {
   name: string;
   role: string;
   bio: string;
+  photoUrl?: string;
+  /** CSS object-position for the square crop — defaults to "center" when omitted. */
+  photoObjectPosition?: string;
 }
 
 export interface Client {

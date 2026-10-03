@@ -43,9 +43,9 @@ export function Header() {
           : "bg-transparent border-b border-transparent"
       }`}
     >
-      <Container className="flex min-h-[56px] items-center justify-between py-0.5">
+      <Container className="flex min-h-[76px] items-center justify-between py-1">
         <Link to={withLang("/")} className="flex items-center shrink-0">
-          <img src="/logo-light.svg" alt="EduErpee Technology" className="h-14 w-auto" />
+          <img src="/logo-wordmark-light.png" alt="EduErpee Technology" className="h-[60px] w-auto sm:h-[70px]" />
         </Link>
 
         <nav className="hidden lg:flex items-center gap-1">

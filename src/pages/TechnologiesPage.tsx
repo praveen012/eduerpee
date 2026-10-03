@@ -10,6 +10,14 @@ export default function TechnologiesPage() {
         title="Technology Stack"
         description="The frontend, backend, database, cloud and AI technologies EduErpee Technology builds with."
         path="/technologies"
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          name: "Technology Stack",
+          url: "https://www.eduerpee.com/en/technologies",
+          description: "The frontend, backend, database, cloud and AI technologies EduErpee Technology builds with.",
+          isPartOf: { "@type": "Organization", name: "EduErpee Technology Private Limited", url: "https://www.eduerpee.com" },
+        }}
       />
       <PageHero eyebrow="Technology Ecosystem" title="Industry-Proven Technology, Selected For Longevity" />
       <TechStackSection />

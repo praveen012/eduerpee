@@ -21,7 +21,7 @@ export default function HomePage() {
     url: "https://www.eduerpee.com",
     logo: "https://www.eduerpee.com/logo.png",
     email: "support@eduerpee.com",
-    telephone: "+91-96501-43654",
+    telephone: "+91-91980-42867",
     address: [
       {
         "@type": "PostalAddress",
@@ -31,10 +31,35 @@ export default function HomePage() {
         postalCode: "276404",
         addressCountry: "IN",
       },
+      {
+        "@type": "PostalAddress",
+        streetAddress: "Lower Ground Floor, Near Shiva Smart City-2, Talabpur Dadri",
+        addressLocality: "Greater Noida",
+        addressRegion: "Uttar Pradesh",
+        postalCode: "203207",
+        addressCountry: "IN",
+      },
+    ],
+    // On-site support near Azamgarh/Greater Noida; remote delivery for every other area listed —
+    // see src/data/locations.ts and the Locations page (/locations) for the honest breakdown.
+    areaServed: [
+      "Azamgarh",
+      "Varanasi",
+      "Gorakhpur",
+      "Lucknow",
+      "Jaunpur",
+      "Mau",
+      "Delhi NCR",
+      "United States",
+      "European Union",
+      "United Arab Emirates",
+      "Gulf Cooperation Council (GCC)",
     ],
     sameAs: [
       "https://www.facebook.com/profile.php?id=61589485346019",
       "https://instagram.com/eduerpeetechnology",
+      "https://www.linkedin.com/company/eduerpee-technology",
+      "https://www.youtube.com/@EduerpeeTechnology",
     ],
   };
 

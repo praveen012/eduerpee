@@ -3,9 +3,12 @@ import { motion, useReducedMotion, type TargetAndTransition } from "framer-motio
 /**
  * A flat, hand-drawn SVG robot illustration standing in for a photoreal
  * render (which would need an image-generation or licensed 3D asset
- * pipeline neither available here). Built to match the reference's read:
- * white/silver humanoid, warm orange glow at the eyes and chest core,
- * standing on a glowing circular platform, "E" emblem on the chest.
+ * pipeline neither available here). Recolored from the original bright-
+ * orange "glossy SaaS mascot" palette to the site's copper/cyanotype
+ * "systems blueprint" accent, with a couple of thin annotation leader
+ * lines labelling the core and sensor array — read as a labelled
+ * technical diagram rather than a product-shot mascot. White/silver
+ * humanoid, standing on a glowing circular platform, "E" emblem on chest.
  *
  * Movement is layered like a real idling machine rather than one flat
  * pulse: feet/legs stay planted (grounded), the upper body sways gently
@@ -29,9 +32,9 @@ export function RobotIllustration({ className = "" }: { className?: string }) {
     >
       <defs>
         <radialGradient id="platformGlow" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stopColor="#F97316" stopOpacity="0.55" />
-          <stop offset="60%" stopColor="#F97316" stopOpacity="0.12" />
-          <stop offset="100%" stopColor="#F97316" stopOpacity="0" />
+          <stop offset="0%" stopColor="#CB8A4E" stopOpacity="0.5" />
+          <stop offset="60%" stopColor="#CB8A4E" stopOpacity="0.1" />
+          <stop offset="100%" stopColor="#CB8A4E" stopOpacity="0" />
         </radialGradient>
         <linearGradient id="bodyMetal" x1="0%" y1="0%" x2="100%" y2="100%">
           <stop offset="0%" stopColor="#F4F5F7" />
@@ -43,9 +46,9 @@ export function RobotIllustration({ className = "" }: { className?: string }) {
           <stop offset="100%" stopColor="#8A8F99" />
         </linearGradient>
         <radialGradient id="coreGlow" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stopColor="#FFB877" />
-          <stop offset="45%" stopColor="#F97316" />
-          <stop offset="100%" stopColor="#C2410C" />
+          <stop offset="0%" stopColor="#E8C9A0" />
+          <stop offset="45%" stopColor="#CB8A4E" />
+          <stop offset="100%" stopColor="#8C633C" />
         </radialGradient>
         <filter id="softGlow" x="-60%" y="-60%" width="220%" height="220%">
           <feGaussianBlur stdDeviation="6" result="blur" />
@@ -56,6 +59,19 @@ export function RobotIllustration({ className = "" }: { className?: string }) {
         </filter>
       </defs>
 
+      {/* Annotation leader lines — labelled like a technical diagram rather
+          than decorative glow. Drawn first so the robot's body sits above
+          the lines where they'd otherwise cross it. */}
+      <g opacity="0.55" fontFamily="Inter, sans-serif">
+        <path d="M103 168 L158 168" fill="none" stroke="#4FB8C9" strokeWidth="1" strokeDasharray="3 3" />
+        <circle cx="103" cy="168" r="2" fill="#4FB8C9" />
+        <text x="10" y="172" fontSize="11" fill="#4FB8C9" letterSpacing="0.5">SENSOR ARRAY</text>
+
+        <path d="M374 295 L252 295" fill="none" stroke="#CB8A4E" strokeWidth="1" strokeDasharray="3 3" />
+        <circle cx="374" cy="295" r="2" fill="#CB8A4E" />
+        <text x="318" y="291" fontSize="11" fill="#CB8A4E" letterSpacing="0.5">AI CORE</text>
+      </g>
+
       <ellipse cx="210" cy="500" rx="150" ry="26" fill="url(#platformGlow)" />
       <motion.ellipse
         cx="210"
@@ -63,13 +79,13 @@ export function RobotIllustration({ className = "" }: { className?: string }) {
         rx="118"
         ry="16"
         fill="none"
-        stroke="#F97316"
+        stroke="#CB8A4E"
         strokeWidth="1.5"
         strokeOpacity="0.55"
         animate={anim({ rx: [118, 124, 118] })}
         transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
       />
-      <ellipse cx="210" cy="500" rx="80" ry="10" fill="none" stroke="#22D3EE" strokeOpacity="0.4" strokeWidth="1" />
+      <ellipse cx="210" cy="500" rx="80" ry="10" fill="none" stroke="#4FB8C9" strokeOpacity="0.4" strokeWidth="1" />
 
       <rect x="172" y="380" width="26" height="100" rx="10" fill="url(#bodyMetalDark)" />
       <rect x="222" y="380" width="26" height="100" rx="10" fill="url(#bodyMetalDark)" />
@@ -107,7 +123,7 @@ export function RobotIllustration({ className = "" }: { className?: string }) {
           cx="140"
           cy="248"
           r="6"
-          fill="#F97316"
+          fill="#CB8A4E"
           animate={anim({ opacity: [0.6, 1, 0.6] })}
           transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
         />
@@ -115,10 +131,17 @@ export function RobotIllustration({ className = "" }: { className?: string }) {
           cx="280"
           cy="248"
           r="6"
-          fill="#F97316"
+          fill="#CB8A4E"
           animate={anim({ opacity: [0.6, 1, 0.6] })}
           transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
         />
+
+        {/* Panel-seam rivets — small mechanical detailing on the torso
+            plate, upgrading the flat illustration without touching any
+            coordinate other components anchor to. */}
+        {[[164, 240], [256, 240], [164, 350], [256, 350]].map(([cx, cy]) => (
+          <circle key={`${cx}-${cy}`} cx={cx} cy={cy} r="2.2" fill="#9AA0AC" opacity="0.7" />
+        ))}
 
         <motion.g
           style={{ transformOrigin: "140px 248px" }}
@@ -154,7 +177,7 @@ export function RobotIllustration({ className = "" }: { className?: string }) {
             cy="168"
             rx="9"
             ry="7"
-            fill="#F97316"
+            fill="#4FB8C9"
             filter="url(#softGlow)"
             animate={anim({ opacity: [0.85, 1, 0.85], cx: [196, 199, 196, 193, 196] })}
             transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", times: [0, 0.28, 0.52, 0.78, 1] }}
@@ -164,7 +187,7 @@ export function RobotIllustration({ className = "" }: { className?: string }) {
             cy="168"
             rx="9"
             ry="7"
-            fill="#F97316"
+            fill="#4FB8C9"
             filter="url(#softGlow)"
             animate={anim({ opacity: [0.85, 1, 0.85], cx: [224, 227, 224, 221, 224] })}
             transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", times: [0, 0.28, 0.52, 0.78, 1] }}
@@ -176,7 +199,7 @@ export function RobotIllustration({ className = "" }: { className?: string }) {
             transition={{ duration: 2.6, repeat: Infinity, ease: "easeInOut" }}
           >
             <line x1="210" y1="120" x2="210" y2="100" stroke="#8A8F99" strokeWidth="3" strokeLinecap="round" />
-            <circle cx="210" cy="96" r="5" fill="#F97316" filter="url(#softGlow)" />
+            <circle cx="210" cy="96" r="5" fill="#CB8A4E" filter="url(#softGlow)" />
           </motion.g>
         </motion.g>
       </motion.g>

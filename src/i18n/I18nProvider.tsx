@@ -4,9 +4,12 @@ import en, { type Dictionary } from "./locales/en";
 import hi from "./locales/hi";
 import es from "./locales/es";
 import ar from "./locales/ar";
+import fr from "./locales/fr";
+import de from "./locales/de";
+import pt from "./locales/pt";
 import { languages, defaultLanguage, type LanguageDef } from "./config";
 
-const dictionaries: Record<string, Dictionary> = { en, hi, es, ar };
+const dictionaries: Record<string, Dictionary> = { en, hi, es, ar, fr, de, pt };
 
 export const LANG_STORAGE_KEY = "eduerpee-lang";
 

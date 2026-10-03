@@ -28,6 +28,26 @@ const emptyForm: FormState = {
 
 const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+// WhatsApp delivery — no third-party account or backend needed. On submit,
+// everything the person typed is packed into a wa.me pre-filled message
+// opened straight to EduErpee's own WhatsApp (contactInfo.phone), so the
+// lead lands as a real, visible message rather than vanishing into a form
+// no one's watching.
+function buildWhatsAppMessage(form: FormState): string {
+  const lines = [
+    "New website enquiry:",
+    `Name: ${form.name}`,
+    form.company && `Company: ${form.company}`,
+    `Email: ${form.email}`,
+    `Phone: ${form.phone}`,
+    form.country && `Country: ${form.country}`,
+    form.budget && `Budget: ${form.budget}`,
+    `Service: ${form.service || "Not specified"}`,
+    `Message: ${form.message}`,
+  ].filter(Boolean);
+  return lines.join("\n");
+}
+
 const serviceOptions = [
   "AI Development & Automation",
   "Cloud & DevOps (Azure)",
@@ -42,7 +62,12 @@ const serviceOptions = [
   "Mobile App Development",
   "Digital Marketing & SEO",
   "UI/UX Design",
-  "ERP Consulting",
+  "Software & IT Consulting",
+  "HRMS – HR & Payroll Management",
+  "Institute / Coaching Management",
+  "Content Management System (CMS)",
+  "Pathology Lab Management",
+  "Hospital Management System",
 ];
 
 export function ContactForm() {
@@ -50,6 +75,7 @@ export function ContactForm() {
   const [form, setForm] = useState<FormState>(emptyForm);
   const [errors, setErrors] = useState<Partial<Record<keyof FormState, string>>>({});
   const [status, setStatus] = useState<"idle" | "submitting" | "success">("idle");
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   const update = (key: keyof FormState) => (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) =>
     setForm((f) => ({ ...f, [key]: e.target.value }));
@@ -70,15 +96,33 @@ export function ContactForm() {
     e.preventDefault();
     if (!validate()) return;
     setStatus("submitting");
-    // NOTE: wire this up to a real backend endpoint (see README) — this demo
-    // client only performs validation + sanitisation-ready structuring.
-    // Never send secrets from the frontend; the API layer should hold the
-    // CAPTCHA/Turnstile secret and rate-limit by IP.
-    await new Promise((r) => setTimeout(r, 700));
+    setSubmitError(null);
+
+    const waNumber = contactInfo.phone.replace(/\D/g, ""); // "+91 91980 42867" -> "919198042867"
+    const waUrl = `https://wa.me/${waNumber}?text=${encodeURIComponent(buildWhatsAppMessage(form))}`;
+    // Deliberately omitting "noopener" here: browsers return null from
+    // window.open() whenever noopener is set, even when the popup opens
+    // fine, which made it impossible to detect an actual block. wa.me is a
+    // trusted WhatsApp/Meta domain, so skipping it (and accepting the new
+    // tab can call window.opener) is an acceptable trade-off for a working
+    // success/failure check.
+    const opened = window.open(waUrl, "_blank");
+
+    if (!opened) {
+      // Popup blocked — don't silently claim success; tell them to tap the
+      // button themselves instead of losing the lead.
+      setStatus("idle");
+      setSubmitError(
+        "Your browser blocked the WhatsApp popup — please allow popups and submit again, or message us directly on WhatsApp below."
+      );
+      return;
+    }
+
     setStatus("success");
-    // The real conversion event — fires only after successful submission,
-    // with which service they picked so you can see which offering
-    // actually drives contact requests (e.g. AI vs. staff augmentation).
+    // The real conversion event — fires only after the WhatsApp window
+    // actually opens, with which service they picked so you can see which
+    // offering actually drives contact requests (e.g. AI vs. staff
+    // augmentation).
     trackEvent("generate_lead", { service_requested: form.service || "unspecified" });
   };
 
@@ -135,6 +179,12 @@ export function ContactForm() {
           </Field>
         </div>
 
+        {submitError && (
+          <p className="mt-4 rounded-md border border-red-400/30 bg-red-500/5 px-3.5 py-2.5 text-[12.5px] text-red-500">
+            {submitError}
+          </p>
+        )}
+
         <button
           type="submit"
           disabled={status === "submitting"}
@@ -172,7 +222,10 @@ export function ContactForm() {
 }
 
 function inputClass(hasError: boolean) {
-  return `w-full rounded-md border bg-mist-50 dark:bg-navy-950 px-3.5 py-2.5 text-[13.5px] text-ink-900 dark:text-mist-100 outline-none transition-colors focus:border-brand-orange ${
+  // No "outline-none" here on purpose — removing it entirely would also
+  // strip the keyboard focus-visible ring (src/index.css), so the border
+  // color change is layered on top of the ring rather than replacing it.
+  return `w-full rounded-md border bg-mist-50 dark:bg-navy-950 px-3.5 py-2.5 text-[13.5px] text-ink-900 dark:text-mist-100 transition-colors focus:border-brand-orange ${
     hasError ? "border-red-400" : "border-ink-900/12 dark:border-white/12"
   }`;
 }

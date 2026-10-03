@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
-import { Phone, Mail, MapPin, Link2, Camera, MessageCircle } from "lucide-react";
+import { Phone, Mail, MapPin } from "lucide-react";
 import { Container } from "@/components/common/Container";
 import { useI18n } from "@/i18n/I18nProvider";
 import { contactInfo } from "@/data/content";
 import { primaryNav } from "@/data/nav";
+import { FacebookIcon, InstagramIcon, LinkedinIcon, YoutubeIcon, WhatsappIcon } from "@/components/common/SocialIcons";
 
 export function Footer() {
   const { t, lang } = useI18n();
@@ -16,23 +17,26 @@ export function Footer() {
       <Container className="py-16">
         <div className="grid grid-cols-2 gap-10 md:grid-cols-6">
           <div className="col-span-2">
-            <div className="flex items-center gap-2">
-              <img src="/logo-dark.svg" alt="EduErpee Technology" className="h-9 w-9 rounded-md" />
-              <span className="font-display text-lg font-semibold text-white">EduErpee</span>
-            </div>
+            <img src="/logo-wordmark-dark.png" alt="EduErpee Technology" className="h-11 w-auto" />
             <p className="mt-4 text-[13.5px] leading-relaxed text-mist-200/60 max-w-xs">
               {t.footer.tagline} EduErpee Technology Private Limited delivers ERP, software, cloud and
               AI solutions for businesses across USA, EU and India.
             </p>
             <div className="mt-5 flex gap-3">
-              <a href={contactInfo.social.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="rounded-md bg-white/5 p-2 hover:bg-white/10 transition-colors">
-                <Link2 className="h-4 w-4" />
+              <a href={contactInfo.social.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="rounded-md bg-white/5 p-2 hover:bg-[var(--color-copper)] hover:text-white transition-colors">
+                <FacebookIcon className="h-4 w-4" />
               </a>
-              <a href={contactInfo.social.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="rounded-md bg-white/5 p-2 hover:bg-white/10 transition-colors">
-                <Camera className="h-4 w-4" />
+              <a href={contactInfo.social.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="rounded-md bg-white/5 p-2 hover:bg-[var(--color-copper)] hover:text-white transition-colors">
+                <InstagramIcon className="h-4 w-4" />
               </a>
-              <a href={contactInfo.social.whatsapp} target="_blank" rel="noopener noreferrer" className="rounded-md bg-white/5 p-2 hover:bg-white/10 transition-colors">
-                <MessageCircle className="h-4 w-4" />
+              <a href={contactInfo.social.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="rounded-md bg-white/5 p-2 hover:bg-[var(--color-copper)] hover:text-white transition-colors">
+                <LinkedinIcon className="h-4 w-4" />
+              </a>
+              <a href={contactInfo.social.youtube} target="_blank" rel="noopener noreferrer" aria-label="YouTube" className="rounded-md bg-white/5 p-2 hover:bg-[var(--color-copper)] hover:text-white transition-colors">
+                <YoutubeIcon className="h-4 w-4" />
+              </a>
+              <a href={contactInfo.social.whatsapp} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="rounded-md bg-white/5 p-2 hover:bg-[var(--color-copper)] hover:text-white transition-colors">
+                <WhatsappIcon className="h-4 w-4" />
               </a>
             </div>
           </div>
@@ -74,6 +78,7 @@ export function Footer() {
             <ul className="mt-4 space-y-2.5">
               {[
                 ["About Us", "/about"],
+                ["Locations", "/locations"],
                 ["Case Studies", "/case-studies"],
                 ["Our Team", "/team"],
                 ["Careers", "/careers"],
@@ -95,19 +100,15 @@ export function Footer() {
             <ul className="mt-4 space-y-3 text-[13.5px] text-mist-200/70">
               <li className="flex items-start gap-2">
                 <Phone className="h-4 w-4 mt-0.5 shrink-0 text-brand-orange" />
-                <a href={`tel:${contactInfo.phone.replace(/\s/g, "")}`} className="min-w-0 break-words">
-                  {contactInfo.phone}
-                </a>
+                <a href={`tel:${contactInfo.phone.replace(/\s/g, "")}`}>{contactInfo.phone}</a>
               </li>
               <li className="flex items-start gap-2">
                 <Mail className="h-4 w-4 mt-0.5 shrink-0 text-brand-orange" />
-                <a href={`mailto:${contactInfo.email}`} className="min-w-0 break-all">
-                  {contactInfo.email}
-                </a>
+                <a href={`mailto:${contactInfo.email}`}>{contactInfo.email}</a>
               </li>
               <li className="flex items-start gap-2">
                 <MapPin className="h-4 w-4 mt-0.5 shrink-0 text-brand-orange" />
-                <span className="min-w-0 break-words">Azamgarh &amp; Greater Noida, Uttar Pradesh, India</span>
+                <span>Azamgarh &amp; Greater Noida, Uttar Pradesh, India</span>
               </li>
             </ul>
           </div>

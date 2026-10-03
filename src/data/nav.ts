@@ -11,6 +11,11 @@ export const primaryNav: NavItem[] = [
       { label: "Transportation Management", href: "/solutions/transport-management", icon: "Bus" },
       { label: "Doctor / Clinic Software", href: "/solutions/clinic-management", icon: "Stethoscope" },
       { label: "Custom & Cloud ERP", href: "/solutions/custom-erp", icon: "Cloud" },
+      { label: "HRMS – HR & Payroll", href: "/solutions/hrms", icon: "Briefcase" },
+      { label: "Institute / Coaching Management", href: "/solutions/institute-management", icon: "GraduationCap" },
+      { label: "Content Management System", href: "/solutions/cms", icon: "FileText" },
+      { label: "Pathology Lab Management", href: "/solutions/pathology-lab-management", icon: "FlaskConical" },
+      { label: "Hospital Management System", href: "/solutions/hospital-management", icon: "Hospital" },
     ],
   },
   {
@@ -24,6 +29,7 @@ export const primaryNav: NavItem[] = [
       { label: "Mobile App Development", href: "/services/mobile-app-development", icon: "Smartphone" },
       { label: "UI/UX Design", href: "/services/ui-ux-design", icon: "PenTool" },
       { label: "Digital Marketing & SEO", href: "/services/digital-marketing", icon: "TrendingUp" },
+      { label: "Software & IT Consulting", href: "/services/software-consulting", icon: "Briefcase" },
     ],
   },
   { label: "Industries", href: "/industries" },
@@ -33,6 +39,7 @@ export const primaryNav: NavItem[] = [
     href: "/about",
     children: [
       { label: "About Us", href: "/about" },
+      { label: "Locations", href: "/locations" },
       { label: "Case Studies", href: "/case-studies" },
       { label: "Our Team", href: "/team" },
       { label: "Careers", href: "/careers" },

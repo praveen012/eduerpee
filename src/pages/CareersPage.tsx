@@ -8,7 +8,19 @@ export default function CareersPage() {
   const { lang } = useI18n();
   return (
     <>
-      <SEO title="Careers" description="Careers at EduErpee Technology Private Limited." path="/careers" />
+      <SEO
+        title="Careers"
+        description="Careers at EduErpee Technology Private Limited."
+        path="/careers"
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          name: "Careers at EduErpee Technology",
+          url: "https://www.eduerpee.com/en/careers",
+          description: "No open positions are listed right now. Reach out directly and we'll keep you in mind.",
+          isPartOf: { "@type": "Organization", name: "EduErpee Technology Private Limited", url: "https://www.eduerpee.com" },
+        }}
+      />
       <PageHero eyebrow="Careers" title="Build Your Career With EduErpee" description="Open roles are not published on this site yet." />
       <section className="py-16 sm:py-24">
         <Container className="text-center">

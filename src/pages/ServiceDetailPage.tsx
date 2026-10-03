@@ -6,20 +6,23 @@ import { CTAButton } from "@/components/common/CTAButton";
 import { FooterCTA } from "@/components/sections/FooterCTA";
 import { Icon } from "@/utils/icon";
 import { services } from "@/data/content";
+import { useLocalizedContent } from "@/data/useLocalizedContent";
 import { useI18n } from "@/i18n/I18nProvider";
 
 export default function ServiceDetailPage() {
   const { slug } = useParams();
   const { lang } = useI18n();
+  const { services: localizedServices } = useLocalizedContent();
   const service = services.find((s) => s.href === `/services/${slug}`);
+  const localizedService = localizedServices.find((s) => s.href === `/services/${slug}`);
 
-  if (!service) return <Navigate to={`/${lang}/404`} replace />;
+  if (!service || !localizedService) return <Navigate to={`/${lang}/404`} replace />;
 
   return (
     <>
       <SEO
-        title={service.title}
-        description={service.description}
+        title={localizedService.title}
+        description={localizedService.description}
         path={service.href}
         jsonLd={{
           "@context": "https://schema.org",
@@ -31,15 +34,15 @@ export default function ServiceDetailPage() {
       />
       <PageHero
         eyebrow="Service"
-        title={service.title}
-        description={service.description}
+        title={localizedService.title}
+        description={localizedService.description}
         icon={<Icon name={service.icon} className="h-6 w-6" />}
       />
       <section className="py-16 sm:py-24">
         <Container className="grid grid-cols-1 gap-12 lg:grid-cols-3">
           <div className="lg:col-span-2 space-y-6">
             <p className="text-[14px] leading-relaxed text-ink-500 dark:text-mist-200/70">
-              EduErpee's {service.title.toLowerCase()} team works as an extension of the business —
+              EduErpee's {localizedService.title.toLowerCase()} team works as an extension of the business —
               transparent pricing, clear communication and delivery timelines that are actually
               kept.
             </p>

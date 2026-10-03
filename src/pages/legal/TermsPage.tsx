@@ -6,64 +6,87 @@ export default function TermsPage() {
   return (
     <LegalPage title={t.legal.terms} path="/terms-and-conditions">
       <p>
-        These Terms &amp; Conditions govern your use of the EduErpee Technology website and, at a
-        high level, the engagement of our services. They are a plain-English summary and not a
-        substitute for legal advice — have counsel review the final text before relying on it for
-        a specific client contract.
+        These Terms &amp; Conditions ("Terms") govern your use of www.eduerpee.com (the "Site"),
+        operated by EduErpee Technology Private Limited ("EduErpee", "we", "us", "our"). By browsing
+        the Site or submitting a form on it, you agree to these Terms. They cover use of the website
+        only — actual service engagements (ERP, CRM, HRMS, AI, software, cloud, mobile or web
+        development) are governed by the specific proposal and service agreement signed with each
+        client, not by this page alone, and where the two conflict, the signed agreement controls.
       </p>
 
-      <h2 className="font-display text-lg font-semibold text-ink-900 dark:text-mist-100 !mt-8">Use of this site</h2>
+      <h2 className="font-display text-[16px] font-semibold text-ink-900 dark:text-mist-100 mt-2">
+        Use of the Site
+      </h2>
       <p>
-        You may browse this site and submit enquiry or demo-request forms for legitimate business
-        purposes. You agree not to misuse the site — for example, attempting to bypass security
-        controls, scraping content at scale, or submitting forms with false information.
+        You may browse the Site and submit enquiries for lawful business purposes. You agree not to
+        misuse the Site — including attempting to gain unauthorised access to it or any connected
+        system, scraping content at scale, interfering with its operation, or submitting false or
+        malicious information through its forms.
       </p>
 
-      <h2 className="font-display text-lg font-semibold text-ink-900 dark:text-mist-100 !mt-8">Intellectual property</h2>
+      <h2 className="font-display text-[16px] font-semibold text-ink-900 dark:text-mist-100">
+        Intellectual property
+      </h2>
       <p>
-        Content on this site — including branding, copy, graphics and design — belongs to EduErpee
-        Technology Private Limited unless otherwise noted, and may not be reproduced, distributed
-        or used commercially without written permission.
+        All content on this Site — including text, graphics, logos, the EduErpee name and mark, product
+        screenshots, and the underlying design and code — is owned by EduErpee Technology Private
+        Limited or its licensors, unless otherwise noted, and is protected by applicable intellectual
+        property law. You may not reproduce, distribute or create derivative works from it without our
+        prior written permission.
       </p>
 
-      <h2 className="font-display text-lg font-semibold text-ink-900 dark:text-mist-100 !mt-8">Case studies &amp; forward-looking statements</h2>
+      <h2 className="font-display text-[16px] font-semibold text-ink-900 dark:text-mist-100">
+        Case studies, figures &amp; forward-looking statements
+      </h2>
       <p>
-        Case studies, client names and results described on this site reflect specific client
-        engagements and are shared with permission; they illustrate what has been achieved for
-        particular clients and are not a guarantee of similar results for every engagement.
+        Client names, testimonials, metrics and case studies on the Site reflect outcomes reported to
+        us for specific engagements and are shared with permission; they illustrate typical results and
+        are not a guarantee that any future engagement will achieve the same outcome. Product
+        descriptions, pricing indications and timelines on the Site are general and subject to change —
+        the binding scope, deliverables, pricing and timeline for any engagement are set out in the
+        signed proposal or agreement.
       </p>
 
-      <h2 className="font-display text-lg font-semibold text-ink-900 dark:text-mist-100 !mt-8">Third-party links</h2>
+      <h2 className="font-display text-[16px] font-semibold text-ink-900 dark:text-mist-100">
+        Third-party links &amp; services
+      </h2>
       <p>
-        This site may link to third-party websites (for example, client sites referenced in our
-        case studies). We do not control and are not responsible for the content or practices of
-        those sites.
+        The Site may link to third-party sites (e.g. social profiles) or embed third-party services
+        (e.g. analytics, bot protection, payment or scheduling tools). We are not responsible for the
+        content, availability or practices of third-party sites, which are governed by their own terms
+        and privacy policies.
       </p>
 
-      <h2 className="font-display text-lg font-semibold text-ink-900 dark:text-mist-100 !mt-8">Disclaimer &amp; limitation of liability</h2>
+      <h2 className="font-display text-[16px] font-semibold text-ink-900 dark:text-mist-100">
+        Disclaimer &amp; limitation of liability
+      </h2>
       <p>
-        Information on this site is provided for general informational purposes and is not a
-        substitute for professional advice specific to your business or legal and regulatory
-        obligations. To the extent permitted by law, EduErpee Technology Private Limited is not
-        liable for any loss arising from reliance on this website's content.
+        The Site and its content are provided "as is", without warranties of any kind, to the fullest
+        extent permitted by law. See our{" "}
+        <a href="/en/disclaimer" className="underline">Disclaimer</a> for more. To the extent permitted
+        by applicable law, EduErpee is not liable for indirect, incidental or consequential loss arising
+        from use of the Site; this does not limit liability that cannot be excluded under applicable
+        law, or liability arising under a signed service agreement.
       </p>
 
-      <h2 className="font-display text-lg font-semibold text-ink-900 dark:text-mist-100 !mt-8">Governing law</h2>
+      <h2 className="font-display text-[16px] font-semibold text-ink-900 dark:text-mist-100">
+        Governing law
+      </h2>
       <p>
-        These Terms are governed by the laws of India, and any disputes arising from use of this
-        site will be subject to the exclusive jurisdiction of the courts of Uttar Pradesh, India.
+        These Terms are governed by the laws of India. Any dispute arising from use of this Site will be
+        subject to the exclusive jurisdiction of the courts having jurisdiction over EduErpee's
+        registered office in Uttar Pradesh, India, without prejudice to any dispute-resolution clause in
+        a signed client agreement, which takes precedence for that engagement.
       </p>
 
-      <h2 className="font-display text-lg font-semibold text-ink-900 dark:text-mist-100 !mt-8">Service engagements</h2>
+      <h2 className="font-display text-[16px] font-semibold text-ink-900 dark:text-mist-100">
+        Changes to these Terms
+      </h2>
       <p>
-        Actual service engagements — scope, pricing, timelines and deliverables — are governed by
-        the specific proposal and signed agreement with each client, not by this website alone.
-      </p>
-
-      <h2 className="font-display text-lg font-semibold text-ink-900 dark:text-mist-100 !mt-8">Changes to these Terms</h2>
-      <p>
-        We may update these Terms from time to time. Material changes will be reflected by an
-        updated "Last updated" date on this page.
+        We may update these Terms from time to time; the "Last updated" date above reflects the most
+        recent revision. Continued use of the Site after a change constitutes acceptance of the updated
+        Terms. For questions, contact{" "}
+        <a href="mailto:support@eduerpee.com" className="underline">support@eduerpee.com</a>.
       </p>
     </LegalPage>
   );

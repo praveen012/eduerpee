@@ -33,8 +33,8 @@ export function ModuleMap({ className = "" }: { className?: string }) {
     >
       <defs>
         <radialGradient id="coreGlow" cx="50%" cy="50%" r="60%">
-          <stop offset="0%" stopColor="#F97316" stopOpacity="0.35" />
-          <stop offset="100%" stopColor="#F97316" stopOpacity="0" />
+          <stop offset="0%" stopColor="#E8640A" stopOpacity="0.35" />
+          <stop offset="100%" stopColor="#E8640A" stopOpacity="0" />
         </radialGradient>
       </defs>
 
@@ -50,7 +50,7 @@ export function ModuleMap({ className = "" }: { className?: string }) {
             y1={A.y}
             x2={B.x}
             y2={B.y}
-            stroke="#F97316"
+            stroke="#E8640A"
             strokeWidth={1}
             strokeOpacity={0.35}
             initial={{ pathLength: 0 }}
@@ -66,9 +66,9 @@ export function ModuleMap({ className = "" }: { className?: string }) {
             cx={n.x}
             cy={n.y}
             r={n.r}
-            fill={n.primary ? "#F97316" : "#0B1220"}
+            fill={n.primary ? "#E8640A" : "#0B1220"}
             fillOpacity={n.primary ? 1 : 0.9}
-            stroke="#F97316"
+            stroke="#E8640A"
             strokeOpacity={n.primary ? 0 : 0.4}
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}

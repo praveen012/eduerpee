@@ -7,20 +7,23 @@ import { CTAButton } from "@/components/common/CTAButton";
 import { FooterCTA } from "@/components/sections/FooterCTA";
 import { Icon } from "@/utils/icon";
 import { solutions } from "@/data/content";
+import { useLocalizedContent } from "@/data/useLocalizedContent";
 import { useI18n } from "@/i18n/I18nProvider";
 
 export default function SolutionDetailPage() {
   const { slug } = useParams();
   const { lang } = useI18n();
+  const { solutions: localizedSolutions } = useLocalizedContent();
   const solution = solutions.find((s) => s.href === `/solutions/${slug}`);
+  const localizedSolution = localizedSolutions.find((s) => s.href === `/solutions/${slug}`);
 
-  if (!solution) return <Navigate to={`/${lang}/404`} replace />;
+  if (!solution || !localizedSolution) return <Navigate to={`/${lang}/404`} replace />;
 
   return (
     <>
       <SEO
-        title={solution.title}
-        description={solution.description}
+        title={localizedSolution.title}
+        description={localizedSolution.description}
         path={solution.href}
         jsonLd={{
           "@context": "https://schema.org",
@@ -33,8 +36,8 @@ export default function SolutionDetailPage() {
       />
       <PageHero
         eyebrow="Solution"
-        title={solution.title}
-        description={solution.description}
+        title={localizedSolution.title}
+        description={localizedSolution.description}
         icon={<Icon name={solution.icon} className="h-6 w-6" />}
       />
 
@@ -47,7 +50,7 @@ export default function SolutionDetailPage() {
               </h2>
               <p className="mt-3 text-[14px] leading-relaxed text-ink-500 dark:text-mist-200/70">
                 Manual, spreadsheet-driven or disconnected processes slow teams down and create
-                errors that are expensive to fix later. {solution.title} replaces that patchwork
+                errors that are expensive to fix later. {localizedSolution.title} replaces that patchwork
                 with one connected system.
               </p>
             </div>
@@ -57,7 +60,7 @@ export default function SolutionDetailPage() {
                 Key features
               </h2>
               <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-2">
-                {solution.features.map((f) => (
+                {localizedSolution.features.map((f) => (
                   <div key={f} className="flex items-center gap-2 text-[13.5px] text-ink-700 dark:text-mist-200/85">
                     <CheckCircle2 className="h-4 w-4 shrink-0 text-brand-orange" />
                     {f}
@@ -105,7 +108,7 @@ export default function SolutionDetailPage() {
               Book a free demo
             </h3>
             <p className="mt-2 text-[13px] text-ink-500 dark:text-mist-200/70">
-              See {solution.title} configured for a business like yours — no commitment required.
+              See {localizedSolution.title} configured for a business like yours — no commitment required.
             </p>
             <CTAButton href={`/${lang}/contact`} className="mt-5 w-full justify-center">
               Book Free Demo

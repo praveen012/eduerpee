@@ -7,7 +7,7 @@ export function MobileServiceList({ lang }: { lang: string }) {
   return (
     <div className="relative mt-2">
       <div className="flex flex-col items-center">
-        <span className="h-8 w-px bg-gradient-to-b from-brand-orange/60 to-transparent" />
+        <span className="h-8 w-px" style={{ background: "linear-gradient(to bottom, var(--color-teal), transparent)", opacity: 0.6 }} />
       </div>
       <ul className="mt-1 flex flex-col gap-2">
         {ecosystemNodes.map((node, i) => (
@@ -20,18 +20,24 @@ export function MobileServiceList({ lang }: { lang: string }) {
           >
             <Link
               to={`/${lang}${node.href}`}
-              className="flex items-center gap-3 rounded-lg border border-white/10 bg-white/[0.03] px-3.5 py-2.5 transition-colors active:bg-white/[0.06]"
-              style={{ borderLeftColor: node.color, borderLeftWidth: 3 }}
+              className="flex items-center gap-3 rounded-lg border px-3.5 py-2.5 transition-colors"
+              style={{
+                borderColor: "var(--color-paper-line)",
+                borderLeftColor: node.color,
+                borderLeftWidth: 3,
+                background: "var(--color-paper-raised)",
+                boxShadow: "0 1px 4px rgba(14,124,134,0.08)",
+              }}
             >
               <span
                 className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md"
-                style={{ background: `${node.color}22`, color: node.color }}
+                style={{ background: `${node.color}1A`, color: node.color }}
               >
                 <Icon name={node.icon} className="h-4 w-4" />
               </span>
               <div className="min-w-0">
-                <div className="text-[13px] font-medium text-mist-100">{node.label}</div>
-                <div className="truncate text-[11px] text-mist-200/55">{node.description}</div>
+                <div className="text-[13px] font-medium" style={{ color: "var(--color-ink)" }}>{node.label}</div>
+                <div className="truncate text-[11px]" style={{ color: "var(--color-slate)" }}>{node.description}</div>
               </div>
             </Link>
           </motion.li>

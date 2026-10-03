@@ -41,17 +41,27 @@ export function StatsCounter({
       initial={{ opacity: 0, y: 8 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.4 }}
-      className="text-center"
+      className="relative pl-3"
     >
+      {/* A short tick instead of a boxed card — reads as a spec-sheet entry
+          (value / what it measures) rather than another rounded stat tile. */}
+      <span
+        className="absolute left-0 top-1 h-4 w-px"
+        style={{ background: light ? "var(--color-copper)" : "currentColor", opacity: light ? 0.7 : 0.3 }}
+      />
       <div
-        className={`font-display text-3xl sm:text-4xl font-semibold tracking-tight ${
-          light ? "text-white" : "text-ink-900 dark:text-mist-100"
+        className={`font-display text-[28px] sm:text-[34px] font-semibold tracking-tight leading-none ${
+          light ? "" : "text-ink-900 dark:text-mist-100"
         }`}
+        style={light ? { color: "var(--color-vellum)" } : undefined}
       >
         {isNaN(numeric) ? value : display}
         {!isNaN(numeric) && suffix}
       </div>
-      <div className={`mt-1 font-mono text-xs uppercase tracking-[0.14em] ${light ? "text-mist-200/60" : "text-ink-500 dark:text-mist-200/60"}`}>
+      <div
+        className={`mt-1.5 text-[12.5px] leading-snug ${light ? "" : "text-ink-500 dark:text-mist-200/60"}`}
+        style={light ? { color: "var(--color-graphite)" } : undefined}
+      >
         {label}
       </div>
     </motion.div>

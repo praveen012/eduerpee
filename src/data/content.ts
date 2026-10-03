@@ -70,10 +70,60 @@ export const solutions: Solution[] = [
     icon: "Cloud",
     title: "Custom & Cloud ERP",
     description:
-      "A unique workflow that off-the-shelf software can't handle? Built from scratch — web, mobile, cloud-deployed and tailored to the business.",
-    features: ["Custom Build", "SaaS", "Web & Mobile", "Cloud Deploy"],
+      "A unique workflow that off-the-shelf software can't handle? Built from scratch — custom ERP and CRM, web, mobile, cloud-deployed and tailored to the business.",
+    features: ["Custom Build", "CRM", "SaaS", "Web & Mobile", "Cloud Deploy"],
     domain: "ai",
     href: "/solutions/custom-erp",
+  },
+  {
+    id: "hrms",
+    icon: "Briefcase",
+    title: "HRMS – HR & Payroll Management",
+    description:
+      "Manage hiring, attendance, leave, payroll and performance from one dashboard — built to cut manual HR paperwork for growing teams.",
+    features: ["Attendance & Leave", "Payroll Processing", "Employee Self-Service", "Performance Tracking"],
+    domain: "enterprise",
+    href: "/solutions/hrms",
+  },
+  {
+    id: "institute-management",
+    icon: "GraduationCap",
+    title: "Institute / Coaching Management",
+    description:
+      "Run a coaching centre or training institute end-to-end — batches, attendance, fee collection, test results and student communication in one system.",
+    features: ["Batch Scheduling", "Fee Collection", "Test & Result Tracking", "Parent Communication"],
+    domain: "enterprise",
+    href: "/solutions/institute-management",
+  },
+  {
+    id: "cms",
+    icon: "FileText",
+    title: "Content Management System (CMS)",
+    description:
+      "A simple, secure admin panel for non-technical teams to update website pages, blog posts and media — no developer needed for day-to-day content changes.",
+    features: ["Page Builder", "Blog & Media Library", "Role-Based Access", "SEO-Friendly Editor"],
+    domain: "cloud",
+    href: "/solutions/cms",
+  },
+  {
+    id: "pathology-lab-management",
+    icon: "FlaskConical",
+    title: "Pathology Lab Management",
+    description:
+      "Manage test bookings, sample tracking, report generation and billing for diagnostic labs — from sample collection to digitally delivered reports.",
+    features: ["Test Booking", "Sample Tracking", "Report Generation", "Billing"],
+    domain: "security",
+    href: "/solutions/pathology-lab-management",
+  },
+  {
+    id: "hospital-management",
+    icon: "Hospital",
+    title: "Hospital Management System",
+    description:
+      "Manage OPD/IPD patient flow, bed allocation, pharmacy and billing across departments — built for multi-department hospitals, not just single clinics.",
+    features: ["OPD / IPD Management", "Bed Allocation", "Pharmacy & Billing", "Department Records"],
+    domain: "security",
+    href: "/solutions/hospital-management",
   },
 ];
 
@@ -122,7 +172,7 @@ export const services: Service[] = [
     id: "ai-chatbot",
     icon: "Bot",
     title: "AI Development & Automation",
-    description: "Custom AI solutions, intelligent chatbots and workflow automation — built on OpenAI and Microsoft Azure AI to cut manual work and speed up operations.",
+    description: "Custom AI solutions, intelligent chatbots and workflow automation — built on OpenAI, Anthropic's Claude and Microsoft Azure AI to cut manual work and speed up operations.",
     category: "ai",
     href: "/services/ai-development",
   },
@@ -149,6 +199,14 @@ export const services: Service[] = [
     description: "Ongoing updates, bug fixes and round-the-clock technical assistance.",
     category: "security",
     href: "/services/maintenance-support",
+  },
+  {
+    id: "software-consulting",
+    icon: "Briefcase",
+    title: "Software & IT Consulting",
+    description: "Independent technology advice on architecture, platform selection, digital transformation roadmaps and build-vs-buy decisions — before a single line of code is written.",
+    category: "consulting",
+    href: "/services/software-consulting",
   },
 ];
 
@@ -191,12 +249,12 @@ export const techStack: TechCategory[] = [
 ];
 
 export const clients: Client[] = [
-  { id: "silos", name: "Silos", industry: "E-Commerce Platform", url: "https://silos.in" },
-  { id: "buildtone", name: "BuildTone", industry: "Real Estate", url: "https://www.buildtone.in" },
-  { id: "limitless-hunch", name: "Limitless Hunch", industry: "Wholesale", url: "https://www.limitlesshunch.co.in" },
-  { id: "limitless-interior", name: "Limitless Interior", industry: "Interior Design", url: "https://limitless-interior.vercel.app/" },
-  { id: "vsd-college", name: "VSD College", industry: "Education ERP" },
-  { id: "future-group", name: "Future Group", industry: "Coaching ERP" },
+  { id: "silos", name: "Silos", industry: "E-Commerce Platform", url: "https://silos.in", logoUrl: "/clients/silos.png" },
+  { id: "buildtone", name: "BuildTone", industry: "Real Estate", url: "https://www.buildtone.in", logoUrl: "/clients/buildtone.png" },
+  { id: "limitless-hunch", name: "Limitless Hunch", industry: "Wholesale", url: "https://www.limitlesshunch.co.in", logoUrl: "/clients/limitless-hunch.jpg" },
+  { id: "limitless-interior", name: "Limitless Interior", industry: "Interior Design", url: "https://limitless-interior.vercel.app/", logoUrl: "/clients/limitless-interior.png" },
+  { id: "vsd-college", name: "VSD College", industry: "Education ERP", logoUrl: "/clients/vsd-college.jpg" },
+  { id: "future-group", name: "Future Group", industry: "Coaching ERP", logoUrl: "/clients/future-group.png" },
 ];
 
 export const testimonials: Testimonial[] = [
@@ -268,40 +326,52 @@ export const testimonials: Testimonial[] = [
 
 export const team: TeamMember[] = [
   {
-    id: "sushil-jaiswal",
-    name: "Sushil Jaiswal",
-    role: "CEO & CTO",
-    bio: "Leads EduErpee's vision, strategy and technology innovation, overseeing business operations and technology development.",
-  },
-  {
     id: "priya-kumari",
     name: "Priya Kumari",
     role: "Director – Human Resources",
     bio: "Leads HR planning, talent acquisition and team building, driving EduErpee's operational excellence and growth.",
-  },
-  {
-    id: "uday-shankar-pandey",
-    name: "Uday Shankar Pandey",
-    role: "Chief Marketing Officer",
-    bio: "Oversees digital marketing, branding, product promotion and market research, working closely with sales and product teams to drive growth.",
+    photoUrl: "/team/mridu-pandey.jpg",
+    photoObjectPosition: "center 15%",
   },
   {
     id: "mridu-pandey",
     name: "Mridu Pandey",
     role: "Business Development Manager",
     bio: "Bridges business challenges and technology solutions by understanding client requirements and market trends.",
+    photoUrl: "/team/priya-kumari.jpg",
+    photoObjectPosition: "center 15%",
+  },
+  {
+    id: "uday-shankar-pandey",
+    name: "Uday Shankar Pandey",
+    role: "Chief Marketing Officer",
+    bio: "Oversees digital marketing, branding, product promotion and market research, working closely with sales and product teams to drive growth.",
+    photoUrl: "/team/uday-shankar-pandey.jpg",
+    photoObjectPosition: "center 25%",
+  },
+  {
+    id: "sushil-jaiswal",
+    name: "Sushil Jaiswal",
+    role: "CEO & CTO",
+    bio: "Leads EduErpee's vision, strategy and technology innovation, overseeing business operations and technology development.",
+    photoUrl: "/team/sushil-jaiswal.jpg",
+    photoObjectPosition: "center 20%",
   },
   {
     id: "dharmendra-singh",
     name: "Dharmendra Singh",
     role: "Client Relationship Manager",
     bio: "Acts as the bridge between clients and technical teams, ensuring smooth communication and timely delivery.",
+    photoUrl: "/team/dharmendra-singh.jpg",
+    photoObjectPosition: "center 15%",
   },
   {
     id: "anil-jaiswal",
     name: "Anil Jaiswal",
     role: "Operations Delivery Manager",
     bio: "Ensures seamless execution of IT projects, aligning operational strategy with client expectations from resourcing through delivery.",
+    photoUrl: "/team/anil-jaiswal.jpg",
+    photoObjectPosition: "center 20%",
   },
 ];
 
@@ -314,7 +384,7 @@ export const trustStats = [
 ];
 
 export const contactInfo = {
-  phone: "+91 96501 43654",
+  phone: "+91 91980 42867",
   email: "support@eduerpee.com",
   offices: [
     {
@@ -329,7 +399,9 @@ export const contactInfo = {
   social: {
     facebook: "https://www.facebook.com/profile.php?id=61589485346019",
     instagram: "https://instagram.com/eduerpeetechnology",
-    whatsapp: "https://wa.me/919650143654",
+    linkedin: "https://www.linkedin.com/company/eduerpee-technology",
+    youtube: "https://www.youtube.com/@EduerpeeTechnology",
+    whatsapp: "https://wa.me/919198042867",
   },
 };
 

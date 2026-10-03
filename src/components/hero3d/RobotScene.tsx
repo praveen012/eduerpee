@@ -49,16 +49,17 @@ export function RobotScene({
         {/* Three-point-style lighting for a more dimensional, less flat
             look: a bright key light from the front-right, a cooler fill
             from the left to soften shadows, a warm rim light from behind
-            to separate the robot from the dark background, plus the
-            orange/cyan/purple accent lights carried over for brand color
-            in the highlights. */}
-        <ambientLight intensity={0.35} />
-        <directionalLight position={[3, 4, 4]} intensity={1.6} color="#FFF5EA" />
-        <directionalLight position={[-4, 2, 2]} intensity={0.5} color="#B9D8FF" />
-        <pointLight position={[0, 2, -3]} intensity={1.2} color="#F97316" />
-        <pointLight position={[3, 3, 3]} intensity={0.9} color="#F97316" />
-        <pointLight position={[-3, 1, 2]} intensity={0.8} color="#22D3EE" />
-        <pointLight position={[0, -2, -2]} intensity={0.5} color="#8B5CF6" />
+            to separate the robot from the light paper background, plus
+            teal/sky accent lights for brand color in the highlights.
+            Ambient is higher than the old dark-hero version so the white
+            robot body still reads with form against a light backdrop. */}
+        <ambientLight intensity={0.6} />
+        <directionalLight position={[3, 4, 4]} intensity={1.5} color="#FFFFFF" />
+        <directionalLight position={[-4, 2, 2]} intensity={0.4} color="#DCEEF5" />
+        <pointLight position={[0, 2, -3]} intensity={1.1} color="#0E7C86" />
+        <pointLight position={[3, 3, 3]} intensity={0.8} color="#0E7C86" />
+        <pointLight position={[-3, 1, 2]} intensity={0.7} color="#3FB6C2" />
+        <pointLight position={[0, -2, -2]} intensity={0.45} color="#38BDF8" />
 
         <Suspense fallback={null}>
           <AIRobot mouse={mouse} quality={quality} hoveredColor={hoveredNode?.color ?? null} />

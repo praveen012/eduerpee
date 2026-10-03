@@ -225,14 +225,6 @@ export const blogPosts: BlogPost[] = [
         type: "paragraph",
         text: "Eduerpee Technology helps businesses transform manual processes into modern digital solutions. Let's discuss your business requirements and build a solution designed around your workflow.",
       },
-      {
-        type: "links",
-        items: [
-          { label: "Custom & Cloud ERP", href: "/solutions/custom-erp" },
-          { label: "AI Development & Automation", href: "/services/ai-development" },
-          { label: "Contact Us", href: "/contact" },
-        ],
-      },
     ],
   },
   {
@@ -295,8 +287,8 @@ export const blogPosts: BlogPost[] = [
       { type: "paragraph", text: "Contact Eduerpee Technology to discuss your ERP requirements and explore the right solution for your organization." },
       { type: "links", items: [
         { label: "Custom & Cloud ERP", href: "/solutions/custom-erp" },
-        { label: "School Management ERP", href: "/solutions/school-erp" },
-        { label: "IT Staff Augmentation", href: "/services/staff-augmentation" },
+        { label: "HRMS", href: "/solutions/hrms" },
+        { label: "Software & IT Consulting", href: "/services/software-consulting" },
         { label: "Contact Us", href: "/contact" },
       ] },
     ],
@@ -412,7 +404,7 @@ export const blogPosts: BlogPost[] = [
       { type: "links", items: [
         { label: "Cloud & DevOps", href: "/services/cloud-devops" },
         { label: "Custom & Cloud ERP", href: "/solutions/custom-erp" },
-        { label: "IT Staff Augmentation", href: "/services/staff-augmentation" },
+        { label: "Software & IT Consulting", href: "/services/software-consulting" },
         { label: "Contact Us", href: "/contact" },
       ] },
     ],
@@ -470,7 +462,7 @@ export const blogPosts: BlogPost[] = [
       { type: "links", items: [
         { label: "Cloud & DevOps", href: "/services/cloud-devops" },
         { label: "Custom & Cloud ERP", href: "/solutions/custom-erp" },
-        { label: "AI Development & Automation", href: "/services/ai-development" },
+        { label: "Software & IT Consulting", href: "/services/software-consulting" },
         { label: "Contact Us", href: "/contact" },
       ] },
     ],

@@ -1,5 +1,5 @@
 const LINE_ANGLES = [20, 75, 130, 200, 255, 320];
-const COLORS = ["#F97316", "#22D3EE", "#8B5CF6"];
+const COLORS = ["#E8640A", "#06B6D4", "#7C3AED"];
 
 /**
  * Deliberately static rather than tracking each rotating card's live

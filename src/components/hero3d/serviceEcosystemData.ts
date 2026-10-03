@@ -19,7 +19,7 @@ export interface EcosystemNode {
 const colorById: Record<string, string> = {
   "web-dev": "#1D4ED8", // blue
   "mobile-apps": "#DB2777", // pink
-  "ui-ux": "#F97316", // orange
+  "ui-ux": "#8B5CF6", // violet — design
   "cloud-devops": "#0891B2", // cyan/blue — Azure/cloud
   "digital-marketing": "#F59E0B", // amber
   "ai-chatbot": "#7C3AED", // violet — AI
@@ -53,7 +53,7 @@ export const ecosystemNodes: EcosystemNode[] = services.map((s, i) => {
     description: s.description,
     href: s.href,
     icon: s.icon,
-    color: colorById[s.id] ?? "#F97316",
+    color: colorById[s.id] ?? "#E8640A",
     position: [x, y, z],
   };
 });

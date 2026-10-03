@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Container } from "@/components/common/Container";
 import { SectionHeader } from "@/components/common/SectionHeader";
 import { ServiceCard } from "@/components/cards/ServiceCard";
-import { services } from "@/data/content";
+import { useLocalizedContent } from "@/data/useLocalizedContent";
 import { useI18n } from "@/i18n/I18nProvider";
 import type { Service } from "@/types/content";
 
@@ -15,10 +15,12 @@ const tabs: { key: Service["category"] | "all"; label: string }[] = [
   { key: "design", label: "Design" },
   { key: "marketing", label: "Marketing" },
   { key: "security", label: "Security & Support" },
+  { key: "consulting", label: "Consulting" },
 ];
 
 export function ServicesSection() {
   const { t } = useI18n();
+  const { services } = useLocalizedContent();
   const [active, setActive] = useState<Service["category"] | "all">("all");
   const filtered = active === "all" ? services : services.filter((s) => s.category === active);
 

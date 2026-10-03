@@ -2,11 +2,12 @@ import { Container } from "@/components/common/Container";
 import { SectionHeader } from "@/components/common/SectionHeader";
 import { CTAButton } from "@/components/common/CTAButton";
 import { TestimonialCard } from "@/components/cards/TestimonialCard";
-import { testimonials } from "@/data/content";
+import { useLocalizedContent } from "@/data/useLocalizedContent";
 import { useI18n } from "@/i18n/I18nProvider";
 
 export function TestimonialsSection() {
   const { t, lang } = useI18n();
+  const { testimonials } = useLocalizedContent();
   return (
     <section id="customers" className="py-20 sm:py-28">
       <Container>

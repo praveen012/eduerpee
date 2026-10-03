@@ -28,7 +28,7 @@ interface Node {
  * common on AI product sites, not copied from any specific one. Respects
  * prefers-reduced-motion (renders static when set).
  */
-export function AINetworkField({ count = 22, color = "#F97316", accentColor = "#22D3EE", className = "" }: AINetworkFieldProps) {
+export function AINetworkField({ count = 22, color = "#E8640A", accentColor = "#06B6D4", className = "" }: AINetworkFieldProps) {
   const reducedMotion = useReducedMotion();
 
   const nodes = useMemo<Node[]>(() => {

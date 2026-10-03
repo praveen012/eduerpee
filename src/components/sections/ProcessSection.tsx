@@ -1,10 +1,11 @@
 import { Container } from "@/components/common/Container";
 import { SectionHeader } from "@/components/common/SectionHeader";
-import { processSteps } from "@/data/content";
+import { useLocalizedContent } from "@/data/useLocalizedContent";
 import { useI18n } from "@/i18n/I18nProvider";
 
 export function ProcessSection() {
   const { t } = useI18n();
+  const { processSteps } = useLocalizedContent();
   return (
     <section className="py-20 sm:py-28 bg-mist-100/60 dark:bg-navy-900/30">
       <Container>

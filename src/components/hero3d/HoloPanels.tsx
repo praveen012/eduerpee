@@ -20,14 +20,19 @@ export function HoloPanels({ visible = true }: { visible?: boolean }) {
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 + i * 0.12 }}
-          className={`absolute ${positions[i % positions.length]} rounded-md border border-white/10 bg-white/[0.03] px-3 py-1.5 backdrop-blur-sm`}
+          className={`absolute ${positions[i % positions.length]} rounded-md border px-3 py-1.5 backdrop-blur-sm`}
+          style={{
+            borderColor: "var(--color-paper-line)",
+            background: "rgba(255,255,255,0.85)",
+            boxShadow: "0 4px 16px -4px rgba(14,124,134,0.15)",
+          }}
         >
-          <div className="font-mono text-[9px] tracking-[0.16em] text-mist-200/50">
+          <div className="font-mono text-[9px] tracking-[0.16em]" style={{ color: "var(--color-slate)" }}>
             {panel.label}
           </div>
           <div className="mt-0.5 flex items-center gap-1.5">
-            <span className="h-1.5 w-1.5 rounded-full bg-brand-orange animate-pulse" />
-            <span className="font-mono text-[9.5px] font-medium text-mist-100/80">
+            <span className="h-1.5 w-1.5 rounded-full animate-pulse" style={{ background: "var(--color-teal)" }} />
+            <span className="font-mono text-[9.5px] font-medium" style={{ color: "var(--color-ink)" }}>
               {panel.status}
             </span>
           </div>
