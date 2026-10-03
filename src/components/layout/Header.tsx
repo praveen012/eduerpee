@@ -127,26 +127,24 @@ export function Header() {
             </button>
             {langOpen && (
               <div className="absolute right-0 top-full mt-1 max-h-80 w-56 overflow-y-auto rounded-lg border border-ink-900/8 dark:border-white/10 bg-white dark:bg-navy-900 p-1.5 shadow-xl">
-                {languages.map((l) => (
-                  <button
-                    key={l.code}
-                    disabled={!l.implemented}
-                    onClick={() => {
-                      setLanguage(l.code);
-                      setLangOpen(false);
-                    }}
-                    className={`flex w-full items-center justify-between rounded-md px-3 py-2 text-left text-[13px] transition-colors ${
-                      l.code === lang
-                        ? "bg-brand-orange/10 text-brand-orange"
-                        : l.implemented
-                        ? "text-ink-700 dark:text-mist-200 hover:bg-mist-100 dark:hover:bg-white/5"
-                        : "text-ink-500/40 dark:text-mist-200/25 cursor-not-allowed"
-                    }`}
-                  >
-                    <span>{l.nativeLabel}</span>
-                    {!l.implemented && <span className="text-[10px] font-mono">soon</span>}
-                  </button>
-                ))}
+                {languages
+                  .filter((l) => l.implemented)
+                  .map((l) => (
+                    <button
+                      key={l.code}
+                      onClick={() => {
+                        setLanguage(l.code);
+                        setLangOpen(false);
+                      }}
+                      className={`flex w-full items-center justify-between rounded-md px-3 py-2 text-left text-[13px] transition-colors ${
+                        l.code === lang
+                          ? "bg-brand-orange/10 text-brand-orange"
+                          : "text-ink-700 dark:text-mist-200 hover:bg-mist-100 dark:hover:bg-white/5"
+                      }`}
+                    >
+                      <span>{l.nativeLabel}</span>
+                    </button>
+                  ))}
               </div>
             )}
           </div>
