@@ -1,0 +1,22 @@
+{
+  "rewrites": [
+    {
+      "source": "/((?!assets/|clients/|team/|favicon\\.ico|favicon\\.svg|icons\\.svg|robots\\.txt|manifest\\.webmanifest|og-image\\.png|logo.*\\.(svg|png)|icon-(192|512)\\.png|sitemap.*\\.xml).*)",
+      "destination": "/index.html"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/assets/(.*)",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Frame-Options", "value": "DENY" },
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
+      ]
+    }
+  ]
+}
