@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "postbuild": "node scripts/prerender.mjs",
     "lint": "oxlint",
     "preview": "vite preview"
   },
@@ -21,6 +22,7 @@
     "three": "^0.185.1"
   },
   "devDependencies": {
+    "@sparticuz/chromium": "^153.0.0",
     "@tailwindcss/vite": "^4.3.3",
     "@types/node": "^24.13.3",
     "@types/react": "^19.2.18",
@@ -30,6 +32,7 @@
     "autoprefixer": "^10.5.4",
     "oxlint": "^1.79.0",
     "playwright": "^1.63.0",
+    "playwright-core": "^1.63.0",
     "postcss": "^8.5.26",
     "tailwindcss": "^4.3.3",
     "typescript": "~6.0.2",

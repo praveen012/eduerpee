@@ -19,7 +19,16 @@
 //
 // Usage: node scripts/prerender.mjs   (wired as "postbuild" in package.json)
 
-import { chromium } from "playwright";
+// Uses playwright-core (no bundled browser download) rather than the full
+// `playwright` package. Locally (this sandbox, or any dev machine with
+// Playwright's own browsers installed) we point at that pre-installed
+// Chromium. On Vercel's build image there is no such pre-installed browser
+// and `playwright install` is not reliable there, so we fall back to
+// @sparticuz/chromium — a portable Chromium build made for serverless/CI
+// Linux images (originally for AWS Lambda, also used for Vercel builds and
+// functions) that ships its own binary and launch args.
+import { chromium } from "playwright-core";
+import sparticuzChromium from "@sparticuz/chromium";
 import { preview } from "vite";
 import { readFileSync, mkdirSync, writeFileSync, existsSync } from "node:fs";
 import path from "node:path";
@@ -81,9 +90,19 @@ async function main() {
   });
   const base = `http://127.0.0.1:4576`;
 
-  const launchOpts = existsSync("/opt/pw-browsers/chromium-1194/chrome-linux/chrome")
-    ? { executablePath: "/opt/pw-browsers/chromium-1194/chrome-linux/chrome" }
-    : {};
+  const localChromium = "/opt/pw-browsers/chromium-1194/chrome-linux/chrome";
+  let launchOpts;
+  if (existsSync(localChromium)) {
+    // Dev sandbox / any machine with Playwright's own browsers installed.
+    launchOpts = { executablePath: localChromium };
+  } else {
+    // Vercel build image (or any environment without a pre-installed
+    // browser): use the serverless-friendly Chromium build.
+    launchOpts = {
+      executablePath: await sparticuzChromium.executablePath(),
+      args: sparticuzChromium.args,
+    };
+  }
   const browser = await chromium.launch(launchOpts);
   const page = await browser.newPage();
 
